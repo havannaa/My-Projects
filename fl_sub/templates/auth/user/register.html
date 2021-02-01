@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | SIP India</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='auth/user/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='auth/user/css/fontawesome-all.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='auth/user/css/iofrm-style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='auth/user/css/iofrm-theme12.css')}}">
+</head>
+<body>
+    <div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <<a href="https://SIPIndia.io/"><h3>SIPIndia.io</h3></a>
+                        <p>Best Systematic Investment Plans of India</p>
+                        <div class="page-links">
+                            <a href="login.html">Login</a><a href="register.html" class="active">Register</a>
+                        </div>
+                        <form>
+                            <input class="form-control" type="text" name="name" placeholder="Full Name" required>
+                            <input class="form-control" type="email" name="email" placeholder="E-mail Address" required>
+                            <input class="form-control" type="password" name="password" placeholder="Password" required>
+                            <div class="form-button">
+                                <button id="submit" type="submit" class="ibtn">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="{{url_for('static', filename='auth/user/js/jquery.min.js')}}"></script>
+<script src="{{url_for('static', filename='auth/user/js/popper.min.js')}}"></script>
+<script src="{{url_for('static', filename='auth/user/js/bootstrap.min.js')}}"></script>
+<script src="{{url_for('static', filename='auth/user/js/main.js')}}"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+    <head>
+        <!-- Document Settings -->
+        <meta charset="UTF-8" />
+        <!-- Page Meta -->
+        <title>NeuroSentronics - A game-changing sophisticated clinical technology platform</title>
+        <meta name="description" content="NeuroSentronics - A game-changing sophisticated clinical technology platform" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Styles -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic%7CRoboto+Slab:400,700" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
+        <!-- Scripts -->
+        <script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+    </head>
+    <body>
+        <div class="wrap">
+            <main id="main" class="site-main">
+                <!-- Front -->
+                <div id="front" class="site-front">
+                    <div class="inner">
+                        <!-- Header -->
+                        <header class="site-header">
+                            <!-- <p class="site-logo fade-in"><img src="images/logo.png" width="150" height="60" alt="NeuroSentronics Logo" /></p> -->
+                            <p class="site-logo fade-in"><img src="https://i.ibb.co/fSG1kNW/Neuro-Sentronics.png" width="150" height="60" alt="NeuroSentronics Logo" /></p>
+                            <h1 class="site-title screen-reader-text">NeuroSentronics</h1>
+                        </header>
+                        <section class="content">
+                            <h2 class="section-title">Our Website Is Almost Ready</h2>
+                            <!-- Countdown timer -->
+                            <div class="countdown-timer">
+                                <p class="subtitle">Time Left Until Launching</p>
+                                <div id="timer"></div>
+                            </div>
+                            <!-- Newsletter Subscriptions -->
+                            <div class="newsletter">
+                                <p class="subtitle">Notify Me When It's Ready</p>
+                                <div id="newsletter-form-wrap" class="newsletter-form-wrap">
+                                    <form action="subscribe.php" method="post" id="newsletter-form">
+                                        <p class="form-field">
+                                            <label for="newsletter-email" class="screen-reader-text">Please enter your email</label>
+                                            <input type="text" name="newsletter_email" id="newsletter-email" value="" placeholder="Your email" />
+                                        </p>
+                                        <p class="screen-reader-text">
+                                            <label for="newsletter_extra">Please leave this field blank</label>
+                                            <input type="text" name="newsletter_extra" id="newsletter_extra" value="" tabindex="-1" autocomplete="off" />
+                                        </p>
+                                        <p class="form-submit">
+                                            <input type="submit" name="newsletter_submit" id="newsletter-submit" value="Subscribe" />
+                                        </p>
+                                    </form>
+                                    <div id="newsletter-response"></div>
+                                </div>
+                            </div>
+                            <!-- Social links -->
+                            <div class="social-links">
+                                <a href="https://www.facebook.com/" target="_blank"><i class="fa-facebook" aria-hidden="true"></i><span class="screen-reader-text">Facebook</span></a>
+                                <a href="https://twitter.com/" target="_blank"><i class="fa-twitter" aria-hidden="true"></i><span class="screen-reader-text">Twitter</span></a>
+                                <a href="https://plus.google.com/" target="_blank"><i class="fa-google-plus" aria-hidden="true"></i><span class="screen-reader-text">Google+</span></a>
+                                <a href="https://www.instagram.com/" target="_blank"><i class="fa-instagram" aria-hidden="true"></i><span class="screen-reader-text">Instagram</span></a>
+                                <a href="https://vimeo.com/" target="_blank"><i class="fa-vimeo" aria-hidden="true"></i><span class="screen-reader-text">Vimeo</span></a>
+                            </div>
+                        </section>
+                        <!-- Modal toggle -->
+                        <div class="modal-toggle">
+                            <span class="modal-note">Read More</span>
+                            <button id="modal-open"><span class="screen-reader-text">Open</span><span aria-hidden="true" class="icon-plus"></span></button>
+                        </div>
+                    </div>
+                    <!-- .inner -->
+                </div>
+                <!-- .site-front -->
+                <!-- Modal (About Us) -->
+                <div id="modal" class="site-modal">
+                    <div class="modal-scrollable">
+                        <div class="inner">
+                            <!-- Modal toggle -->
+                            <div class="modal-toggle">
+                                <button id="modal-close"><span class="screen-reader-text">Close</span><span aria-hidden="true" class="icon-plus"></span></button>
+                            </div>
+                            <section class="content">
+                                <h2 class="section-title">About NeuroSentronics</h2>
+                                <!-- Columns -->
+                                <div class="row">
+                                    <div class="one-half">
+                                        <p>A game-changing sophisticated clinical technology platform, for objective non-invasive and real -time measurement of the Autonomic Nervous System. You can now unravel the enigma of brainstem functions objectively using clinically validated measurements, non-invasively and in real-time.
+                                            <br><br>
+                                            Are you still using the “old” technology of spectral and time-domain analysis of Heart Rate Variability, with all of its associated pitfalls and shortcoming for quantifying Cardiac Vagal Tone? Now you don’t have to, we have disrupted how Cardiac Vagal Tone is measured objectively, non-invasively and in real-time.
+                                            <br><br>
+                                            We give you a standardised method of measuring Cardiac Vagal Tone based on a very precise physiological process called “baroreflex” with a finite response time due to the fixed latency of the neuronal responses. With a standardised atropine derived Linear Vagal Scale (LVS) for universal measurement.
+                                            “We’ll be up and running soon with our new and improved website”
+                                        </p>
+                                    </div>
+                                    <div class="one-half">
+                                        <h3><i class="fa-phone" aria-hidden="true"></i> Phone</h3>
+                                        <p>Phone: (000) 555 1212 <br />Mobile: (000) 555 0100 <br />Fax: (000) 555 0101</p>
+                                        <h3><i class="fa-envelope" aria-hidden="true"></i> Email</h3>
+                                        <p>JohnDoe@example.com<br />RichardRoe@example.com</p>
+                                        <h3><i class="fa-map-marker" aria-hidden="true"></i> Address</h3>
+                                        <p>123 Some Street, Some City, AA 12345</p>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <!-- .inner -->
+                    </div>
+                    <!-- .modal-scrollable -->
+                </div>
+                <!-- .site-modal -->
+            </main>
+            <!-- .site-main -->
+        </div>
+        <!-- .wrap -->
+        <!-- Background overlay -->
+        <div class="overlay"></div>
+        <!-- YouTube background video -->
+        <div id="bg-video" data-property="{videoURL:'http://youtu.be/iQdgyqeFtVY', containment:'body', autoPlay:true, mute:true, startAt:0, showControls:true, mobileFallbackImage:'images/poster.jpg'}"></div>
+        <div id="bg-video-controls">
+            <button id="bg-video-volume"><i class="fa-volume-off-custom" aria-hidden="true"></i> <span class="screen-reader-text">Unmute</span></button>
+            <button id="bg-video-play"><i class="fa-pause-custom" aria-hidden="true"></i> <span class="screen-reader-text">Pause</span></button>
+        </div>
+        <!-- Loading... -->
+        <div id="preload">
+            <div id="preload-content">
+                <div class="preload-spinner">
+                    <span class="bounce1"></span>
+                    <span class="bounce2"></span>
+                    <span class="bounce3"></span>
+                </div>
+                <div class="preload-text" style="font-family: monospace; font-size: 18px; ">Loading...</div>
+            </div>
+        </div>
+        <!-- Scripts -->
+        <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript" src="js/plugins.js"></script>
+        <script type="text/javascript" src="js/scripts.js"></script>
+    </body>
+</html>

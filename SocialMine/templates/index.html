@@ -1,0 +1,750 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
+    <meta property="og:site_name" content=""/> <!-- website name -->
+    <meta property="og:site" content=""/> <!-- website link -->
+    <meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
+    <meta property="og:description" content=""/> <!-- description shown in the actual shared post -->
+    <meta property="og:image" content=""/> <!-- image link, make sure it's jpg -->
+    <meta property="og:url" content=""/> <!-- where do you want your post to link to -->
+    <meta property="og:type" content="article"/>
+
+    <!--title-->
+    <title>SocialMine.net - Home Page</title>
+
+    <!--favicon icon-->
+    <link rel="icon" href="{{ url_for('static', filename='land/img/favicon.png') }}" type="image/png" sizes="16x16">
+
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700%7COpen+Sans&display=swap"
+          rel="stylesheet">
+
+    <!--Bootstrap css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='land/css/bootstrap.min.css') }}">
+    <!--Magnific popup css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='land/css/magnific-popup.css') }}">
+    <!--Themify icon css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='land/css/themify-icons.css') }}">
+    <!--animated css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='land/css/animate.min.css') }}">
+    <!--ytplayer css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='land/css/jquery.mb.YTPlayer.min.css') }}">
+    <!--Owl carousel css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='land/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='land/css/owl.theme.default.min.css') }}">
+    <!--custom css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='land/css/style.css') }}">
+    <!--responsive css-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='land/css/responsive.css') }}">
+
+</head>
+<body>
+
+<!--header section start-->
+<header class="header">
+    <!--start navbar-->
+    <nav class="navbar navbar-expand-lg fixed-top bg-transparent">
+        <div class="container">
+            <a class="navbar-brand" href="https://socialmine.net/"><img src="https://i.ibb.co/fY847jv/adi-logo.png"/></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="ti-menu"></span>
+            </button>
+
+            <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link page-scroll " href="#" id="navbarDropdownHome" role="button"
+                            aria-haspopup="true" aria-expanded="false">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#download">Download</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#screenshots">Screenshots</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="https://socialmine.net/dashboard/">Analytics</a>
+                    </li>
+                    <li class="nav-item">
+						{% if user_log == 0 %}
+                        <a class="nav-link page-scroll" href="https://socialmine.net/login/" target="">Login</a>
+						{% else %}
+                        <a class="nav-link page-scroll" href="https://socialmine.net/logout/" target="">Logout</a>
+						{% endif %}
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--end navbar-->
+</header>
+<!--header section end-->
+
+<!--body content wrap start-->
+<div class="main">
+
+    <!--hero section start-->
+    <section class="hero-section pt-100 background-img"
+             style="background: url( &quot;{{ url_for('static', filename='land/img/app-hero-bg.jpg') }}&quot;)no-repeat center center / cover">
+        <div class="container">
+            <div class="row align-items-center justify-content-between py-5">
+                <div class="col-md-7 col-lg-6">
+                    <div class="hero-content-left text-white">
+                        <h1 class="text-white"><span>Brainstorming</span> for desired perfect Usability</h1>
+                        <p class="lead">
+                            Our analytics tools are fresh, simple, and will greatly benefit your opportunity for growth. Learn more about our work! 
+                        </p>
+
+						<a href="https://socialmine.net/#pricing" class="button btn solid-btn">Subscribe</a>
+						<!--
+                        <form action="#" method="post" class="subscribe-form">
+                            <div class="d-flex align-items-center">
+                                <input type="submit" class="button btn solid-btn" id="submit" value="Subscribe">
+                            </div>
+                        </form>
+						-->
+
+                        <div class="video-promo-content py-4 d-flex align-items-center">
+                            <a href="https://www.youtube.com/watch?v=dcbkCFQVMlQ"
+                               class="popup-youtube video-play-icon-without-bip video-play-icon mr-3"><span class="ti-control-play"></span></a> Watch Video Overview
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 col-lg-5">
+                    <div class="hero-animation-img">
+                        <img src="{{ url_for('static', filename='land/img/app-product.png') }}" alt="app" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-img-absolute">
+            <img src="{{ url_for('static', filename='land/img/hero-bg-shape-1.svg') }}" alt="wave shape" class="img-fluid">
+        </div>
+    </section>
+    <!--hero section end-->
+
+    <!--promo section start-->
+    <section class="promo-section ptb-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7 col-md-8">
+                    <div class="section-heading text-center mb-5">
+                        <h2>Why data analysts<br><span>love SocialMine?</span></h2>
+                        <p class="lead">
+							Following reasons show advantages of using SocialMine to maintain your status.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row equal">
+                <div class="col-md-4 col-lg-4">
+                    <div class="single-promo single-promo-hover single-promo-1 rounded text-center white-bg p-5 h-100">
+                        <div class="circle-icon mb-5">
+                            <span class="ti-vector text-white"></span>
+                        </div>
+                        <h5>Clean Design</h5>
+                        <p>Simple modern interface, designed for user ability, and ease of use.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="single-promo single-promo-hover single-promo-1 rounded text-center white-bg p-5 h-100">
+                        <div class="circle-icon mb-5">
+                            <span class="ti-lock text-white"></span>
+                        </div>
+                        <h5>Secure Data</h5>
+                        <p>Store your analytics data in secure storage.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="single-promo single-promo-hover single-promo-1 rounded text-center white-bg p-5 h-100">
+                        <div class="circle-icon mb-5">
+                            <span class="ti-eye text-white"></span>
+                        </div>
+                        <h5>Cross Platform</h5>
+                        <p>Our analytics tools work great on desktop, mobile, iOS, and android.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--promo section end-->
+
+    <!--overflow block start-->
+    <div class="overflow-hidden">
+        <!--about us section start-->
+        <section id="about" class="about-us ptb-100 background-shape-img">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-md-7">
+                        <div class="about-content-left section-heading">
+                            <h2>Use your android or ios device <br>
+                                <span>to monitor data analytics.</span></h2>
+
+                            <div class="single-feature mb-4 mt-5">
+                                <div class="icon-box-wrap d-flex align-items-center mb-2">
+                                    <div class="mr-3 icon-box">
+                                        <img src="{{ url_for('static', filename='land/img/image-icon-1.png') }}" alt="icon image" class="img-fluid">
+                                    </div>
+                                    <p class="mb-0">In depth data analytics for most social media applications. Scape specified data with accuracy. View competitors’ statistics, and stay current on all facets of trends.</p>
+                                </div>
+                            </div>
+                            <div class="single-feature mb-4">
+                                <div class="icon-box-wrap mb-2">
+                                    <div class="mr-3 icon-box">
+                                        <img src="{{ url_for('static', filename='land/img/image-icon-2.png') }}" alt="icon image" class="img-fluid">
+                                    </div>
+                                    <p class="mb-0">Monitor your data with lighting fast speeds, as all SocialMine applications are maintained by utilizing our virtual private server. Sentiment tool designed for accurate in depth data analytics.</p>
+                                </div>
+                                <p></p>
+                            </div>
+                            <div class="single-feature mb-4">
+                                <div class="icon-box-wrap mb-2">
+                                    <div class="mr-3 icon-box">
+                                        <img src="{{ url_for('static', filename='land/img/image-icon-3.png') }}" alt="icon image" class="img-fluid">
+                                    </div>
+                                    <p class="mb-0">Stay on top, by reviewing trends as they unfold. Implement new trends based on real time global analytical data. View all trends from topics to consumer products.</p>
+                                </div>
+                                <p></p>
+                            </div>
+                            <div class="single-feature mb-4">
+                                <div class="icon-box-wrap mb-2">
+                                    <div class="mr-3 icon-box">
+                                        <img src="{{ url_for('static', filename='land/img/image-icon-4.png') }}" alt="icon image" class="img-fluid">
+                                    </div>
+                                    <p class="mb-0">Review all your competitors’ data analytics, boost your social media status, etc.</p>
+                                </div>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="about-content-right d-flex justify-content-center justify-content-lg-end justify-content-md-end">
+                            <img src="{{ url_for('static', filename='land/img/image-11.png') }}" alt="about us" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--about us section end-->
+    </div>
+    <!--overflow block end-->
+
+    <!--download section start-->
+    <section class="download-section pt-100 background-img" id="download"
+             style="background: url(&quot;{{ url_for('static', filename='land/img/app-hero-bg.jpg') }}&quot;)no-repeat center center / cover">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md-7">
+                    <div class="download-content text-white pb-100">
+                        <h2 class="text-white">Start Monitoring your Data
+                            with SocialMine.</h2>
+                        <p class="lead">Objectively empowering our users, by utilizing data analysis information obtained from popular global social media applications with “SocialMine”, an in depth data analytics tool. Maintain your status using accurate data with ease. Available now for downloading.</p>
+
+                        <div class="download-btn">
+                            <a href="#" class="btn app-store-btn mr-3"><span class="ti-apple"></span> App Store</a>
+                            <a href="#" class="btn google-play-btn"><span class="ti-android"></span> Google
+                                Play</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="download-img d-flex align-bottom">
+                        <img src="{{ url_for('static', filename='land/img/app-hand-top.png') }}" alt="download" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--download section end-->
+
+
+    <!--overflow block start-->
+    <div class="overflow-hidden">
+        <!--our pricing packages section start-->
+        <section id="pricing" class="package-section background-shape-right ptb-100">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="section-heading text-center mb-5">
+                            <h2>Affordable Subscriptions<br><span>choose accordingly.</span></h2>
+                            <p class="lead">
+                                Monotonically grow strategic process improvements vis-a-vis integrated resources. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md">
+                        <div class="card text-center single-pricing-pack">
+                            <div class="pt-4"><h5>The Basic</h5></div>
+                            <div class="pricing-img mt-4">
+                                <img src="{{ url_for('static', filename='land/img/basic.svg') }}" alt="pricing img" class="img-fluid">
+                            </div>
+                            <div class="card-header py-4 border-0 pricing-header">
+                                <div class="h1 text-center mb-0">$<span class="price font-weight-bolder">3.99</span> <small>(Monthly)</small></div>
+								<br>
+                                <div class="h1 text-center mb-0">$<span class="price font-weight-bolder">43.89</span> <small>(Annually)</small></div>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled text-sm mb-4 pricing-feature-list">
+                                    <li>Follower Growth Data Analytics</li>
+                                    <li>Competitors Growth Data Analytics</li>
+                                    <li>5 Competitor Profiles</li>
+                                    <li>Analytical Data Storage</li>
+                                    <li>Trending Products</li>
+                                    <li>Removes Ads</li>
+                                    <li>24/7 Support</li>
+                                </ul>
+                                <a href="https://socialmine.net/basic_monthly/" class="btn outline-btn mb-3" target="_blank">Purchase now (Monthly)</a>
+                                <a href="https://socialmine.net/basic_annually/" class="btn outline-btn mb-3" target="_blank">Purchase now (Annually)</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md">
+                        <div class="card popular-price text-center single-pricing-pack">
+                            <div class="pt-4"><h5>The Standard</h5></div>
+                            <div class="pricing-img mt-4">
+                                <img src="{{ url_for('static', filename='land/img/standard.svg') }}" alt="pricing img" class="img-fluid">
+                            </div>
+                            <div class="card-header py-4 border-0 pricing-header">
+                                <div class="h1 text-center mb-0">$<span class="price font-weight-bolder">8.99</span> <small>(Monthly)</small></div>
+								<br>
+                                <div class="h1 text-center mb-0">$<span class="price font-weight-bolder">98.89</span> <small>(Annually)</small></div>
+
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled text-sm mb-4 pricing-feature-list">
+                                    <li>Follower Growth Data Analytics</li>
+                                    <li>Competitors Growth Data Analytics</li>
+                                    <li>Hashtag Analysis</li>
+                                    <li>Content Engagement</li>
+                                    <li>Generate Reports (Limited)</li>
+                                    <li>25 Competitor Profiles</li>
+                                    <li>Analytical Data Storage</li>
+                                    <li>Trending Products</li>
+                                    <li>Removes Ads</li>
+                                    <li>24/7 Support</li>
+                                </ul>
+                                <a href="https://socialmine.net/standard_monthly/" class="btn solid-btn mb-3" target="_blank">Purchase now (Monthly)</a>
+                                <a href="https://socialmine.net/standard_annually/" class="btn solid-btn mb-3" target="_blank">Purchase now (Annually)</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md">
+                        <div class="card text-center single-pricing-pack">
+                            <div class="pt-4"><h5>The Professional</h5></div>
+                            <div class="pricing-img mt-4">
+                                <img src="{{ url_for('static', filename='land/img/unlimited.svg') }}" alt="pricing img" class="img-fluid">
+                            </div>
+                            <div class="card-header py-4 border-0 pricing-header">
+                                <div class="h1 text-center mb-0">$<span class="price font-weight-bolder">29.99</span> <small>(Monthly)</small></div>
+								<br>
+                                <div class="h1 text-center mb-0">$<span class="price font-weight-bolder">329.89</span> <small>(Annually)</small></div>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled text-sm mb-4 pricing-feature-list">
+                                    <li>Follower Growth Data Analytics</li>
+                                    <li>Competitors Growth Data Analytics</li>
+                                    <li>Hashtag Analysis</li>
+                                    <li>Content Engagement</li>
+                                    <li>Twitter Sentiment Tool</li>
+                                    <li>Rank Activity Push Notification</li>
+                                    <li>Generate Reports</li>
+                                    <li>100 Competitor Profiles</li>
+                                    <li>Analytical Data Storage</li>
+                                    <li>Trending Products</li>
+                                    <li>Removes Ads</li>
+                                    <li>24/7 Support</li>
+                                </ul>
+                                <a href="https://socialmine.net/professional_monthly/" class="btn outline-btn mb-3" target="_blank">Purchase now (Monthly)</a>
+                                <a href="https://socialmine.net/professional_annually/" class="btn outline-btn mb-3" target="_blank">Purchase now (Annually)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5 text-center">
+                    <p class="mb-2">Having trouble, need assistance? <a href="#" class="color-secondary">
+                        Contact us
+                    </a></p>
+                </div>
+            </div>
+        </section>
+        <!--our pricing packages section end-->
+    </div>
+    <!--overflow block end-->
+
+    <!--testimonial section start-->
+    <section class="testimonial-section ptb-100">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-6">
+                    <div class="section-heading mb-5">
+                        <h2>Testimonials <br><span>what our users say.</span></h2>
+                        <p class="lead">
+                            Our applications are designed for usability, we engage with our customers, and implore suggestions. For insurance of an optimal product and service, suggestions maybe considered, and implemented. Please take a moment to review what our initial clients wrote.
+                        </p>
+
+						<!--
+                        <div class="client-section-wrap d-flex flex-row align-items-center">
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><img src="{{ url_for('static', filename='land/img/client-1-color.png') }}" width="85" alt="client"
+                                                                  class="img-fluid"></li>
+                                <li class="list-inline-item"><img src="{{ url_for('static', filename='land/img/client-6-color.png') }}" width="85" alt="client"
+                                                                  class="img-fluid"></li>
+                                <li class="list-inline-item"><img src="{{ url_for('static', filename='land/img/client-3-color.png') }}" width="85" alt="client"
+                                                                  class="img-fluid"></li>
+                            </ul>
+                        </div>
+						-->
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="owl-carousel owl-theme client-testimonial arrow-indicator">
+                        <div class="item">
+                            <div class="testimonial-quote-wrap">
+                                <div class="media author-info mb-3">
+                                    <div class="author-img mr-3">
+                                        <img src="{{ url_for('static', filename='land/img/client-1.jpg') }}" alt="client" class="img-fluid rounded-circle">
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="mb-0">Dan LeRoy </h5>
+                                    </div>
+                                </div>
+                                <div class="client-say">
+                                    <p> <img src="{{ url_for('static', filename='land/img/quote.png') }}" alt="quote" class="img-fluid">I have used multiple “analytic tools”, most are website base, as very few offer applications, and if they do, they are not very accurate. I have used SocialMine for some time now, and I must say it has been accurate thus far, and surprising easy to use. Good job team ADI!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonial-quote-wrap">
+                                <div class="media author-info mb-3">
+                                    <div class="author-img mr-3">
+                                        <img src="{{ url_for('static', filename='land/img/client-2.jpg') }}" alt="client" class="img-fluid rounded-circle">
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="mb-0">Amy Hendel</h5>
+                                    </div>
+                                </div>
+                                <div class="client-say">
+                                    <p><img src="{{ url_for('static', filename='land/img/quote.png') }}" alt="quote" class="img-fluid"> These types of services can be tricky when trying to locate specific data, either you’re paying a programmer to assist you, or paying a service provider, which can be costly on most occasions. SocialMine allows the user to analyze your favorite outlets all in one app. Fast speeds and accurate data, impressive.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--testimonial section end-->
+
+
+    <!--screenshots section start-->
+    <section id="screenshots" class="screenshots-section ptb-100 gray-light-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="section-heading text-center">
+                        <h2>App screenshots <br> <span>impressive design.</span></h2>
+                        <p class="lead">Creative simple interfacing, with a modern usability approach. View our applications in use.</p>
+                    </div>
+                </div>
+            </div>
+            <!--start app screen carousel-->
+            <div class="screen-slider-content mt-5">
+                <div class="screenshot-frame"></div>
+                <div class="screen-carousel owl-carousel owl-theme dot-indicator">
+                    <img src="{{ url_for('static', filename='land/img/01.png') }}" class="img-fluid" alt="screenshots">
+                    <img src="{{ url_for('static', filename='land/img/02.png') }}" class="img-fluid" alt="screenshots">
+                    <img src="{{ url_for('static', filename='land/img/03.png') }}" class="img-fluid" alt="screenshots">
+                    <img src="{{ url_for('static', filename='land/img/04.png') }}" class="img-fluid" alt="screenshots">
+                    <img src="{{ url_for('static', filename='land/img/05.png') }}" class="img-fluid" alt="screenshots">
+                    <img src="{{ url_for('static', filename='land/img/06.png') }}" class="img-fluid" alt="screenshots">
+                </div>
+            </div>
+            <!--end app screen carousel-->
+
+        </div>
+    </section>
+    <!--screenshots section end-->
+
+    <!--contact us section start-->
+    <section id="contact" class="contact-us gray-light-bg ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="section-heading">
+                        <h3>Contact Us</h3>
+                        <p>It's very easy to get in touch with us. Just use the contact form. SocialMine is owned, and maintained by Aggregate Digital Innovation LLC. Location, and additional contact information is provided below.</p>
+                    </div>
+                    <div class="footer-address">
+                        <h6><strong>Head Office</strong></h6>
+                        <p>Aggregate Digital Innovation LLC<br>United States of America</p>
+                        <ul>
+                            <li><span>Phone: +1 860 389 7090</span></li>
+                            <li><span>Email : <a href="mailto:sm.support@adinnovation.org">sm.support@adinnovation.org</a></span>
+                            </li>
+							<li><span>SocialMine Website: <a href="https://socialmine.net">socialmine.net</a></span></li>
+							<li><span>Aggregate Digital Innovation Website: <a href="https://adinnovation.org">adinnovation.org</a></span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <form action="#" method="POST" id="contactForm1" class="contact-us-form" novalidate="novalidate">
+                        <h5>Reach us quickly</h5>
+                        <div class="row">
+                            <div class="col-sm-6 col-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="name" placeholder="Enter name"
+                                           required="required">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="email" placeholder="Enter email"
+                                           required="required">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-12">
+                                <div class="form-group">
+                                    <input type="text" name="phone" value="" class="form-control" id="phone"
+                                           placeholder="Your Phone">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-12">
+                                <div class="form-group">
+                                    <input type="text" name="company" value="" size="40" class="form-control"
+                                           id="company" placeholder="Your Company">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea name="message" id="message" class="form-control" rows="7" cols="25"
+                                              placeholder="Message"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 mt-3">
+                                <button type="submit" class="btn solid-btn" id="btnContactUs">
+                                    Send Message
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <p class="form-message"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--contact us section end-->
+
+    <!--client section start-->
+	<!--
+    <section class="client-section ptb-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="section-heading text-center mb-5">
+                        <h2>Trusted by companies</h2>
+                        <p class="lead">
+                            Rapidiously morph transparent internal or "organic" sources whereas resource sucking
+                            e-business. Conveniently innovate compelling internal.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-12">
+                    <div class="owl-carousel owl-theme clients-carousel dot-indicator">
+                        <div class="item single-client">
+                            <img src="{{ url_for('static', filename='land/img/client-5-color.png') }}" alt="client logo" class="client-img">
+                        </div>
+                        <div class="item single-client">
+                            <img src="{{ url_for('static', filename='land/img/client-1-color.png') }}" alt="client logo" class="client-img">
+                        </div>
+                        <div class="item single-client">
+                            <img src="{{ url_for('static', filename='land/img/client-6-color.png') }}" alt="client logo" class="client-img">
+                        </div>
+                        <div class="item single-client">
+                            <img src="{{ url_for('static', filename='land/img/client-3-color.png') }}" alt="client logo" class="client-img">
+                        </div>
+                        <div class="item single-client">
+                            <img src="{{ url_for('static', filename='land/img/client-4-color.png') }}" alt="client logo" class="client-img">
+                        </div>
+                        <div class="item single-client">
+                            <img src="{{ url_for('static', filename='land/img/client-5-color.png') }}" alt="client logo" class="client-img">
+                        </div>
+                        <div class="item single-client">
+                            <img src="{{ url_for('static', filename='land/img/client-7-color.png') }}" alt="client logo" class="client-img">
+                        </div>
+                        <div class="item single-client">
+                            <img src="{{ url_for('static', filename='land/img/client-2-color.png') }}" alt="client logo" class="client-img">
+                        </div>
+                        <div class="item single-client">
+                            <img src="{{ url_for('static', filename='land/img/client-1-color.png') }}" alt="client logo" class="client-img">
+                        </div>
+                        <div class="item single-client">
+                            <img src="{{ url_for('static', filename='land/img/client-3-color.png') }}" alt="client logo" class="client-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	-->
+    <!--client section start-->
+
+</div>
+<!--body content wrap end-->
+
+<!--shape image start-->
+<div class="shape-img subscribe-wrap">
+    <img src="{{ url_for('static', filename='land/img/footer-top-shape.png') }}" alt="footer shape" class="img-fluid">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+				<!--
+                <form action="#" method="post" class="subscribe-form subscribe-form-footer d-none d-md-block d-lg-block">
+                    <div class="d-flex align-items-center">
+                        <input type="text" class="form-control input" id="email-footer" name="email"
+                               placeholder="info@yourdomain.com">
+                        <input type="submit" class="button btn solid-btn" id="submit-footer" value="Subscribe">
+                    </div>
+                </form>
+				-->
+            </div>
+        </div>
+    </div>
+</div>
+<!--shape image end-->
+
+<!--footer section start-->
+<footer class="footer-section">
+
+    <!--footer top start-->
+    <div class="footer-top pt-150 pb-5 background-img-2"
+         style="background: url(&quot;{{ url_for('static', filename='land/img/footer-bg.png') }}&quot;)no-repeat center top / cover">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-3 mb-3 mb-lg-0">
+                    <div class="footer-nav-wrap text-white">
+                        
+                        <p>Objectively empowering our users by utilizing data analysis information obtained from popular global social media applications with “SocialMine”, an in depth data analytics tool.</p>
+
+                        <div class="social-list-wrap">
+                            <ul class="social-list list-inline list-unstyled">
+                                <li class="list-inline-item"><a href="https://www.facebook.com/SocialMineApp/" target="_blank" title="Facebook"><span
+                                        class="ti-facebook"></span></a></li>
+                                <li class="list-inline-item"><a href="https://twitter.com/SocialMine2" target="_blank" title="Twitter"><span
+                                        class="ti-twitter"></span></a></li>
+                                <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCd_Bf370FhQcUoFy_121SaQ" target="_blank"
+                                                                title="YouTube"><span class="ti-youtube"></span></a></li>
+                                <li class="list-inline-item"><a href="https://t.me/socialmine" target="_blank"
+                                                                title="Telegram"><span class="ti-mobile"></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 ml-auto mb-4 mb-lg-0">
+                    <div class="footer-nav-wrap text-white">
+                        <h5 class="mb-3 text-white">Others Links</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="#">About Us</a></li>
+                            <li class="mb-2"><a href="#">Contact Us</a></li>
+                            <li class="mb-2"><a href="#">Pricing</a></li>
+                            <!-- <li class="mb-2"><a href="https://adinnovation.org/copyright-policy" target="_blank">Privacy Policy</a></li> -->
+                            <li class="mb-2"><a href="https://drive.google.com/file/d/1cT7p8hwkgF6iMYxbBarxGK7cVKk_1iVC/view?usp=sharing" target="_blank">SocialMine Policy</a></li>
+                            <li class="mb-2"><a href="https://drive.google.com/file/d/1J2LGcTnmqYUkpagdsAWctUXuX18BsEDd/view?usp=sharing" target="_blank">Copyright</a></li>
+                            <!-- <li class="mb-2"><a href="#">Terms and Conditions</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 ml-auto mb-4 mb-lg-0">
+                    <div class="footer-nav-wrap text-white">
+                        <h5 class="mb-3 text-white">Support</h5>
+                        <ul class="list-unstyled support-list">
+                            <li class="mb-2 d-flex align-items-center"><span class="ti-location-pin mr-2"></span>
+                                ADI LLC, Connecticut
+                                <br> United States, 06375
+                            </li>
+                            <li class="mb-2 d-flex align-items-center"><span class="ti-mobile mr-2"></span> <a
+                                    href="tel:+18603897090">+1 860 389 7090</a></li>
+                            <li class="mb-2 d-flex align-items-center"><span class="ti-email mr-2"></span><a
+                                    href="mailto:sm.support@adinnovation.org">sm.support@adinnovation.org</a></li>
+                            <li class="mb-2 d-flex align-items-center"><span class="ti-world mr-2"></span><a
+                                    href="https://socialmine.net"> www.socialmine.net</a></li>
+                            <li class="mb-2 d-flex align-items-center"><span class="ti-world mr-2"></span><a
+                                    href="https://adinnovation.org"> www.adinnovation.org</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-nav-wrap text-white">
+                        <h5 class="mb-3 text-white">Location</h5>
+                        <p>United States of America</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--footer top end-->
+
+    <!--footer copyright start-->
+    <div class="footer-bottom gray-light-bg pt-4 pb-4">
+        <div class="container">
+            <div class="row text-center justify-content-center">
+                <div class="col-md-6 col-lg-5"><p class="copyright-text pb-0 mb-0">Copyrights © 2019. All
+                    rights reserved by
+                    <a href="https://adinnovation.org" target="_blank">Aggregate Digital Innovation LLC</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--footer copyright end-->
+</footer>
+<!--footer section end-->
+
+<!--jQuery-->
+<script src="{{ url_for('static', filename='land/js/jquery-3.4.1.min.js') }}"></script>
+<!--Popper js-->
+<script src="{{ url_for('static', filename='land/js/popper.min.js') }}"></script>
+<!--Bootstrap js-->
+<script src="{{ url_for('static', filename='land/js/bootstrap.min.js') }}"></script>
+<!--Magnific popup js-->
+<script src="{{ url_for('static', filename='land/js/jquery.magnific-popup.min.js') }}"></script>
+<!--jquery easing js-->
+<script src="{{ url_for('static', filename='land/js/jquery.easing.min.js') }}"></script>
+<!--jquery ytplayer js-->
+<script src="{{ url_for('static', filename='land/js/jquery.mb.YTPlayer.min.js') }}"></script>
+<!--wow js-->
+<script src="{{ url_for('static', filename='land/js/wow.min.js') }}"></script>
+<!--owl carousel js-->
+<script src="{{ url_for('static', filename='land/js/owl.carousel.min.js') }}"></script>
+<!--custom js-->
+<script src="{{ url_for('static', filename='land/js/scripts.js') }}"></script>
+</body>
+</html>

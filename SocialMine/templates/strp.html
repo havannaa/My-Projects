@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <div>
+    <a id="pay-500">Pay 500</a>
+    <a id="pay-300">Pay 500</a>
+  </div>
+
+  <script src="https://checkout.stripe.com/checkout.js"></script>
+  <script>
+  	var handler = StripeCheckout.configure({
+		key: "{{ key }}",
+		image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+		locale: "auto",
+		token: function(token) {
+			fetch("/charge", {
+				method: "POST",
+				headers: { "Content-Type": "application/json", },
+				body: JSON.stringify({
+					token: token.id,
+					amount: 500,
+					description: "A Flask Charge",
+		}),
+	})
+	.then(function(response) {
+		console.log(response);
+		return response.json();
+	})
+	.then(function(jsonResponse) {
+		console.log(JSON.stringify(jsonResponse));
+		});
+	}
+	});
+
+	document.getElementById("pay-500").addEventListener("click", function(e) {
+		handler.open({
+			name: "socialmine.net",
+			description: "Subscription Fee",
+			amount: 500
+		});
+		e.preventDefault();
+	});
+	document.getElementById("pay-300").addEventListener("click", function(e) {
+		handler.open({
+			name: "socialmine.net",
+			description: "Subscription Fee",
+			amount: 300
+		});
+		e.preventDefault();
+	});
+	window.addEventListener("popstate", function() {
+		handler.close();
+	});
+	</script>
+{% endblock %}

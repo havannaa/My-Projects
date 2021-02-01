@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>SocialMine.net - YouTube Report</title>
+</head>
+
+<body class="py-4">
+    <div class="container">
+
+        <h1>SocialMine.net - YouTube Report</h1>
+
+        <h2 class="mt-4">YouTube Account Statistics</h2>
+
+		<table class="table">
+		  <thead class="thead-dark">
+			<tr>
+			  <th scope="col">#</th>
+			  <th scope="col">Title</th>
+			  <th scope="col">Data</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <th scope="row">1</th>
+			  <td>Total Subscribers</td>
+			  <td>{{db_results["tbs1tp"]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">2</th>
+			  <td>Total Videos</td>
+			  <td>{{db_results["tbs1tf"]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">3</th>
+			  <td>Engagements</td>
+			  <td>{{db_results["tbs1engmt"]}}</td>
+			</tr>
+		  </tbody>
+		</table>
+
+        <h2 class="mt-4">Competitor Profile Statistics</h2>
+
+		<table class="table">
+		  <thead class="thead-dark">
+			<tr>
+			  <th scope="col">#</th>
+			  <th scope="col">Profile Name</th>
+			  <th scope="col">Total Videos	</th>
+			  <th scope="col">Total Subscriber</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <th scope="row">1</th>
+			  <td>{{db_results["tbc1"]}}</td>
+			  <td>{{db_results["tbc1tf"]}}</td>
+			  <td>{{db_results["tbc1tp"]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">2</th>
+			  <td>{{db_results["tbc2"]}}</td>
+			  <td>{{db_results["tbc2tf"]}}</td>
+			  <td>{{db_results["tbc2tp"]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">3</th>
+			  <td>{{db_results["tbc3"]}}</td>
+			  <td>{{db_results["tbc3tf"]}}</td>
+			  <td>{{db_results["tbc3tp"]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">4</th>
+			  <td>{{db_results["tbc4"]}}</td>
+			  <td>{{db_results["tbc4tf"]}}</td>
+			  <td>{{db_results["tbc4tp"]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">5</th>
+			  <td>{{db_results["tbc5"]}}</td>
+			  <td>{{db_results["tbc5tf"]}}</td>
+			  <td>{{db_results["tbc5tp"]}}</td>
+			</tr>
+		  </tbody>
+		</table>
+
+        <h2 class="mt-4">Channel Analysis</h2>
+		
+
+		<table class="table">
+		  <thead class="thead-dark">
+			<tr>
+			  <th scope="col">#</th>
+			  <th scope="col">Title</th>
+			  <th scope="col">Data</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <th scope="row">1</th>
+			  <td>Channel Subscriber Count Rank</td>
+			  <td>{{tubecon[0]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">2</th>
+			  <td>Channel Video View Rank</td>
+			  <td>{{tubecon[1]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">3</th>
+			  <td>Channel Subscriber Count</td>
+			  <td>{{tubecon[2]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">4</th>
+			  <td>Channel Title</td>
+			  <td>{{tubecon[3]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">5</th>
+			  <td>Channel Video View</td>
+			  <td>{{tubecon[4]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">6</th>
+			  <td>Channel Earning Potential</td>
+			  <td>{{tubecon[5]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">7</th>
+			  <td>Channel Category</td>
+			  <td>{{tubecon[6]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">8</th>
+			  <td>Channel Joined Date</td>
+			  <td>{{tubecon[7]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">9</th>
+			  <td>Channel Total Upload Video</td>
+			  <td>{{tubecon[8]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">10</th>
+			  <td>Last two weeks video views</td>
+			  <td>{{tubecon[9]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">11</th>
+			  <td>Last two weeks estimated earnings</td>
+			  <td>{{tubecon[10]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">12</th>
+			  <td>Last two weeks video uploaded</td>
+			  <td>{{tubecon[11]}}</td>
+			</tr>
+		  </tbody>
+		</table>
+		
+		
+    </div>
+
+</body>
+
+</html>

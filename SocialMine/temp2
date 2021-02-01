@@ -1,0 +1,5 @@
+
+def update_fb_comp2(fbc2tf, fbc2tp, fbc3tf, fbc3tp, fbc4tf, fbc4tp, fbc5tf, fbc5tp, email):
+	sql = "UPDATE `user` SET `fbc2tf` = '{0}', `fbc2tp` = '{1}', `fbc3tf` = '{2}', `fbc3tp` = '{3}', `fbc4tf` = '{4}', `fbc4tp` = '{5}' , `fbc5tf` = '{6}', `fbc5tp` = '{7}' WHERE `user`.`email` = '{8}';".format(fbc2tf, fbc2tp, fbc3tf, fbc3tp, fbc4tf, fbc4tp, fbc5tf, fbc5tp, email)
+	execute_query_update(sql)
+

@@ -1,0 +1,102 @@
+{% extends 'back/admin/html/ltr/base.html' %}
+{% block title %}
+Admin Settings | SIP India
+{% endblock %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Settings</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Settings</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- My Deposits Error Message (begins) -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Admin Settings</h5>
+                        <p>You can set up withdrawls limits, commission percentage, etc from here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- My Deposits Error Message  (ends) -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <form class="form-horizontal">
+                        <div class="card-body">
+                            <h4 class="card-title">Settings</h4>
+                            <div class="form-group row">
+                                <label for="min-withdraw" class="col-sm-2 text-left control-label col-form-label">Minimum Withdraw</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="min-withdraw" placeholder=" ">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="max-withdraw" class="col-sm-2 text-left control-label col-form-label">Maximum Withdraw</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="max-withdraw" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="referral-commission" class="col-sm-2 text-left control-label col-form-label">Referral Commission</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="referral-commission" placeholder=" ">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="withdrawl-charge" class="col-sm-2 text-left control-label col-form-label">Withdraw Charge</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="withdrawl-charge" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-top">
+                            <div class="card-body">
+                                <button type="button" class="btn btn-primary">Submit</button>
+                                <button type="button" class="btn btn-danger">Reset</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer text-center">
+        Copyright &copy; 2020 SIP INDIA All rights reserved.
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+{% endblock %}

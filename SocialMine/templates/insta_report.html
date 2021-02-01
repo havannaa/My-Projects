@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
+    <title>SocialMine.net - Instagram Follower Growth</title>
+    <meta content="Admin Dashboard" name="description">
+    <meta content="Mannatthemes" name="author">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/favicon.ico') }}">
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/plugins/morris/morris.css') }}">
+    <link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='assets/css/icons.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet" type="text/css">
+</head>
+
+<body class="fixed-left">
+
+    <!-- Begin page -->
+    <div id="wrapper">
+        <!-- Start right Content here -->
+            <!-- Start content -->
+            <div class="content">
+           
+                <!-- Top Bar End -->
+                <div class="page-content-wrapper">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="page-title-box">
+                                    <div class="btn-group float-right">
+                                  
+                                    </div>
+                                    <h4 class="page-title">Instagram Follower Growth</h4></div> 
+                            <div class="row">
+                            <!-- Column -->
+                            <div class="col-md-6 col-lg-6 col-xl-4">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-row">
+                                            <div class="col-3 align-self-center">
+                                                <div class="round"><i class="mdi mdi-twitter"></i></div>
+                                            </div>
+                                            <div class="col-9 align-self-center text-center">
+                                                <div class="m-l-10">
+                                                    <h5 class="mt-0 round-inner">{{foll_media[0]}}</h5>
+                                                    <p class="mb-0 text-muted">Followers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Column -->
+                            <!-- Column -->
+                            <div class="col-md-6 col-lg-6 col-xl-4">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-row">
+                                            <div class="col-3 align-self-center">
+                                                <div class="round"><i class="mdi mdi-twitter"></i></div>
+                                            </div>
+                                            <div class="col-9 align-self-center text-center">
+                                                <div class="m-l-10">
+                                                    <h5 class="mt-0 round-inner">{{foll_media[1]}}</h5>
+                                                    <p class="mb-0 text-muted">Posts</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Column -->
+                            <!-- Column -->
+                            <div class="col-md-6 col-lg-6 col-xl-4">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-row">
+                                            <div class="col-3 align-self-center">
+                                                <div class="round"><i class="mdi mdi-twitter"></i></div>
+                                            </div>
+                                            <div class="col-9 align-self-center text-center">
+                                                <div class="m-l-10">
+                                                    <h5 class="mt-0 round-inner">{{foll_media[2]}}</h5>
+                                                    <p class="mb-0 text-muted">Engagement</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Column -->
+                        </div>
+                                                <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <h4 class="mt-0 header-title">Follower Growth Per day</h4>
+                                        <p class="text-muted m-b-30 font-14 d-inline-block text-truncate w-100">Bar Chart showing follower growth per Day.</p>
+                                        <div id="morris-bar-example-1" style="height: 300px"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                            <div class="col-lg-6">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <h4 class="mt-0 header-title">Follower Growth Per Day</h4>
+                                        <p class="text-muted m-b-30 font-14 d-inline-block text-truncate w-100">Line chart showing follower growth per day.</p>
+                                        <div id="morris-line-example-1" style="height: 300px"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                            <div class="col-lg-6">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <h4 class="mt-0 header-title">Follower Growth Per Hour</h4>
+                                        <p class="text-muted m-b-30 font-14 d-inline-block text-truncate w-100">Bar chart showing follower growth per hour.</p>
+                                        <div id="morris-bar-example-2" style="height: 300px"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <h4 class="mt-0 header-title">Follower Growth Per Hour</h4>
+                                        <p class="text-muted m-b-30 font-14 d-inline-block text-truncate w-100">Line chart showing follower growth per hour.</p>
+                                        <div id="morris-line-example-2" style="height: 300px"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                        <!-- end row -->
+                        <div class="row" style="display: none;">
+                            <div class="col-lg-6">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        
+                                        <div id="morris-area-example" style="height: 300px;display:none;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+                        </div>
+                        <!-- end row -->
+                        
+                            </div>
+                        </div>
+                        <!-- end page title end breadcrumb -->
+                    </div>
+                    <!-- container -->
+                </div>
+                <!-- Page content Wrapper -->
+            </div>
+            <!-- content -->
+            <footer class="footer">© 2019 ADI - Aggregate Digital Innovation.</footer>
+
+        <!-- End Right content here -->
+    </div>
+    <!-- END wrapper -->
+    <!-- jQuery  -->
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/modernizr.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/detect.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/fastclick.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.slimscroll.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.blockUI.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/waves.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.nicescroll.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.scrollTo.min.js') }}"></script>    
+    <!--Morris Chart-->
+    <script src="{{ url_for('static', filename='assets/plugins/morris/morris.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/raphael/raphael-min.js') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='assets/pages/morris_tw_follower_growth.init.js') }}"></script>-->
+    <script type="text/javascript">
+!function(e) {
+    "use strict";
+    var a=function() {}
+    ;
+    a.prototype.createLineChart=function(e, a, r, t, i, o) {
+        Morris.Line( {
+            element: e, data: a, xkey: r, ykeys: t, labels: i, hideHover: "auto", gridLineColor: "#eef0f2", resize: !0, lineColors: o
+        }
+        )
+    }
+    ,
+    a.prototype.createAreaChart=function(e, a, r, t, i, o, s, b) {
+        Morris.Area( {
+            element: e, pointSize: 3, lineWidth: 2, data: t, xkey: i, ykeys: o, labels: s, resize: !0, hideHover: "auto", gridLineColor: "#eef0f2", lineColors: b
+        }
+        )
+    }
+    ,
+    a.prototype.createBarChart=function(e, a, r, t, i, o) {
+        Morris.Bar( {
+            element: e, data: a, xkey: r, ykeys: t, labels: i, gridLineColor: "#eef0f2", barSizeRatio: .4, resize: !0, hideHover: "auto", barColors: o
+        }
+        )
+    }
+    ,
+    a.prototype.createDonutChart=function(e, a, r) {
+        Morris.Donut( {
+            element: e, data: a, resize: !0, colors: r
+        }
+        )
+    }
+    ,
+    a.prototype.init=function() {
+        this.createLineChart("morris-line-example-1", [ {
+            y: "{{last_five[0]}}", a: {{datam1[0]}}
+        }
+        , {
+            y: "{{last_five[1]}}", a: {{datam1[1]}}
+        }
+        , {
+            y: "{{last_five[2]}}", a: {{datam1[2]}}
+        }
+        , {
+            y: "{{last_five[3]}}", a: {{datam1[3]}}
+        }
+        , {
+            y: "{{last_five[4]}}", a: {{datam1[4]}}
+        }
+        ], "y", ["a"], ["New Follower"], ["#5b6be8"]);
+        this.createLineChart("morris-line-example-2", [ {
+            y: "{{last_five[0]}}", a: {{datam2[0]}}
+        }
+        , {
+            y: "{{last_five[1]}}", a: {{datam2[1]}}
+        }
+        , {
+            y: "{{last_five[2]}}", a: {{datam2[2]}}
+        }
+        , {
+            y: "{{last_five[3]}}", a: {{datam2[3]}}
+        }
+        , {
+            y: "{{last_five[4]}}", a: {{datam2[4]}}
+        }
+        ], "y", ["a"], ["New Follower"], ["#5b6be8"]);
+        this.createAreaChart("morris-area-example", 0, 0, [ {
+            y: "2009", a: 10, b: 20
+        }
+        , {
+            y: "2010", a: 75, b: 65
+        }
+        , {
+            y: "2011", a: 50, b: 40
+        }
+        , {
+            y: "2012", a: 75, b: 65
+        }
+        , {
+            y: "2013", a: 50, b: 40
+        }
+        , {
+            y: "2014", a: 75, b: 65
+        }
+        , {
+            y: "2015", a: 90, b: 60
+        }
+        , {
+            y: "2016", a: 90, b: 75
+        }
+        ], "y", ["a", "b"], ["Series A", "Series B"], ["#5b6be8", "#0097a7"]);
+        this.createBarChart("morris-bar-example-1", [ {
+            y: "{{last_five[0]}}", a: {{datam1[0]}}
+        }
+        , {
+            y: "{{last_five[1]}}", a: {{datam1[1]}}
+        }
+        , {
+            y: "{{last_five[2]}}", a: {{datam1[2]}}
+        }
+        , {
+            y: "{{last_five[3]}}", a: {{datam1[3]}}
+        }
+        , {
+            y: "{{last_five[4]}}", a: {{datam1[4]}}
+        }
+        ], "y", ["a"], ["New Follower"], ["#5b6be8"]);
+        this.createBarChart("morris-bar-example-2", [ {
+            y: "{{last_five[0]}}", a: {{datam2[0]}}
+        }
+        , {
+            y: "{{last_five[1]}}", a: {{datam2[1]}}
+        }
+        , {
+            y: "{{last_five[2]}}", a: {{datam2[2]}}
+        }
+        , {
+            y: "{{last_five[3]}}", a: {{datam2[3]}}
+        }
+        , {
+            y: "{{last_five[4]}}", a: {{datam2[4]}}
+        }
+        ], "y", ["a"], ["New Follower"], ["#5b6be8"]);
+        this.createDonutChart("morris-donut-example", [ {
+            label: "Download Sales", value: 12
+        }
+        , {
+            label: "In-Store Sales", value: 30
+        }
+        , {
+            label: "Mail-Order Sales", value: 20
+        }
+        ], ["#ffbb44", "#0097a7", "#67a8e4"])
+    }
+    ,
+    e.MorrisCharts=new a,
+    e.MorrisCharts.Constructor=a
+}
+
+(window.jQuery),
+function(e) {
+    "use strict";
+    window.jQuery.MorrisCharts.init()
+}
+
+();
+	</script>
+    <!-- App js -->
+    <script src="{{ url_for('static', filename='assets/js/app.js') }}"></script>
+</body>
+
+</html>

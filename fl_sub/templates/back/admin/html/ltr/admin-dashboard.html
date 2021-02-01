@@ -1,0 +1,124 @@
+{% extends 'back/admin/html/ltr/base.html' %}
+{% block title %}
+Admin Dashboard | SIP India
+{% endblock %}
+{% block content %}
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-12 d-flex no-block align-items-center">
+                        <h4 class="page-title">Admin Dashboard</h4>
+                        <div class="ml-auto text-right">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Admin Dashboard</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Welcome to SIPIndia.io Admin Panel</h5>
+                                <p>Investment plans can be updated from here.</p>
+                                <p>Please, check out payment backlogs for funding your users whose investment plan is about to end.</p>
+                                <button type="button" class="btn btn-success btn-lgm">Investment Plans</button>
+                                <button type="button" class="btn btn-info">Payment Backlog</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card card-hover">
+                            <div class="box bg-cyan text-center">
+                                <h4 class="text-white">Total Users</h4>
+                                <h2 class="text-white">117</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card card-hover">
+                            <div class="box bg-success text-center">
+                                <h4 class="text-white">Total Investments</h4>
+                                <h2 class="text-white">$ 12500</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card card-hover">
+                            <div class="box bg-danger text-center">
+                                <h4 class="text-white">Total Payments</h4>
+                                <h2 class="text-white">$ 14000</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card card-hover">
+                            <div class="box bg-info text-center">
+                                <h4 class="text-white">Total Withdraws</h4>
+                                <h2 class="text-white">$ 2500</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card card-hover">
+                            <div class="box bg-danger text-center">
+                                <h4 class="text-white">Payment Backlog</h4>
+                                <h2 class="text-white">21</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card card-hover">
+                            <div class="box bg-warning text-center">
+                                <h4 class="text-white">Payment Backlog (USD)</h4>
+                                <h2 class="text-white">$ 5200</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Right sidebar -->
+                <!-- ============================================================== -->
+                <!-- .right-sidebar -->
+                <!-- ============================================================== -->
+                <!-- End Right sidebar -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer text-center">
+                Copyright &copy; 2020 SIP INDIA All rights reserved.
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+{% endblock %}

@@ -1,0 +1,129 @@
+{% extends 'back/admin/html/ltr/base.html' %}
+{% block title %}
+Withdraw Funds | Admin Panel | SIP India
+{% endblock %}
+{% block content %}
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Withdraw Funds</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Withdraw Funds</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Admin Wallet</h5>
+                        <p>You can withdraw funds to your wallet from here.</p>
+                        <p>For depositing funds to admin wallet, or to check payment backlogs, follow below links.</p>
+                        <button type="button" class="btn btn-success btn-lgm">Deposit</button>
+                        <button type="button" class="btn btn-info">Withdraw</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- My Deposits Error Message  (ends) -->
+        <div class="row">
+            <div class="col-lg-6 col-xs-12 col-sm-12 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Withdraw Funds</h4>
+                        <div class="row">
+                            <div class="col-lg-12 col-xs-12">
+                                <div class="form-group row">
+                                    <label class="col-md-3">Select Currency</label>
+                                    <div class="col-md-9">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input" id="customControlValidation1" name="radio-stacked" required="">
+                                            <label class="custom-control-label" for="customControlValidation1">Ethereum (ETH)</label>
+                                        </div>
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required="">
+                                            <label class="custom-control-label" for="customControlValidation2">Bitcoin (BTC)</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="w-address" class="col-sm-3 text-right control-label col-form-label">Wallet Address</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="w-address" placeholder="Enter Wallet Address Here">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="amount" class="col-sm-3 text-right control-label col-form-label">Amount</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="amount" placeholder="Enter Amount Here">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-top">
+                        <div class="card-body">
+                            <button type="button" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xs-12 col-sm-12 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Account Balance</h5>
+                    </div>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Bitcoin Wallet</td>
+                                <td>3.12 BTC</td>
+                            </tr>
+                            <tr>
+                                <td>Ethereum Wallet</td>
+                                <td>12.69 ETH</td>
+                            </tr>
+                            <tr>
+                                <td>Total Balance (USD)</td>
+                                <td>$24,348</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer text-center">
+        Copyright &copy; 2020 SIP INDIA All rights reserved.
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+{% endblock %}

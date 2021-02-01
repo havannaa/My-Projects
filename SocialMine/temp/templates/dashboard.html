@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
+    <title>ADI - Agrregate Digital Innovation</title>
+    <meta content="Admin Dashboard" name="description">
+    <meta content="Mannatthemes" name="author">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/favicon.ico') }}">
+    <link href="{{ url_for('static', filename='assets/plugins/morris/morris.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='assets/css/icons.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet" type="text/css">
+</head>
+
+<body class="fixed-left">
+
+    <!-- Begin page -->
+    <div id="wrapper">
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left side-menu">
+            <button type="button" class="button-menu-mobile button-menu-mobile-topbar open-left waves-effect"><i class="ion-close"></i></button>
+            <!-- LOGO -->
+            <div class="topbar-left">
+                <div class="text-center"><a href="dashboard" class="logo"><i class="mdi mdi-assistant"></i> ADI</a>
+                    </div>
+            </div>
+            <div class="sidebar-inner slimscrollleft">
+                <div id="sidebar-menu">
+                    <ul>
+                        <li class="menu-title">Main</li>
+                        <li><a href="https://socialmine.net/dashboard" class="waves-effect"><i class="mdi mdi-airplay"></i> <span>Dashboard </a></li>
+                        <li class="menu-title">Facebook</li>
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-facebook"></i> <span>Facebook Analytics </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/fb_follower_growth">Follower Growth</a></li>
+                                <li><a href="https://socialmine.net/fb_competitor_growth">Competitor Growth</a></li>
+                                <li><a href="https://socialmine.net/fb_content_engagement">Content Engagement</a></li>
+                                <li><a href="https://socialmine.net/fb_hashtag_analysis">Hashtag Analysis</a></li>
+                                <li><a href="https://socialmine.net/fb_content_performance">Content Performance</a></li>
+                                <li><a href="https://socialmine.net/fb_generate_report">Generate Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-title">Twitter</li>
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-twitter"></i> <span>Twitter Analytics </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/tw_follower_growth">Follower Growth</a></li>
+                                <li><a href="https://socialmine.net/tw_competitor_growth">Competitor Growth</a></li>
+                                <li><a href="https://socialmine.net/tw_content_engagement">Content Engagement</a></li>
+                                <li><a href="https://socialmine.net/tw_hashtag_analysis">Hashtag Analysis</a></li>
+                                <li><a href="https://socialmine.net/tw_content_performance">Content Performance</a></li>
+                                <li><a href="https://socialmine.net/tw_sentiment_analysis">Sentiment Analysis</a></li>
+                                <li><a href="https://socialmine.net/tw_generate_report">Generate Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-title">Instagram</li>
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-instagram"></i> <span>Insta Analytics </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/insta_follower_growth">Follower Growth</a></li>
+                                <li><a href="https://socialmine.net/insta_competitor_growth">Competitor Growth</a></li>
+                                <li><a href="https://socialmine.net/insta_content_engagement">Content Engagement</a></li>
+                                <li><a href="https://socialmine.net/insta_hashtag_analysis">Hashtag Analysis</a></li>
+                                <li><a href="https://socialmine.net/insta_content_performance">Content Performance</a></li>
+                                <li><a href="https://socialmine.net/insta_generate_report">Generate Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-title">YouTube</li>
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-instagram"></i> <span>YouTube Analytics </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/tube_subscriber_growth">Subscriber Growth</a></li>
+                                <li><a href="https://socialmine.net/tube_competitor_growth">Competitor Growth</a></li>
+                                <li><a href="https://socialmine.net/tube_content_engagement">Content Engagement</a></li>
+                                <li><a href="https://socialmine.net/tube_generate_report">Generate Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-title">Manage Profiles</li>
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-library-plus"></i> <span>Social Profiles </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/social_fb">Facebook</a></li>
+                                <li><a href="https://socialmine.net/social_tw">Twitter</a></li>
+                                <li><a href="https://socialmine.net/social_insta">Instagram</a></li>
+                                <li><a href="https://socialmine.net/social_tube">YouTube</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <!-- end sidebarinner -->
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- Start right Content here -->
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+                <!-- Top Bar Start -->
+                <div class="topbar">
+                    <nav class="navbar-custom">
+                        <ul class="list-inline float-right mb-0">
+                            <!-- language-->
+                            <li class="list-inline-item dropdown notification-list hide-phone"><a class="nav-link dropdown-toggle arrow-none waves-effect text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">English <img src="{{ url_for('static', filename='assets/images/flags/us_flag.jpg') }}" class="ml-2" height="16" alt=""></a>
+                                <div class="dropdown-menu dropdown-menu-right language-switch">
+                                    <a class="dropdown-item" href="#"><img src="{{ url_for('static', filename='assets/images/flags/italy_flag.jpg') }}" alt="" height="16"><span>Italian </span></a>
+                                    <a class="dropdown-item" href="#"><img src="{{ url_for('static', filename='assets/images/flags/french_flag.jpg') }}" alt="" height="16"><span>French </span></a>
+                                    <a class="dropdown-item" href="#"><img src="{{ url_for('static', filename='assets/images/flags/spain_flag.jpg') }}" alt="" height="16"><span>Spanish </span></a>
+                                    <a class="dropdown-item" href="#"><img src="{{ url_for('static', filename='assets/images/flags/russia_flag.jpg') }}" alt="" height="16"><span>Russian</span></a>
+                                </div>
+                            </li>
+
+                            <li class="list-inline-item dropdown notification-list"><a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"><i class="ti-bell noti-icon"></i> <span class="badge badge-success noti-icon-badge">2</span></a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg">
+                                    <!-- item-->
+                                    <div class="dropdown-item noti-title">
+                                        <h5><span class="badge badge-danger float-right">2</span>Notification</h5></div>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-primary"><i class="mdi mdi-cart-outline"></i></div>
+                                        <p class="notify-details"><b>Subscription has expired</b><small class="text-muted">Please, renew your subscription.</small></p>
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-warning"><i class="mdi mdi-martini"></i></div>
+                                        <p class="notify-details"><b>Your report is ready</b><small class="text-muted">Collect your report from your email.</small></p>
+                                    </a>
+                                    <!-- All--><a href="javascript:void(0);" class="dropdown-item notify-item">View All</a></div>
+                            </li>
+                            <li class="list-inline-item dropdown notification-list">
+                                <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"><img src="{{ url_for('static', filename='assets/images/users/avatar-6.jpg') }}" alt="user" class="rounded-circle"></a>
+                                <div class="dropdown-menu dropdown-menu-right profile-dropdown">
+                                    <!-- item-->
+                                    <div class="dropdown-item noti-title">
+                                        <h5>Welcome</h5></div><a class="dropdown-item" href="#"><i class="mdi mdi-account-circle m-r-5 text-muted"></i> Profile</a> <a class="dropdown-item" href="#"><i class="mdi mdi-wallet m-r-5 text-muted"></i> Subscription</a> <a class="dropdown-item" href="#"><span class="badge badge-success float-right"></span><i class="mdi mdi-settings m-r-5 text-muted"></i> Settings</a> 
+                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="https://socialmine.net/logout/"><i class="mdi mdi-logout m-r-5 text-muted"></i> Logout</a></div>
+                            </li>
+                        </ul>
+                        <ul class="list-inline menu-left mb-0">
+                            <li class="float-left">
+                                <button class="button-menu-mobile open-left waves-light waves-effect"><i class="mdi mdi-menu"></i></button>
+                            </li>
+
+                        </ul>
+                        <div class="clearfix"></div>
+                    </nav>
+                </div>
+                <!-- Top Bar End -->
+                <div class="page-content-wrapper">
+<div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="page-title-box">
+                                    <div class="btn-group float-right">
+                                        <ol class="breadcrumb hide-phone p-0 m-0">
+                                            <li class="breadcrumb-item"><a href="#">ADI</a></li>
+                                            <li class="breadcrumb-item active">Dashboard</li>
+                                        </ol>
+                                    </div>
+                                    <h4 class="page-title">Dashboard</h4></div>
+                            </div>
+                        </div>
+                        <!-- end page title end breadcrumb -->
+                        <div class="row">
+                            <!-- Column -->
+                            <div class="col-md-6 col-lg-6 col-xl-3">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-row">
+                                            <div class="col-3 align-self-center">
+                                                <div class="round"><i class="mdi mdi-facebook"></i></div>
+                                            </div>
+                                            <div class="col-9 align-self-center text-center">
+                                                <div class="m-l-10">
+                                                    <h5 class="mt-0 round-inner">{{self_stats[0]}}</h5>
+                                                    <p class="mb-0 text-muted">Followers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Column -->
+                            <!-- Column -->
+                            <div class="col-md-6 col-lg-6 col-xl-3">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-row">
+                                            <div class="col-3 align-self-center">
+                                                <div class="round"><i class="mdi mdi-twitter"></i></div>
+                                            </div>
+                                            <div class="col-9 align-self-center text-center">
+                                                <div class="m-l-10">
+                                                    <h5 class="mt-0 round-inner">{{self_stats[1]}}</h5>
+                                                    <p class="mb-0 text-muted">Followers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Column -->
+                            <!-- Column -->
+                            <div class="col-md-6 col-lg-6 col-xl-3">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-row">
+                                            <div class="col-3 align-self-center">
+                                                <div class="round"><i class="mdi mdi-instagram"></i></div>
+                                            </div>
+                                            <div class="col-9 align-self-center text-center">
+                                                <div class="m-l-10">
+                                                    <h5 class="mt-0 round-inner">{{self_stats[2]}}</h5>
+                                                    <p class="mb-0 text-muted">Followers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Column -->
+                            <div class="col-md-6 col-lg-6 col-xl-3">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-row">
+                                            <div class="col-3 align-self-center">
+                                                <div class="round"><i class="mdi mdi-youtube-play"></i></div>
+                                            </div>
+                                            <div class="col-9 align-self-center text-center">
+                                                <div class="m-l-10">
+                                                    <h5 class="mt-0 round-inner">{{self_stats[3]}}</h5>
+                                                    <p class="mb-0 text-muted">Followers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Column -->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12 col-xl-8">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <h5 class="header-title pb-3 mt-0">Overview</h5>
+                                        <div id="multi-line-chart" style="height:400px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 col-xl-4">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <h5 class="header-title mt-0 pb-3">Followers by Media</h5>
+                                        <ul class="list-unstyled list-inline text-center">
+                                            <li class="list-inline-item">
+                                                <p><i class="mdi mdi-checkbox-blank-circle text-primary mr-2"></i>Facebook</p>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <p><i class="mdi mdi-checkbox-blank-circle text-info mr-2"></i>Twitter</p>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <p><i class="mdi mdi-checkbox-blank-circle text-greylight mr-2"></i>Instagram</p>
+                                            </li>
+                                        </ul>
+                                        <div id="morris-donut-chart" style="height:345px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6 col-xl-4">
+                                <div class="card bg-info m-b-30">
+                                    <div class="card-body">
+                                        <div id="verticalCarousel" class="carousel slide vertical" data-ride="carousel">
+                                            <!-- Carousel items -->
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <div class="row d-flex justify-content-center text-center">
+                                                        <div class="col-sm-12 carousel-icon"><i class="fa fa-facebook text-white pt-3"></i></div>
+                                                        <div class="col-6 text-white">
+                                                            <h2>123.4k</h2>
+                                                            <p class="">Followers</p>
+                                                        </div>
+                                                        <div class="col-6 text-white">
+                                                            <h2>20k</h2>
+                                                            <p class="">Posts</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <div class="row d-flex justify-content-center">
+                                                        <div class="col-sm-12 carousel-icon text-center"><i class="fa fa-facebook text-white pt-3"></i></div>
+                                                        <div class="col-sm-10 mx-auto text-white text-center">
+                                                            <p>Lorem Ipsum is simply dummy text of the <span class="warning">#TWITTER</span> and typesetting industry. A description list is perfect for defining terms.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="morris-area-chart" style="height: 310px; display:none;"></div>
+                            <div class="col-md-12 col-lg-6 col-xl-4">
+                                <div class="card bg-info m-b-30">
+                                    <div class="card-body">
+                                        <div id="verticalCarousel" class="carousel slide vertical" data-ride="carousel">
+                                            <!-- Carousel items -->
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <div class="row d-flex justify-content-center text-center">
+                                                        <div class="col-sm-12 carousel-icon"><i class="fa fa-twitter text-white pt-3"></i></div>
+                                                        <div class="col-6 text-white">
+                                                            <h2>231.2k</h2>
+                                                            <p class="">Followers</p>
+                                                        </div>
+                                                        <div class="col-6 text-white">
+                                                            <h2>44k</h2>
+                                                            <p class="">Tweets</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <div class="row d-flex justify-content-center">
+                                                        <div class="col-sm-12 carousel-icon text-center"><i class="fa fa-twitter text-white pt-3"></i></div>
+                                                        <div class="col-sm-10 mx-auto text-white text-center">
+                                                            <p>Lorem Ipsum is simply dummy text of the <span class="warning">#TWITTER</span> and typesetting industry. A description list is perfect for defining terms.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-6 col-xl-4">
+                                <div class="card bg-success m-b-30">
+                                    <div class="card-body">
+                                        <div id="verticalCarousel" class="carousel slide vertical" data-ride="carousel">
+                                            <!-- Carousel items -->
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <div class="row d-flex justify-content-center text-center">
+                                                        <div class="col-sm-12 carousel-icon"><i class="fa fa-instagram text-white pt-3"></i></div>
+                                                        <div class="col-6 text-white">
+                                                            <h2>99.5k</h2>
+                                                            <p class="">Followers</p>
+                                                        </div>
+                                                        <div class="col-6 text-white">
+                                                            <h2>5.2k</h2>
+                                                            <p class="">Posts</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <div class="row d-flex justify-content-center">
+                                                        <div class="col-sm-12 carousel-icon text-center"><i class="fa fa-instagram text-white pt-3"></i></div>
+                                                        <div class="col-sm-10 mx-auto text-white text-center">
+                                                            <p>Lorem Ipsum is simply dummy text of the <span class="warning">#TWITTER</span> and typesetting industry. A description list is perfect for defining terms.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12 col-xl-8 align-self-center">
+                                <div class="card bg-white m-b-30">
+                                    <div class="card-body new-user">
+                                        <h5 class="header-title mb-4 mt-0">Competitors Profiles</h5>
+                                        <div class="table-responsive">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="border-top-0" style="width:60px;">Member</th>
+                                                        <th class="border-top-0">Username</th>
+                                                        <th class="border-top-0">Followers</th>
+                                                        <th class="border-top-0">Posts</th>
+                                                        <th class="border-top-0">Engagement</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><img class="rounded-circle" src="{{ url_for('static', filename='assets/images/users/avatar-2.jpg') }}" alt="user" width="40"></td>
+                                                        <td><a href="javascript:void(0);">@makeuplikesky</a></td>
+                                                        <td>452.3k</td>
+                                                        <td>4.5k</td>
+                                                        <td>44%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><img class="rounded-circle" src="{{ url_for('static', filename='assets/images/users/avatar-3.jpg') }}" alt="user" width="40"></td>
+                                                        <td><a href="javascript:void(0);">@kiisbeauty</a></td>
+                                                        <td>146.9k</td>
+                                                        <td>3.1k</td>
+                                                        <td>52%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><img class="rounded-circle" src="{{ url_for('static', filename='assets/images/users/avatar-4.jpg') }}" alt="user" width="40"></td>
+                                                        <td><a href="javascript:void(0);">@makeupbyfotot</a></td>
+                                                        <td>99.2k</td>
+                                                        <td>1.2k</td>
+                                                        <td>41%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><img class="rounded-circle" src="{{ url_for('static', filename='assets/images/users/avatar-5.jpg') }}" alt="user" width="40"></td>
+                                                        <td><a href="javascript:void(0);">@sephoramiddleeast</a></td>
+                                                        <td>41.2k</td>
+                                                        <td>1.6k</td>
+                                                        <td>23%</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><img class="rounded-circle" src="{{ url_for('static', filename='assets/images/users/avatar-6.jpg') }}" alt="user" width="40"></td>
+                                                        <td><a href="javascript:void(0);">@mademoisellellena</a></td>
+                                                        <td>21.4k</td>
+                                                        <td>1.6k</td>
+                                                        <td>12%</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 col-xl-4">
+                                <div class="card bg-white m-b-30">
+                                    <div class="card-body new-user">
+                                        <h5 class="header-title mt-0 mb-4">Trending Items</h5>
+                                        <ul class="list-unstyled mb-0 pr-3" id="boxscroll2" tabindex="1" style="overflow: hidden; outline: none;">
+                                            <li class="p-3">
+                                                <div class="media">
+                                                    <div class="thumb float-left">
+                                                        <a href="#"><img class="rounded-circle" src="{{ url_for('static', filename='assets/images/users/avatar-5.jpg') }}" alt=""></a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <p class="media-heading mb-0">Led Mirrors</p> <small class="text-muted">Newyork</small></div>
+                                                </div>
+                                            </li>
+                                            <li class="p-3">
+                                                <div class="media">
+                                                    <div class="thumb float-left">
+                                                        <a href="#"><img class="rounded-circle" src="{{ url_for('static', filename='assets/images/users/avatar-4.jpg') }}" alt=""></a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <p class="media-heading mb-0">Video Doorbells </p> <small class="text-muted">California</small></div>
+                                                </div>
+                                            </li>
+                                            <li class="p-3">
+                                                <div class="media">
+                                                    <div class="thumb float-left">
+                                                        <a href="#"><img class="rounded-circle" src="{{ url_for('static', filename='assets/images/users/avatar-3.jpg') }}" alt=""></a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <p class="media-heading mb-0">Led Ring Lights</p> <small class="text-muted">India</small></div>
+                                                </div>
+                                            </li>
+                                            <li class="p-3">
+                                                <div class="media">
+                                                    <div class="thumb float-left">
+                                                        <a href="#"><img class="rounded-circle" src="{{ url_for('static', filename='assets/images/users/avatar-2.jpg') }}" alt=""></a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <p class="media-heading mb-0">Elastic Waist Belt </p> <small class="text-muted">Australia</small></div>
+                                                </div>
+                                            </li>
+                                            <li class="p-3">
+                                                <div class="media">
+                                                    <div class="thumb float-left">
+                                                        <a href="#"><img class="rounded-circle" src="{{ url_for('static', filename='assets/images/users/avatar-1.jpg') }}" alt=""></a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <p class="media-heading mb-0">Men's Watches </p> <small class="text-muted">New Zealand</small></div>
+                                                </div>
+                                            </li>
+                                           
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- container -->
+                </div>
+                <!-- Page content Wrapper -->
+            </div>
+            <!-- content -->
+            <footer class="footer">© 2019 ADI - Agrregate Digital Innovation.</footer>
+        </div>
+        <!-- End Right content here -->
+    </div>
+    <!-- END wrapper -->
+    <!-- jQuery  -->
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/modernizr.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/detect.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/fastclick.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.slimscroll.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.blockUI.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/waves.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.nicescroll.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.scrollTo.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/skycons/skycons.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/raphael/raphael-min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/morris/morris.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/pages/dashborad.js') }}"></script>
+    <!-- App js -->
+    <script src="{{ url_for('static', filename='assets/js/app.js') }}"></script>
+    <script>
+        /* BEGIN SVG WEATHER ICON */
+        if (typeof Skycons !== 'undefined') {
+            var icons = new Skycons({
+                    "color": "#fff"
+                }, {
+                    "resizeClear": true
+                }),
+                list = [
+                    "clear-day", "clear-night", "partly-cloudy-day",
+                    "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+                    "fog"
+                ],
+                i;
+
+            for (i = list.length; i--;)
+                icons.set(list[i], list[i]);
+            icons.play();
+        };
+
+        // scroll
+
+        $(document).ready(function() {
+
+            $("#boxscroll").niceScroll({
+                cursorborder: "",
+                cursorcolor: "#cecece",
+                boxzoom: true
+            });
+            $("#boxscroll2").niceScroll({
+                cursorborder: "",
+                cursorcolor: "#cecece",
+                boxzoom: true
+            });
+
+        });
+    </script>
+</body>
+
+</html>

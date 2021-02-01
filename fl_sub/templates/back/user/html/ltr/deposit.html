@@ -1,0 +1,109 @@
+{% extends 'back/user/html/ltr/base.html' %}
+{% block title %}
+User Wallet | SIP India
+{% endblock %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">User Wallet</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">User Wallet</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">User deposit wallet</h5>
+                        <p>You can deposit into your wallet from this page.</p>
+                        <p>Once you have made a deposit, you can start investing.</p>
+                        <button type="button" class="btn btn-info btn-lgm">Invest Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- My Deposits Error Message  (ends) -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Deposit Bitcoin</h4>
+                        <div class="row">
+                            <div class="col-lg-8 col-xs-6">
+                                <input type="text" class="form-control" id="myInput" value="1MZJHQCD5oMfmhB6Mc99qjPu18D1Co9j8b">
+                            </div>
+                            <br><br><br>
+                            <div class="col-lg-4 col-xs-6">
+                                <button type="button" class="btn btn-success" onclick="myFunction()" onmouseout="outFunc()"><span class="tooltiptext" id="myTooltip">Copy to clipboard</span></button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="https://www.bitcoinqrcodemaker.com/api/?style=bitcoin&amp;address=1AdhRn83STcarMPgCSMWf4h97Hd7unXydU" height="300" width="300" border="0" alt="Bitcoin QR Code">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Deposit Ethereum</h4>
+                        <div class="row">
+                            <div class="col-lg-8 col-xs-6">
+                                <input type="text" class="form-control" id="myInput2" value="0x7c42ab2155a2ed0d922a9e0bd7136cfe650b7551">
+                            </div>
+                            <br><br><br>
+                            <div class="col-lg-4 col-xs-6">
+                                <button type="button" class="btn btn-success" onclick="myFunction2()" onmouseout="outFunc2()"><span class="tooltiptext" id="myTooltip2">Copy to clipboard</span></button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="https://www.bitcoinqrcodemaker.com/api/?style=ethereum&amp;address=0x7c42ab2155a2ed0d922a9e0bd7136cfe650b7551" height="300" width="300" border="0" alt="Bitcoin QR Code">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer text-center">
+        Copyright &copy; 2020 SIP INDIA All rights reserved.
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+{% endblock %}

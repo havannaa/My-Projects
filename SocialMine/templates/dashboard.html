@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
+    <title>SocialMine.net - Data Analytics Dashboard</title>
+    <meta content="Admin Dashboard" name="description">
+    <meta content="Mannatthemes" name="author">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/favicon.ico') }}">
+    <link href="{{ url_for('static', filename='assets/plugins/morris/morris.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='assets/css/icons.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet" type="text/css">
+</head>
+
+<body class="fixed-left">
+
+    <!-- Begin page -->
+    <div id="wrapper">
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left side-menu">
+            <button type="button" class="button-menu-mobile button-menu-mobile-topbar open-left waves-effect"><i class="ion-close"></i></button>
+            <!-- LOGO -->
+            <div class="topbar-left">
+                <div class="text-center"><a href="https://socialmine.net/" target="self" class="logo"><img src="https://i.ibb.co/fY847jv/adi-logo.png"/></a>
+                    </div>
+            </div>
+            <div class="sidebar-inner slimscrollleft">
+                <div id="sidebar-menu">
+                    <ul>
+                        <li class="menu-title">Main</li>
+                        <li><a href="https://socialmine.net/dashboard" class="waves-effect"><i class="mdi mdi-airplay"></i> <span>Dashboard </a></li>
+                        <li class="menu-title">Facebook</li>
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-facebook"></i> <span>Facebook Analytics </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/fb_follower_growth">Follower Growth</a></li>
+                                <li><a href="https://socialmine.net/fb_competitor_growth">Competitor Growth</a></li>
+                                <li><a href="https://socialmine.net/fb_content_engagement">Content Engagement</a></li>
+                                <li><a href="https://socialmine.net/fb_generate_report">Generate Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-title">Twitter</li>
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-twitter"></i> <span>Twitter Analytics </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/tw_follower_growth">Follower Growth</a></li>
+                                <li><a href="https://socialmine.net/tw_competitor_growth">Competitor Growth</a></li>
+                                <li><a href="https://socialmine.net/tw_content_engagement">Content Engagement</a></li>
+                                <li><a href="https://socialmine.net/tw_hashtag_analysis">Hashtag Analysis</a></li>
+                                <li><a href="https://socialmine.net/tw_generate_report">Generate Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-title">Instagram</li>
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-instagram"></i> <span>Instagram Analytics </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/insta_follower_growth">Follower Growth</a></li>
+                                <li><a href="https://socialmine.net/insta_competitor_growth">Competitor Growth</a></li>
+                                <li><a href="https://socialmine.net/insta_content_engagement">Content Engagement</a></li>
+                                <li><a href="https://socialmine.net/insta_hashtag_analysis">Hashtag Analysis</a></li>
+                                <li><a href="https://socialmine.net/insta_generate_report">Generate Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-title">YouTube</li>
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-youtube-play"></i> <span>YouTube Analytics </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/tube_competitor_growth">Competitor Growth</a></li>
+                                <li><a href="https://socialmine.net/tube_content_engagement">Content Engagement</a></li>
+                                <li><a href="https://socialmine.net/tube_generate_report">Generate Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-title">Manage Profiles</li>
+                        {% if not(total_input == 25 or total_input == 100) %}
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-library-plus"></i> <span>Social Profiles </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/social_fb">Facebook</a></li>
+                                <li><a href="https://socialmine.net/social_tw">Twitter</a></li>
+                                <li><a href="https://socialmine.net/social_insta">Instagram</a></li>
+                                <li><a href="https://socialmine.net/social_tube">YouTube</a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                        {% if total_input == 25 %}
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-library-plus"></i> <span>Social Profiles (Standard) </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/social_fb_standard">Facebook</a></li>
+                                <li><a href="https://socialmine.net/social_tw_standard">Twitter</a></li>
+                                <li><a href="https://socialmine.net/social_insta_standard">Instagram</a></li>
+                                <li><a href="https://socialmine.net/social_tube_standard">YouTube</a></li>
+                            </ul>
+                        </li>
+                        {% elif total_input == 100 %}
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-library-plus"></i> <span>Social Profiles (Professional) </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/social_fb_professional">Facebook</a></li>
+                                <li><a href="https://socialmine.net/social_tw_professional">Twitter</a></li>
+                                <li><a href="https://socialmine.net/social_insta_professional">Instagram</a></li>
+                                <li><a href="https://socialmine.net/social_tube_professional">YouTube</a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <!-- end sidebarinner -->
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- Start right Content here -->
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+                <!-- Top Bar Start -->
+                <div class="topbar">
+                    <nav class="navbar-custom">
+                        <ul class="list-inline float-right mb-0">
+                            <!-- language-->
+                            <li class="list-inline-item dropdown notification-list hide-phone"><a class="nav-link dropdown-toggle arrow-none waves-effect text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">English <img src="{{ url_for('static', filename='assets/images/flags/us_flag.jpg') }}" class="ml-2" height="16" alt=""></a>
+                                <div class="dropdown-menu dropdown-menu-right language-switch">
+                                    <a class="dropdown-item" href="#"><img src="{{ url_for('static', filename='assets/images/flags/italy_flag.jpg') }}" alt="" height="16"><span>Italian </span></a>
+                                    <a class="dropdown-item" href="#"><img src="{{ url_for('static', filename='assets/images/flags/french_flag.jpg') }}" alt="" height="16"><span>French </span></a>
+                                    <a class="dropdown-item" href="#"><img src="{{ url_for('static', filename='assets/images/flags/spain_flag.jpg') }}" alt="" height="16"><span>Spanish </span></a>
+                                    <a class="dropdown-item" href="#"><img src="{{ url_for('static', filename='assets/images/flags/russia_flag.jpg') }}" alt="" height="16"><span>Russian</span></a>
+                                </div>
+                            </li>
+
+                            <li class="list-inline-item dropdown notification-list"><a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"><i class="ti-bell noti-icon"></i> <span class="badge badge-success noti-icon-badge">5</span></a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg">
+                                    <!-- item-->
+                                    <div class="dropdown-item noti-title">
+                                        <h5><span class="badge badge-danger float-right">5</span>Notification</h5></div>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+										<div class="notify-icon bg-primary"><i class="mdi mdi-cart-outline"></i></div>
+                                        <p class="notify-details"><small class="text-muted">{{user_stats[2]}}</small></p>
+                                    </a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+										<div class="notify-icon bg-primary"><i class="mdi mdi-facebook"></i></div>
+                                        <p class="notify-details"><small class="text-muted">{{notif[0]}}</small></p>
+                                    </a>
+									{% if notif != None %}
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+										<div class="notify-icon bg-primary"><i class="mdi mdi-twitter"></i></div>
+                                        <p class="notify-details"><small class="text-muted">{{notif[1]}}</small></p>
+                                    </a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+										<div class="notify-icon bg-primary"><i class="mdi mdi-instagram"></i></div>
+                                        <p class="notify-details"><small class="text-muted">{{notif[2]}}</small></p>
+                                    </a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+										<div class="notify-icon bg-primary"><i class="mdi mdi-youtube-play"></i></div>
+                                        <p class="notify-details"><small class="text-muted">{{notif[3]}}</small></p>
+                                    </a>
+									{% endif %}
+                                    <!-- All--></div>
+                            </li>
+                            <li class="list-inline-item dropdown notification-list">
+                                <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+								
+								{% if image_uploaded_before == False %}
+								<img src="{{ url_for('static', filename='assets/images/users/avatar-6.jpg') }}" alt="user" class="rounded-circle">
+								{% else %}
+								<img src="{{ url_for('static', filename=uploaded_image) }}" alt="user" class="rounded-circle">
+								{% endif %}
+								</a>
+                                <div class="dropdown-menu dropdown-menu-right profile-dropdown">
+                                    <!-- item-->
+                                    <div class="dropdown-item noti-title">
+                                        <h5>Welcome</h5></div> <a class="dropdown-item" href="https://socialmine.net/#pricing"><i class="mdi mdi-wallet m-r-5 text-muted"></i> Subscription</a> <a class="dropdown-item" href="https://socialmine.net/social_fb"><span class="badge badge-success float-right"></span><i class="mdi mdi-settings m-r-5 text-muted"></i> Settings</a> 
+                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="https://socialmine.net/logout/"><i class="mdi mdi-logout m-r-5 text-muted"></i> Logout</a></div>
+                            </li>
+                        </ul>
+                        <ul class="list-inline menu-left mb-0">
+                            <li class="float-left">
+                                <button class="button-menu-mobile open-left waves-light waves-effect"><i class="mdi mdi-menu"></i></button>
+                            </li>
+
+                        </ul>
+                        <div class="clearfix"></div>
+                    </nav>
+                </div>
+                <!-- Top Bar End -->
+                <div class="page-content-wrapper">
+<div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="page-title-box">
+                                    <div class="btn-group float-right">
+                                        <ol class="breadcrumb hide-phone p-0 m-0">
+                                            <li class="breadcrumb-item"><a href="#">ADI</a></li>
+                                            <li class="breadcrumb-item active">Dashboard</li>
+                                        </ol>
+                                    </div>
+                                    <h4 class="page-title">Dashboard</h4></div>
+                            </div>
+                        </div>
+                        <!-- end page title end breadcrumb -->
+                        <div class="row">
+                            <!-- Column -->
+                            <div class="col-md-6 col-lg-6 col-xl-3">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-row">
+                                            <div class="col-3 align-self-center">
+                                                <div class="round"><i class="mdi mdi-facebook"></i></div>
+                                            </div>
+                                            <div class="col-9 align-self-center text-center">
+                                                <div class="m-l-10">
+                                                    <h5 class="mt-0 round-inner">{{self_stats[0]}}</h5>
+                                                    <p class="mb-0 text-muted">Followers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Column -->
+                            <!-- Column -->
+                            <div class="col-md-6 col-lg-6 col-xl-3">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-row">
+                                            <div class="col-3 align-self-center">
+                                                <div class="round"><i class="mdi mdi-twitter"></i></div>
+                                            </div>
+                                            <div class="col-9 align-self-center text-center">
+                                                <div class="m-l-10">
+                                                    <h5 class="mt-0 round-inner">{{self_stats[1]}}</h5>
+                                                    <p class="mb-0 text-muted">Followers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Column -->
+                            <!-- Column -->
+                            <div class="col-md-6 col-lg-6 col-xl-3">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-row">
+                                            <div class="col-3 align-self-center">
+                                                <div class="round"><i class="mdi mdi-instagram"></i></div>
+                                            </div>
+                                            <div class="col-9 align-self-center text-center">
+                                                <div class="m-l-10">
+                                                    <h5 class="mt-0 round-inner">{{self_stats[2]}}</h5>
+                                                    <p class="mb-0 text-muted">Followers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Column -->
+                            <div class="col-md-6 col-lg-6 col-xl-3">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-row">
+                                            <div class="col-3 align-self-center">
+                                                <div class="round"><i class="mdi mdi-youtube-play"></i></div>
+                                            </div>
+                                            <div class="col-9 align-self-center text-center">
+                                                <div class="m-l-10">
+                                                    <h5 class="mt-0 round-inner">{{owner_profile[14]}}</h5>
+                                                    <p class="mb-0 text-muted">Followers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Column -->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12 col-xl-12">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <h5 class="header-title pb-3 mt-0">User Statistics</h5>
+										<p><b>Email:</b> {{user_stats[0]}}</p>
+										<p><b>Subscription Type:</b> {{user_stats[1]}}</p>
+										<p><b>Subscription Duration: </b> {{user_stats[2]}}</p>
+										<p><b>Upgrade Subscription:</b> <a href="https://socialmine.net/#pricing" target="_blank">Buy Now</a></p>
+										<p><b>Upload Avatar Below </b>
+										<form action="https://socialmine.net/uploadpics/" method="post" enctype="multipart/form-data"> 
+										<input type="file" name="file" />  
+										<input type="hidden" name="uid" value="{{uid}}" />
+										<input type = "submit" value="Upload"> </form> </p>
+
+                                    </div>
+                                </div>
+                            </div>
+							<!--
+                            <div class="col-md-12 col-lg-12 col-xl-4">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <h5 class="header-title mt-0 pb-3">Followers by Media</h5>
+                                    </div>
+                                </div>
+                            </div>
+							-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12 col-xl-8">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <h5 class="header-title pb-3 mt-0">Overview</h5>
+                                        <div id="multi-line-chart" style="height:400px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 col-xl-4">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <h5 class="header-title mt-0 pb-3">Followers by Media</h5>
+                                        <ul class="list-unstyled list-inline text-center">
+                                            <li class="list-inline-item">
+                                                <p><i class="mdi mdi-checkbox-blank-circle text-primary mr-2"></i>Facebook</p>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <p><i class="mdi mdi-checkbox-blank-circle text-info mr-2"></i>Twitter</p>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <p><i class="mdi mdi-checkbox-blank-circle text-greylight mr-2"></i>Instagram</p>
+                                            </li>
+                                        </ul>
+                                        <div id="morris-donut-chart" style="height:345px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6 col-xl-4">
+                                <div class="card bg-info m-b-30">
+                                    <div class="card-body">
+                                        <div id="verticalCarousel" class="carousel slide vertical" data-ride="carousel">
+                                            <!-- Carousel items -->
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <div class="row d-flex justify-content-center text-center">
+                                                        <div class="col-sm-12 carousel-icon"><i class="fa fa-facebook text-white pt-3"></i></div>
+                                                        <div class="col-6 text-white">
+                                                            <h2>{{self_stats[0]}}</h2>
+                                                            <p class="">Followers</p>
+                                                        </div>
+                                                        <div class="col-6 text-white">
+                                                            <h2>{{owner_profile[2]}}</h2>
+                                                            <p class="">Posts</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="morris-area-chart" style="height: 310px; display:none;"></div>
+                            <div class="col-md-12 col-lg-6 col-xl-4">
+                                <div class="card bg-info m-b-30">
+                                    <div class="card-body">
+                                        <div id="verticalCarousel" class="carousel slide vertical" data-ride="carousel">
+                                            <!-- Carousel items -->
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <div class="row d-flex justify-content-center text-center">
+                                                        <div class="col-sm-12 carousel-icon"><i class="fa fa-twitter text-white pt-3"></i></div>
+                                                        <div class="col-6 text-white">
+                                                            <h2>{{self_stats[1]}}</h2>
+                                                            <p class="">Followers</p>
+                                                        </div>
+                                                        <div class="col-6 text-white">
+                                                            <h2>{{owner_profile[6]}}</h2>
+                                                            <p class="">Tweets</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-6 col-xl-4">
+                                <div class="card bg-success m-b-30">
+                                    <div class="card-body">
+                                        <div id="verticalCarousel" class="carousel slide vertical" data-ride="carousel">
+                                            <!-- Carousel items -->
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <div class="row d-flex justify-content-center text-center">
+                                                        <div class="col-sm-12 carousel-icon"><i class="fa fa-instagram text-white pt-3"></i></div>
+                                                        <div class="col-6 text-white">
+                                                            <h2>{{self_stats[2]}}</h2>
+                                                            <p class="">Followers</p>
+                                                        </div>
+                                                        <div class="col-6 text-white">
+                                                            <h2>{{owner_profile[10]}}</h2>
+                                                            <p class="">Posts</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12 col-xl-8 align-self-center">
+                                <div class="card bg-white m-b-30">
+                                    <div class="card-body new-user">
+                                        <h5 class="header-title mb-4 mt-0">Owner Profiles</h5>
+                                        <div class="table-responsive">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="border-top-0">Social Media</th>
+                                                        <th class="border-top-0">Username</th>
+                                                        <th class="border-top-0">Followers</th>
+                                                        <th class="border-top-0">Posts</th>
+                                                        <th class="border-top-0">Engagement</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Facebook</td>
+                                                        <td><a href="javascript:void(0);">{{owner_profile[0]}}</a></td>
+                                                        <td>{{owner_profile[1]}}</td>
+                                                        <td>{{owner_profile[2]}}</td>
+                                                        <td>{{owner_profile[3]}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Twitter</td>
+                                                        <td><a href="javascript:void(0);">{{owner_profile[4]}}</a></td>
+                                                        <td>{{owner_profile[5]}}</td>
+                                                        <td>{{owner_profile[6]}}</td>
+                                                        <td>{{owner_profile[7]}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Instagram</td>
+                                                        <td><a href="javascript:void(0);">{{owner_profile[8]}}</a></td>
+                                                        <td>{{owner_profile[9]}}</td>
+                                                        <td>{{owner_profile[10]}}</td>
+                                                        <td>{{owner_profile[11]}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>YouTube</td>
+                                                        <td><a href="javascript:void(0);">{{owner_profile[12]}}</a></td>
+                                                        <td>{{owner_profile[14]}}</td>
+                                                        <td>{{owner_profile[13]}}</td>
+                                                        <td>{{owner_profile[15]}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+							<!--
+                            <div class="col-md-12 col-lg-12 col-xl-4">
+                                <div class="card bg-white m-b-30">
+                                    <div class="card-body new-user">
+                                        <h5 class="header-title mt-0 mb-4">Trending Items</h5>
+                                        <ul class="list-unstyled mb-0 pr-3" id="boxscroll2" tabindex="1" style="overflow: hidden; outline: none;">
+                                            <li class="p-3">
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <a href="https://www.amazon.com/s/ref=nb_sb_ss_i_4_11?url=search-alias%3Daps&field-keywords=led+mirrors&sprefix=Led+Mirrors%2Caps%2C793&crid=3IT6UF0W9JK2G" target="_blank"><p class="media-heading mb-0">Led Mirrors</p> <small class="text-muted">Newyork</small></a></div>
+                                                </div>
+                                            </li>
+                                            <li class="p-3">
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <a href="https://www.amazon.com/s?k=video+doorbells&crid=IIW1S05JUQYQ&sprefix=Video+Doorbells%2Caps%2C519&ref=nb_sb_ss_i_1_15" target="_blank"><p class="media-heading mb-0">Video Doorbells </p> <small class="text-muted">California</small></a></div>
+                                                </div>
+                                            </li>
+                                            <li class="p-3">
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <a href="https://www.amazon.com/s?k=led+ring+lights&crid=240Z6XVWSK9JZ&sprefix=Led+Ring+Lights%2Caps%2C459&ref=nb_sb_ss_i_1_15" target="_blank"><p class="media-heading mb-0">Led Ring Lights</p> <small class="text-muted">India</small></a></div>
+                                                </div>
+                                            </li>
+                                            <li class="p-3">
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <a href="https://www.amazon.com/s?k=elastic+waist+belt&crid=2V9X39KPRHEE5&sprefix=Elastic+Waist+Belt%2Caps%2C455&ref=nb_sb_ss_i_1_18" target="_blank"><p class="media-heading mb-0">Elastic Waist Belt </p> <small class="text-muted">Australia</small></a></div>
+                                                </div>
+                                            </li>
+                                            <li class="p-3">
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <a href="https://www.amazon.com/s?k=men%27s+watches&crid=1I1BFHUOTCFET&sprefix=Men%27s+Watches%2Caps%2C655&ref=nb_sb_ss_i_1_13" target="_blank"><p class="media-heading mb-0">Men's Watches </p> <small class="text-muted">New Zealand</small></a></div>
+                                                </div>
+                                            </li>
+                                           
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+							-->
+                        </div>
+                    </div>
+                    <!-- container -->
+                </div>
+                <!-- Page content Wrapper -->
+            </div>
+            <!-- content -->
+            <footer class="footer">© 2019 ADI - Aggregate Digital Innovation.</footer>
+        </div>
+        <!-- End Right content here -->
+    </div>
+    <!-- END wrapper -->
+    <!-- jQuery  -->
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/modernizr.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/detect.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/fastclick.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.slimscroll.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.blockUI.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/waves.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.nicescroll.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.scrollTo.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/skycons/skycons.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/raphael/raphael-min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/morris/morris.min.js') }}"></script>
+    <script type="text/javascript">
+	!function(e) {
+		"use strict";
+		var a=function() {}
+		;
+		a.prototype.createLineChart=function(e, a, r, t, i, o) {
+			Morris.Line( {
+				element: e, data: a, xkey: r, ykeys: t, labels: i, hideHover: "auto", gridLineColor: "#eef0f2", resize: !0, lineColors: o
+			}
+			)
+		}
+		,
+		a.prototype.createAreaChart=function(e, a, r, t, i, o, n, c) {
+			Morris.Area( {
+				element: e, pointSize: 3, lineWidth: 2, data: t, xkey: i, ykeys: o, labels: n, resize: !0, hideHover: "auto", gridLineColor: "#eef0f2", lineColors: c, lineWidth: 0, fillOpacity: .1, xLabelMargin: 10, yLabelMargin: 10, grid: !1, axes: !1, pointSize: 0
+			}
+			)
+		}
+		,
+		a.prototype.createDonutChart=function(e, a, r) {
+			Morris.Donut( {
+				element: e, data: a, resize: !0, colors: r
+			}
+			)
+		}
+		,
+		a.prototype.init=function() {
+			this.createLineChart("multi-line-chart", [ {
+				y: "{{last_five[0]}}", a: {{growth[0]}}, b: {{growth[5]}}, c: {{growth[10]}}
+			}
+			, {
+				y: "{{last_five[1]}}", a: {{growth[1]}}, b: {{growth[6]}}, c: {{growth[10]}}
+			}
+			, {
+				y: "{{last_five[2]}}", a: {{growth[2]}}, b: {{growth[7]}}, c: {{growth[12]}}
+			}
+			, {
+				y: "{{last_five[3]}}", a: {{growth[3]}}, b: {{growth[8]}}, c: {{growth[13]}}
+			}
+			, {
+				y: "{{last_five[4]}}", a: {{growth[4]}}, b: {{growth[9]}}, c: {{growth[14]}}
+			}
+			], "y", ["a", "b", "c"], ["Facebook", "Twitter", "Instagram"], ["#007BFF", "#00bcd2", "#e785da"]);
+			this.createAreaChart("morris-area-chart", 0, 0, [ {
+				y: "2011", a: 10, b: 15
+			}
+			, {
+				y: "2012", a: 30, b: 35
+			}
+			, {
+				y: "2013", a: 10, b: 25
+			}
+			, {
+				y: "2014", a: 55, b: 45
+			}
+			, {
+				y: "2015", a: 30, b: 20
+			}
+			, {
+				y: "2016", a: 40, b: 35
+			}
+			, {
+				y: "2017", a: 10, b: 25
+			}
+			, {
+				y: "2018", a: 25, b: 30
+			}
+			], "y", ["a", "b"], ["Series A", "Series B"], ["#00c292", "#03a9f3"]);
+			this.createDonutChart("morris-donut-chart", [ {
+				label: "Facebook", value: {{foll_media[0]}}
+			}
+			, {
+				label: "Twitter", value: {{foll_media[1]}}
+			}
+			, {
+				label: "Instagram", value: {{foll_media[2]}}
+			}
+			], ["#40a4f1", "#5b6be8", "#c1c5e2"])
+		}
+		,
+		e.Dashboard=new a,
+		e.Dashboard.Constructor=a
+	}
+
+	(window.jQuery),
+	function(e) {
+		"use strict";
+		window.jQuery.Dashboard.init()
+	}
+
+	();
+	</script>
+    <!-- App js -->
+    <script src="{{ url_for('static', filename='assets/js/app.js') }}"></script>
+    <script>
+        /* BEGIN SVG WEATHER ICON */
+        if (typeof Skycons !== 'undefined') {
+            var icons = new Skycons({
+                    "color": "#fff"
+                }, {
+                    "resizeClear": true
+                }),
+                list = [
+                    "clear-day", "clear-night", "partly-cloudy-day",
+                    "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+                    "fog"
+                ],
+                i;
+
+            for (i = list.length; i--;)
+                icons.set(list[i], list[i]);
+            icons.play();
+        };
+
+        // scroll
+
+        $(document).ready(function() {
+
+            $("#boxscroll").niceScroll({
+                cursorborder: "",
+                cursorcolor: "#cecece",
+                boxzoom: true
+            });
+            $("#boxscroll2").niceScroll({
+                cursorborder: "",
+                cursorcolor: "#cecece",
+                boxzoom: true
+            });
+
+        });
+    </script>
+</body>
+
+</html>

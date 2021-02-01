@@ -1,0 +1,1036 @@
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>SocialMine - Trending Products</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='shop/assets/img/favicon.png') }}">
+		
+		<!-- all css here -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='shop/assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='shop/assets/css/bundle.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='shop/assets/css/plugins.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='shop/assets/css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='shop/assets/css/responsive.css') }}">
+        <script src="{{ url_for('static', filename='shop/assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+    </head>
+    <body>
+            <!-- Add your site or application content here -->
+            
+            
+            <!--header area start-->
+            <header class="header_area">
+                <!--header top start-->
+                <div class="header_top">
+                    <div class="container">   
+                        <div class="row align-items-center">
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="welcome_text">
+                                    <p>America's Fastest Online Shopping Destination</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="top_right text-right">
+                                    <ul>
+                                       <li class="top_links"><a href="https://adinnovation.org">ADI Innovation</a>
+                                        </li> 
+                                        <li class="currency"><a href="#">USD</a>
+                                        </li>
+                                        <li class="language"><a href="#"><img src="{{ url_for('static', filename='assets/img/logo/language.png') }}" alt=""> English</a>
+                                        </li>
+                                    </ul>
+                                </div>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--header top start-->
+                
+                <!--header middel start-->
+                <div class="header_middel">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-3 col-md-4">
+                                <div class="logo">
+                                    <a href="https://socialmine.net/shop"><img src="{{ url_for('static', filename='shop/assets/img/logo/logo.png') }}" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-md-5">
+                                <div class="search_bar">
+                                    <form action="https://socialmine.net/shop_search" method="get">
+                                        <input placeholder="Search trending products here..." type="text" name="trending_product">
+                                        <button type="submit"><i class="ion-ios-search-strong"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--header middel end-->
+                
+                <!--header bottom satrt-->
+                <div class="header_bottom sticky-header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-5">
+                                <div class="categories_menu">
+                                    <div class="categories_title">
+                                        <h2 class="categori_toggle"> All categories</h2>
+                                    </div>
+                                    <div class="categories_menu_inner">
+                                        <ul>
+                                            <li class="categorie_list"><a href="https://socialmine.net/shop_search?trending_product=Laptop+Computer">Laptop & Computer <i class="fa fa-angle-right"></i></a>
+                                                <ul class="categories_mega_menu">
+                                                    <li><a href="https://socialmine.net/shop_search?trending_product=Headphoness">Headphoness</a>
+                                                        <div class="categorie_sub_menu">
+                                                            <ul>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Dell+Laptops">Dell Laptops</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=HP+Laptops">HP Laptops</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Lenovo+Laptops">Lenovo Laptops</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Apple+Laptops">Apple Laptops</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li><a href="https://socialmine.net/shop_search?trending_product=Laptop+Computers">Laptop & Computers</a>
+                                                        <div class="categorie_sub_menu">
+                                                            <ul>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Digital+Cameras">Digital Cameras</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Camcorders">Camcorders</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Photo+Accessories">Photo Accessories</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Memory+Cards">Memory Cards</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li><a href="https://socialmine.net/shop_search?trending_product=Camera+Photos">Camera & Photos</a>
+                                                        <div class="categorie_sub_menu">
+                                                            <ul>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Apple+Phones">Apple Phones</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Samsung+Phones">Samsung Phones</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Motorola+Phones">Motorola Phones</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Lenovo+Phones">Lenovo Phones</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li><img src="{{ url_for('static', filename='assets/img/categorie/categorie.png') }}" alt=""></li>
+                                                        
+                                                    
+
+                                                </ul>
+                                            </li>
+                                            <li><a href="https://socialmine.net/shop_search?trending_product=Fashion"> Fashion  <i class="fa fa-angle-right"></i></a>
+                                                <ul class="categories_mega_menu">
+                                                    <li><a href="https://socialmine.net/shop_search?trending_product=Dresses">Dresses</a>
+                                                        <div class="categorie_sub_menu">
+                                                            <ul>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Sweater">Sweater</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Evening">Evening</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Day">Day</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Sports">Sports</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li><a href="https://socialmine.net/shop_search?trending_product=Handbags">Handbags</a>
+                                                        <div class="categorie_sub_menu">
+                                                            <ul>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Shoulder">Shoulder</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Satchels">Satchels</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=kids">kids</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=coats">coats</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li><a href="https://socialmine.net/shop_search?trending_product=shoes">shoes</a>
+                                                        <div class="categorie_sub_menu">
+                                                            <ul>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Ankle+Boots">Ankle Boots</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Clog+sandals">Clog sandals </a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=run">run</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Books">Books</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li><a href="https://socialmine.net/shop_search?trending_product=Clothing">Clothing</a>
+                                                        <div class="categorie_sub_menu">
+                                                            <ul>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Coats+Jackets">Coats  Jackets </a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Raincoats">Raincoats</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Jackets">Jackets</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=T+shirts">T-shirts</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                            <li><a href="https://socialmine.net/shop_search?trending_product=Furnitured+Decor"> Furnitured & Decor <i class="fa fa-angle-right"></i></a>
+                                                <ul class="categories_mega_menu column_3">
+                                                    <li><a href="https://socialmine.net/shop_search?trending_product=Chair">Chair</a>
+                                                        <div class="categorie_sub_menu">
+                                                            <ul>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Dining+room">Dining room</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=bedroom">bedroom</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Home+Office"> Home & Office</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=living+room">living room</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li><a href="https://socialmine.net/shop_search?trending_product=Lighting">Lighting</a>
+                                                        <div class="categorie_sub_menu">
+                                                            <ul>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Ceiling+Lighting">Ceiling Lighting</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Wall+Lighting">Wall Lighting</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Outdoor+Lighting">Outdoor Lighting</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Smart+Lighting">Smart Lighting</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li><a href="https://socialmine.net/shop_search?trending_product=Sofa">Sofa</a>
+                                                        <div class="categorie_sub_menu">
+                                                            <ul>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Fabric+Sofas">Fabric Sofas</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Leather+Sofas">Leather Sofas</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Corner+Sofas">Corner Sofas</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Sofa+Beds">Sofa Beds</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="https://socialmine.net/shop_search?trending_product=Toys+Hobbies"> Toys & Hobbies <i class="fa fa-angle-right"></i></a>
+                                                <ul class="categories_mega_menu column_2">
+                                                    <li><a href="https://socialmine.net/shop_search?trending_product=Boys+Toys">Boys' Toys</a>
+                                                        <div class="categorie_sub_menu">
+                                                            <ul>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Building+Toys">Building Toys</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Electronics+Toys">Electronics Toys</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=action+figures">action figures </a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=specialty+boutique+toy">specialty & boutique toy</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li><a href="https://socialmine.net/shop_search?trending_product=Girls+Toys">Girls' Toys</a>
+                                                        <div class="categorie_sub_menu">
+                                                            <ul>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Dolls+for+Girls">Dolls for Girls</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Girls+Learning+Toys">Girls' Learning Toys</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Arts+and+Crafts+for+Girls">Arts and Crafts for Girls</a></li>
+                                                                <li><a href="https://socialmine.net/shop_search?trending_product=Video+Games+for+Girls">Video Games for Girls</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                            <li><a href="https://socialmine.net/shop_search?trending_product=Accessories"> Accessories</a></li>
+                                            <li><a href="https://socialmine.net/shop_search?trending_product=Jewelry+Watches"> Jewelry & Watches</a></li>
+                                            <li><a href="https://socialmine.net/shop_search?trending_product=Health+Beauty"> Health & Beauty</a></li>
+                                            <li><a href="https://socialmine.net/shop_search?trending_product=Books+Office">Books & Office</a></li>
+                                            <li><a href="https://socialmine.net/shop_search?trending_product=Sport+Outdoor"> Sport & Outdoor</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="main_menu_inner">
+                                    <div class="main_menu d-none d-lg-block"> 
+                                        <ul>
+                                            <li class="active"><a href="https://socialmine.net/shop">Home </a>
+                                            </li>
+                                            <li><a href="shop.html">shop</a>
+                                            </li>
+                                            <li><a href="blog.html">blog </a>
+
+                                            </li>
+                                            <li><a href="#">pages </a>
+                                            </li>
+                                            <li><a href="contact.html">Contact Us</a></li>
+                                        </ul>
+
+                                    </div>
+                                    <div class="mobile-menu d-lg-none">
+                                        <nav>  
+                                            <ul>
+                                            <li><a href="https://socialmine.net/shop">Home</a>
+                                            </li>
+                                            <li><a href="shop.html">shop</a>
+                                            </li>
+                                            <li><a href="blog.html">blog</a>
+                                            </li>
+                                            <li><a href="#">pages</a>
+                                            </li>
+                                            <li><a href="contact.html">Contact Us</a></li>
+                                        </ul>
+                                        </nav>      
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="contact_phone">
+                                    <div class="contact_icone">
+                                        <span class="pe-7s-headphones"></span>
+                                    </div>
+                                    <div class="contact_number">
+                                        <p>Call Us:</p>
+                                        <span>(999) 1234 56789</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--header bottom end-->
+            </header>
+            <!--header area end-->
+            
+            
+            
+            <!--breadcrumbs area start-->
+            <div class="breadcrumbs_area">
+                <div class="container">   
+                    <div class="breadcrumbs_inner">  
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="breadcrumb_content">
+                                    <h3>shop</h3>
+                                    <ul>
+                                        <li><a href="https://socialmine.net/shop">home</a></li>
+                                        <li><i class="fa fa-angle-right"></i></li>
+                                        <li>shop</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>         
+            </div>
+            <!--breadcrumbs area end-->
+            
+            <!--shop wrapper start-->
+            <div class="shop_wrapper shop_fullwidth">
+                <div class="container">
+                     <!--shop toolbar start-->
+                    <div class="row">
+                        <div class="col-12">
+                        </div>
+                    </div>        
+                    <!--shop toolbar end-->
+                            
+                     <!--shop tab product-->
+                    <div class="shop_tab_product">   
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="large" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="single_product"> 
+                                            <div class="product_thumb">
+                                                 <a href="{{product_link[0]}}" target="_blank"><img src="{{product_image[0]}}" alt=""></a>
+                                            </div> 
+                                            <div class="product_content">
+                                                <h3><a href="{{product_link[0]}}" target="_blank">{{product_title[0]}}</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">{{product_price[0]}}</span>
+                                                </div>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="single_product"> 
+                                            <div class="product_thumb">
+                                                 <a href="{{product_link[1]}}" target="_blank"><img src="{{product_image[1]}}" alt=""></a>
+                                            </div> 
+                                            <div class="product_content">
+                                                <h3><a href="{{product_link[1]}}" target="_blank">{{product_title[1]}}</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">{{product_price[1]}}</span>
+                                                </div>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="single_product"> 
+                                            <div class="product_thumb">
+                                                 <a href="{{product_link[2]}}" target="_blank"><img src="{{product_image[2]}}" alt=""></a>
+                                            </div> 
+                                            <div class="product_content">
+                                                <h3><a href="{{product_link[2]}}" target="_blank">{{product_title[2]}}</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">{{product_price[2]}}</span>
+                                                </div>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="single_product"> 
+                                            <div class="product_thumb">
+                                                 <a href="{{product_link[3]}}" target="_blank"><img src="{{product_image[3]}}" alt=""></a>
+                                            </div> 
+                                            <div class="product_content">
+                                                <h3><a href="{{product_link[3]}}" target="_blank">{{product_title[3]}}</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">{{product_price[3]}}</span>
+                                                </div>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="single_product"> 
+                                            <div class="product_thumb">
+                                                 <a href="{{product_link[4]}}" target="_blank"><img src="{{product_image[4]}}" alt=""></a>
+                                            </div> 
+                                            <div class="product_content">
+                                                <h3><a href="{{product_link[4]}}" target="_blank">{{product_title[4]}}</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">{{product_price[4]}}</span>
+                                                </div>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="single_product"> 
+                                            <div class="product_thumb">
+                                                 <a href="{{product_link[5]}}" target="_blank"><img src="{{product_image[5]}}" alt=""></a>
+                                            </div> 
+                                            <div class="product_content">
+                                                <h3><a href="{{product_link[5]}}" target="_blank">{{product_title[5]}}</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">{{product_price[5]}}</span>
+                                                </div>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="single_product"> 
+                                            <div class="product_thumb">
+                                                 <a href="{{product_link[6]}}" target="_blank"><img src="{{product_image[6]}}" alt=""></a>
+                                            </div> 
+                                            <div class="product_content">
+                                                <h3><a href="{{product_link[6]}}" target="_blank">{{product_title[6]}}</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">{{product_price[6]}}</span>
+                                                </div>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="single_product"> 
+                                            <div class="product_thumb">
+                                                 <a href="{{product_link[7]}}" target="_blank"><img src="{{product_image[7]}}" alt=""></a>
+                                            </div> 
+                                            <div class="product_content">
+                                                <h3><a href="{{product_link[7]}}" target="_blank">{{product_title[7]}}</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">{{product_price[7]}}</span>
+                                                </div>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="single_product"> 
+                                            <div class="product_thumb">
+                                                 <a href="{{product_link[8]}}" target="_blank"><img src="{{product_image[8]}}" alt=""></a>
+                                            </div> 
+                                            <div class="product_content">
+                                                <h3><a href="{{product_link[8]}}" target="_blank">{{product_title[8]}}</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">{{product_price[8]}}</span>
+                                                </div>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="single_product"> 
+                                            <div class="product_thumb">
+                                                 <a href="{{product_link[9]}}" target="_blank"><img src="{{product_image[9]}}" alt=""></a>
+                                            </div> 
+                                            <div class="product_content">
+                                                <h3><a href="{{product_link[9]}}" target="_blank">{{product_title[9]}}</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">{{product_price[9]}}</span>
+                                                </div>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="single_product"> 
+                                            <div class="product_thumb">
+                                                 <a href="{{product_link[10]}}" target="_blank"><img src="{{product_image[10]}}" alt=""></a>
+                                            </div> 
+                                            <div class="product_content">
+                                                <h3><a href="{{product_link[10]}}" target="_blank">{{product_title[10]}}</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">{{product_price[10]}}</span>
+                                                </div>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="single_product"> 
+                                            <div class="product_thumb">
+                                                 <a href="{{product_link[11]}}" target="_blank"><img src="{{product_image[11]}}" alt=""></a>
+                                            </div> 
+                                            <div class="product_content">
+                                                <h3><a href="{{product_link[11]}}" target="_blank">{{product_title[11]}}</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">{{product_price[11]}}</span>
+                                                </div>
+                                            </div>    
+                                        </div>
+                                    </div>
+                                </div>     
+                            </div>
+                            <div class="tab-pane fade" id="list" role="tabpanel">
+                                <div class="single_product list_item">
+                                    <div class="row align-items-center">   
+                                        <div class="col-lg-3 col-md-5">
+                                            <div class="product_thumb">
+                                                 <a href="product-details.html"><img src="{{ url_for('static', filename='assets/img/product/product14.jpg') }}" alt=""></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-lg-9 col-md-7">
+                                            <div class="product_content">
+                                                <h3><a href="product-details.html">Aicok Stand Mixet</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">$23.00</span>
+                                                </div>
+                                                <div class="product_description">
+                                                    <p>Maybe Smaller than regular Size, PLS CHOOSE THE SIZE 1-2 Size UP than YOU USUALLY WEAR, Now We Will Give the 2XL, 3XL, 4XL for Choices (Note:The Generic Amazon Size Chart is not our size) Update ON May 14,2016	</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <div class="single_product list_item">
+                                    <div class="row align-items-center">   
+                                        <div class="col-lg-3 col-md-5">
+                                            <div class="product_thumb">
+                                                 <a href="product-details.html"><img src="{{ url_for('static', filename='assets/img/product/product16.jpg') }}" alt=""></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-lg-9 col-md-7">
+                                            <div class="product_content">
+                                                <h3><a href="product-details.html">Bonna 21 mega pixelsg</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">$23.00</span>
+                                                </div>
+                                                <div class="product_description">
+                                                    <p>Maybe Smaller than regular Size, PLS CHOOSE THE SIZE 1-2 Size UP than YOU USUALLY WEAR, Now We Will Give the 2XL, 3XL, 4XL for Choices (Note:The Generic Amazon Size Chart is not our size) Update ON May 14,2016	</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div> 
+                                <div class="single_product list_item">
+                                    <div class="row align-items-center">   
+                                        <div class="col-lg-3 col-md-5">
+                                            <div class="product_thumb">
+                                                 <a href="product-details.html"><img src="{{ url_for('static', filename='assets/img/product/product17.jpg') }}" alt=""></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-lg-9 col-md-7">
+                                            <div class="product_content">
+                                                <h3><a href="product-details.html">Aicok Stand Mixet</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">$23.00</span>
+                                                </div>
+                                                <div class="product_description">
+                                                    <p>Maybe Smaller than regular Size, PLS CHOOSE THE SIZE 1-2 Size UP than YOU USUALLY WEAR, Now We Will Give the 2XL, 3XL, 4XL for Choices (Note:The Generic Amazon Size Chart is not our size) Update ON May 14,2016	</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div> 
+                                <div class="single_product list_item">
+                                    <div class="row align-items-center">   
+                                        <div class="col-lg-3 col-md-5">
+                                            <div class="product_thumb">
+                                                 <a href="product-details.html"><img src="{{ url_for('static', filename='assets/img/product/product18.jpg') }}" alt=""></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-lg-9 col-md-7">
+                                            <div class="product_content">
+                                                <h3><a href="product-details.html">Cutlery Knife Set</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">$23.00</span>
+                                                </div>
+                                                <div class="product_description">
+                                                    <p>Maybe Smaller than regular Size, PLS CHOOSE THE SIZE 1-2 Size UP than YOU USUALLY WEAR, Now We Will Give the 2XL, 3XL, 4XL for Choices (Note:The Generic Amazon Size Chart is not our size) Update ON May 14,2016	</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div> 
+                                <div class="single_product list_item">
+                                    <div class="row align-items-center">   
+                                        <div class="col-lg-3 col-md-5">
+                                            <div class="product_thumb">
+                                                 <a href="product-details.html"><img src="{{ url_for('static', filename='assets/img/product/product19.jpg') }}" alt=""></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-lg-9 col-md-7">
+                                            <div class="product_content">
+                                                <h3><a href="product-details.html">Aicok Stand Mixet</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">$23.00</span>
+                                                </div>
+                                                <div class="product_description">
+                                                    <p>Maybe Smaller than regular Size, PLS CHOOSE THE SIZE 1-2 Size UP than YOU USUALLY WEAR, Now We Will Give the 2XL, 3XL, 4XL for Choices (Note:The Generic Amazon Size Chart is not our size) Update ON May 14,2016	</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div> 
+                                <div class="single_product list_item">
+                                    <div class="row align-items-center">   
+                                        <div class="col-lg-3 col-md-5">
+                                            <div class="product_thumb">
+                                                 <a href="product-details.html"><img src="{{ url_for('static', filename='assets/img/product/product20.jpg') }}" alt=""></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-lg-9 col-md-7">
+                                            <div class="product_content">
+                                                <h3><a href="product-details.html">Aicok Stand Mixet</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">$23.00</span>
+                                                </div>
+                                                <div class="product_description">
+                                                    <p>Maybe Smaller than regular Size, PLS CHOOSE THE SIZE 1-2 Size UP than YOU USUALLY WEAR, Now We Will Give the 2XL, 3XL, 4XL for Choices (Note:The Generic Amazon Size Chart is not our size) Update ON May 14,2016	</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div> 
+                                <div class="single_product list_item">
+                                    <div class="row align-items-center">   
+                                        <div class="col-lg-3 col-md-5">
+                                            <div class="product_thumb">
+                                                 <a href="product-details.html"><img src="{{ url_for('static', filename='assets/img/product/product21.jpg') }}" alt=""></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-lg-9 col-md-7">
+                                            <div class="product_content">
+                                                <h3><a href="product-details.html">Cutlery Knife Set</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">$23.00</span>
+                                                </div>
+                                                <div class="product_description">
+                                                    <p>Maybe Smaller than regular Size, PLS CHOOSE THE SIZE 1-2 Size UP than YOU USUALLY WEAR, Now We Will Give the 2XL, 3XL, 4XL for Choices (Note:The Generic Amazon Size Chart is not our size) Update ON May 14,2016	</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div> 
+                                <div class="single_product list_item">
+                                    <div class="row align-items-center">   
+                                        <div class="col-lg-3 col-md-5">
+                                            <div class="product_thumb">
+                                                 <a href="product-details.html"><img src="{{ url_for('static', filename='assets/img/product/product22.jpg') }}" alt=""></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-lg-9 col-md-7">
+                                            <div class="product_content">
+                                                <h3><a href="product-details.html">Aicok Stand Mixet</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">$23.00</span>
+                                                </div>
+                                                <div class="product_description">
+                                                    <p>Maybe Smaller than regular Size, PLS CHOOSE THE SIZE 1-2 Size UP than YOU USUALLY WEAR, Now We Will Give the 2XL, 3XL, 4XL for Choices (Note:The Generic Amazon Size Chart is not our size) Update ON May 14,2016	</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div> 
+                                <div class="single_product list_item">
+                                    <div class="row align-items-center">   
+                                        <div class="col-lg-3 col-md-5">
+                                            <div class="product_thumb">
+                                                 <a href="product-details.html"><img src="{{ url_for('static', filename='assets/img/product/product23.jpg') }}" alt=""></a>
+                                            </div> 
+                                        </div>
+                                        <div class="col-lg-9 col-md-7">
+                                            <div class="product_content">
+                                                <h3><a href="product-details.html">Cutlery Knife Set</a></h3>
+                                                <div class="product_price">
+                                                    <span class="current_price">$23.00</span>
+                                                </div>
+                                                <div class="product_description">
+                                                    <p>Maybe Smaller than regular Size, PLS CHOOSE THE SIZE 1-2 Size UP than YOU USUALLY WEAR, Now We Will Give the 2XL, 3XL, 4XL for Choices (Note:The Generic Amazon Size Chart is not our size) Update ON May 14,2016	</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>                      
+                            </div>
+
+                        </div>
+                    </div>    
+                    <!--shop tab product end-->
+                      
+                </div>
+            </div>
+            <!--shop wrapper end-->
+    
+   
+              <!--shipping area start-->
+            <div class="shipping_area shipping_contact ">
+                <div class="container">
+                    <div class="shipping_contact">   
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4">
+                                <div class="single_shipping">
+                                    <div class="shipping_icone">
+                                        <span class="pe-7s-call"></span>
+                                    </div>
+                                    <div class="shipping_content">
+                                        <h3>(999) 1234 56789</h3>
+                                        <p>Free support line!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4">
+                                <div class="single_shipping">
+                                    <div class="shipping_icone">
+                                        <span class="pe-7s-mail"></span>
+                                    </div>
+                                    <div class="shipping_content">
+                                        <h3>Support@adinnovation.org</h3>
+                                        <p>Orders Support!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4">
+                                <div class="single_shipping column_3">
+                                    <div class="shipping_icone">
+                                        <span class="pe-7s-timer"></span>
+                                    </div>
+                                    <div class="shipping_content">
+                                        <h3>Mon - Fri / 8:00 - 18:00</h3>
+                                        <p>Working Days/Hours!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                        
+                        <!--newsletter area start-->
+                        <div class="newsletter_area">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="field_newsletter">
+                                        <div class="newsletter_text">
+                                            <h3>Sign Up For Newsletter</h3>
+                                            <p>Be the First to Know. Sign up to newsletter today</p>
+                                        </div>
+                                        <div class="newsletter_form">
+                                            <form action="#">
+                                                <input placeholder="Enter your email address" type="text">
+                                                <button type="submit">Subscibe</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--newsletter area end-->
+                    </div>    
+                </div>
+            </div>
+            <!--shipping area end-->
+<!--footer area start-->
+            <div class="footer_area">
+                <div class="container">
+                    <div class="footer_top">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-8">
+                                <div class="single_footer">
+                                    <div class="footer_logo">
+                                        <a href="#"><img src="{{ url_for('static', filename='assets/img/logo/logo.png') }}" alt=""></a>
+                                    </div>
+                                    <div class="footer_desc">
+                                        <p>Holisticly empower premium architectures without value-added ideas. Seamlessly evolve cross-platform experiences.</p>
+                                    </div>
+                                    <div class="footer_contact">
+                                        <ul>
+                                            <li><i class="ion-location"></i> 874 Pennsylvania
+United States 8945</li>
+                                            <li><i class="ion-ios-telephone"></i> +123.456.789 - +123.456.678</li>
+                                            <li><i class="ion-ios-email"></i> <a href="#">Support@adinnovation.org</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-4">
+                                <div class="single_footer">
+                                    <h3>CUSTOMER SERVICE</h3>
+                                    <ul>
+                                        <li><a href="#">Contact Us</a></li>
+                                        <li><a href="#">Site Map</a></li>
+                                        <li><a href="https://adinnovation.org">ADI Innovation</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-4">
+                                <div class="single_footer">
+                                    <h3>Information</h3>
+                                    <ul>
+                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                        <li><a href="#">Terms & Conditions</a></li>
+                                        <li><a href="#">FAQ</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-8">
+                                <div class="single_footer">
+                                    <h3>instagram</h3>
+                                    <div class="instagram_active owl-carousel">
+                                        <div class="instagram_items">
+                                            <div class="instagram_list">
+                                                <div class="single_instagram">
+                                                    <a href="#"><img src="{{ url_for('static', filename='assets/img/instagram/instagram1.jpg') }}" alt=""></a>
+                                                    <div class="instagram_icone">
+                                                        <a class="instagram_popup" href="assets/img/instagram/instagram1.jpg"><i class="ion-social-instagram"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="single_instagram">
+                                                    <a href="#"><img src="{{ url_for('static', filename='assets/img/instagram/instagram2.jpg') }}" alt=""></a>
+                                                    <div class="instagram_icone">
+                                                        <a class="instagram_popup" href="assets/img/instagram/instagram2.jpg"><i class="ion-social-instagram"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="single_instagram">
+                                                    <a href="#"><img src="{{ url_for('static', filename='assets/img/instagram/instagram3.jpg') }}" alt=""></a>
+                                                    <div class="instagram_icone">
+                                                        <a class="instagram_popup" href="assets/img/instagram/instagram3.jpg"><i class="ion-social-instagram"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="single_instagram">
+                                                    <a href="#"><img src="{{ url_for('static', filename='assets/img/instagram/instagram4.jpg') }}" alt=""></a>
+                                                    <div class="instagram_icone">
+                                                        <a class="instagram_popup" href="assets/img/instagram/instagram4.jpg"><i class="ion-social-instagram"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="instagram_list">
+                                                <div class="single_instagram">
+                                                    <a href="#"><img src="{{ url_for('static', filename='assets/img/instagram/instagram5.jpg') }}" alt=""></a>
+                                                    <div class="instagram_icone">
+                                                        <a class="instagram_popup" href="assets/img/instagram/instagram5.jpg"><i class="ion-social-instagram"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="single_instagram">
+                                                    <a href="#"><img src="{{ url_for('static', filename='assets/img/instagram/instagram6.jpg') }}" alt=""></a>
+                                                    <div class="instagram_icone">
+                                                        <a class="instagram_popup" href="assets/img/instagram/instagram6.jpg"><i class="ion-social-instagram"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="single_instagram">
+                                                    <a href="#"><img src="{{ url_for('static', filename='assets/img/instagram/instagram7.jpg') }}" alt=""></a>
+                                                    <div class="instagram_icone">
+                                                        <a class="instagram_popup" href="assets/img/instagram/instagram7.jpg"><i class="ion-social-instagram"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="single_instagram">
+                                                    <a href="#"><img src="{{ url_for('static', filename='assets/img/instagram/instagram8.jpg') }}" alt=""></a>
+                                                    <div class="instagram_icone">
+                                                        <a class="instagram_popup" href="assets/img/instagram/instagram8.jpg"><i class="ion-social-instagram"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="instagram_items">
+                                            <div class="instagram_list">
+                                                <div class="single_instagram">
+                                                    <a href="#"><img src="{{ url_for('static', filename='assets/img/instagram/instagram1.jpg') }}" alt=""></a>
+                                                    <div class="instagram_icone">
+                                                        <a class="instagram_popup" href="assets/img/instagram/instagram1.jpg"><i class="ion-social-instagram"></i></a>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="single_instagram">
+                                                    <a href="#"><img src="{{ url_for('static', filename='assets/img/instagram/instagram2.jpg') }}" alt=""></a>
+                                                    <div class="instagram_icone">
+                                                        <a class="instagram_popup" href="assets/img/instagram/instagram2.jpg"><i class="ion-social-instagram"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="single_instagram">
+                                                    <a href="#"><img src="{{ url_for('static', filename='assets/img/instagram/instagram3.jpg') }}" alt=""></a>
+                                                    <div class="instagram_icone">
+                                                        <a class="instagram_popup" href="assets/img/instagram/instagram3.jpg"><i class="ion-social-instagram"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="single_instagram">
+                                                    <a href="#"><img src="{{ url_for('static', filename='assets/img/instagram/instagram4.jpg') }}" alt=""></a>
+                                                    <div class="instagram_icone">
+                                                        <a class="instagram_popup" href="assets/img/instagram/instagram4.jpg"><i class="ion-social-instagram"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="instagram_list">
+                                                <div class="single_instagram">
+                                                    <a href="#"><img src="{{ url_for('static', filename='assets/img/instagram/instagram5.jpg') }}" alt=""></a>
+                                                    <div class="instagram_icone">
+                                                        <a class="instagram_popup" href="assets/img/instagram/instagram5.jpg"><i class="ion-social-instagram"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="single_instagram">
+                                                    <a href="#"><img src="{{ url_for('static', filename='assets/img/instagram/instagram6.jpg') }}" alt=""></a>
+                                                    <div class="instagram_icone">
+                                                        <a class="instagram_popup" href="assets/img/instagram/instagram6.jpg"><i class="ion-social-instagram"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="single_instagram">
+                                                    <a href="#"><img src="{{ url_for('static', filename='assets/img/instagram/instagram7.jpg') }}" alt=""></a>
+                                                    <div class="instagram_icone">
+                                                        <a class="instagram_popup" href="assets/img/instagram/instagram7.jpg"><i class="ion-social-instagram"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="single_instagram">
+                                                    <a href="#"><img src="{{ url_for('static', filename='assets/img/instagram/instagram8.jpg') }}" alt=""></a>
+                                                    <div class="instagram_icone">
+                                                        <a class="instagram_popup" href="assets/img/instagram/instagram8.jpg"><i class="ion-social-instagram"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright_area">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="copyright_content">
+                                    <p>Copyright &copy; 2019, <a href="https://adinnovation.org">ADI</a>. All Rights Reserved</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="footer-payment text-right">
+                                    <a href="#"><img src="{{ url_for('static', filename='assets/img/visha/payment.png') }}" alt=""></a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--footer area end-->
+            
+           
+            <!-- modal area start-->
+            <div class="modal fade" id="modal_box" tabindex="-1" role="dialog"  aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div class="modal_body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-5 col-md-5 col-sm-12">
+                                        <div class="modal_tab">  
+                                            <div class="tab-content product-details-large">
+                                                <div class="tab-pane fade show active" id="tab1" role="tabpanel" >
+                                                    <div class="modal_tab_img">
+                                                        <a href="#"><img src="{{ url_for('static', filename='assets/img/product/product44.jpg') }}" alt=""></a>    
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="tab2" role="tabpanel">
+                                                    <div class="modal_tab_img">
+                                                        <a href="#"><img src="{{ url_for('static', filename='assets/img/product/product45.jpg') }}" alt=""></a>    
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="tab3" role="tabpanel">
+                                                    <div class="modal_tab_img">
+                                                        <a href="#"><img src="{{ url_for('static', filename='assets/img/product/product46.jpg') }}" alt=""></a>    
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="tab4" role="tabpanel">
+                                                    <div class="modal_tab_img">
+                                                        <a href="#"><img src="{{ url_for('static', filename='assets/img/product/product47.jpg') }}" alt=""></a>    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal_tab_button">    
+                                                <ul class="nav product_navactive owl-carousel" role="tablist">
+                                                    <li >
+                                                        <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="{{ url_for('static', filename='assets/img/cart/cart5.jpg') }}" alt=""></a>
+                                                    </li>
+                                                    <li>
+                                                         <a class="nav-link" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false"><img src="{{ url_for('static', filename='assets/img/cart/cart6.jpg') }}" alt=""></a>
+                                                    </li>
+                                                    <li>
+                                                       <a class="nav-link button_three" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false"><img src="{{ url_for('static', filename='assets/img/cart/cart7.jpg') }}" alt=""></a>
+                                                    </li>
+                                                    <li>
+                                                       <a class="nav-link" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false"><img src="{{ url_for('static', filename='assets/img/cart/cart8.jpg') }}" alt=""></a>
+                                                    </li>
+                                                    
+                                                </ul>
+                                            </div>    
+                                        </div>  
+                                    </div> 
+                                    <div class="col-lg-7 col-md-7 col-sm-12">
+                                        <div class="modal_right">
+                                            <div class="modal_title mb-10">
+                                                <h2>Handbag feugiat</h2> 
+                                            </div>
+                                            <div class="modal_price mb-10">
+                                                <span class="new_price">$64.99</span>    
+                                                <span class="old_price" >$78.99</span>    
+                                            </div>
+                                            <div class="modal_content mb-10">
+                                                <p>Short-sleeved blouse with feminine draped sleeve detail.</p>    
+                                            </div>
+                                            <div class="modal_size mb-15">
+                                               <h2>size</h2>
+                                                <ul>
+                                                    <li><a href="#">s</a></li>
+                                                    <li><a href="#">m</a></li>
+                                                    <li><a href="#">l</a></li>
+                                                    <li><a href="#">xl</a></li>
+                                                    <li><a href="#">xxl</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="modal_add_to_cart mb-15">
+                                                <form action="#">
+                                                    <input min="0" max="100" step="2" value="1" type="number">
+                                                    <button type="submit">add to cart</button>
+                                                </form>
+                                            </div>   
+                                            <div class="modal_description mb-15">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>    
+                                            </div> 
+                                            <div class="modal_social">
+                                                <h2>Share this product</h2>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                                </ul>    
+                                            </div>      
+                                        </div>    
+                                    </div>    
+                                </div>     
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div> 
+            <!-- modal area start-->
+		<!-- all js here -->
+        <script src="{{ url_for('static', filename='shop/assets/js/vendor/jquery-1.12.0.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='shop/assets/js/popper.js') }}"></script>
+        <script src="{{ url_for('static', filename='shop/assets/js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='shop/assets/js/plugins.js') }}"></script>
+        <script src="{{ url_for('static', filename='shop/assets/js/main.js') }}"></script>
+    </body>
+</html>

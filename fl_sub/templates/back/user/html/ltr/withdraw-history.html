@@ -1,0 +1,112 @@
+{% extends 'back/user/html/ltr/base.html' %}
+{% block title %}
+Withdraw History | SIP India
+{% endblock %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Withdrawl History</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Withdrawl History</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- My Deposits Error Message (begins) -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Sorry, you haven't earned yet.</h5>
+                        <p>Don't worry. You can withdraw once you've earned from Investment Plans</p>
+                        <button type="button" class="btn btn-success btn-lgm">Invest Now</button>
+                        <button type="button" class="btn btn-primary btn-lgm">Deposit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- My Deposits Error Message  (ends) -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Previous Withdrawls</h5>
+                        <div class="table-responsive">
+                            <table id="zero_config" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col">Amount (USD)</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Hash</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Blockchain</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>2020-04-06 07:50:51 </td>
+                                        <td>0.12 BTC</td>
+                                        <td>816 USD</td>
+                                        <td>1AdhRn83STcarMPgCSMWf4h97Hd7unXydU</td>
+                                        <td>d789576eaf4fda72edf5ccf1fdbafa9e28fdeb7f5dc8e1ce03675466a8ef88af</td>
+                                        <td>Success</td>
+                                        <td><a target="blank" href="https://sochain.com/tx/BTC/d789576eaf4fda72edf5ccf1fdbafa9e28fdeb7f5dc8e1ce03675466a8ef88af">View in Blockchain</a></td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col">Amount (USD)</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Hash</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Blockchain</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer text-center">
+        Copyright &copy; 2020 SIP INDIA All rights reserved.
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SocialMine Animation</title>
+  <meta http-equiv="refresh" content="3;url=https://socialmine.net/login/" />
+  <style>
+@-webkit-keyframes flip-scale-up-hor {
+  0% {
+    -webkit-transform: scale(1) rotateX(0);
+            transform: scale(1) rotateX(0);
+  }
+  50% {
+    -webkit-transform: scale(2.5) rotateX(-90deg);
+            transform: scale(2.5) rotateX(-90deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateX(-180deg);
+            transform: scale(1) rotateX(-180deg);
+  }
+}
+@keyframes flip-scale-up-hor {
+  0% {
+    -webkit-transform: scale(1) rotateX(0);
+            transform: scale(1) rotateX(0);
+  }
+  50% {
+    -webkit-transform: scale(2.5) rotateX(-90deg);
+            transform: scale(2.5) rotateX(-90deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateX(-180deg);
+            transform: scale(1) rotateX(-180deg);
+  }
+}
+
+
+.flip-scale-up-hor {
+	-webkit-animation: flip-scale-up-hor 1s linear both;
+	        animation: flip-scale-up-hor 1s linear both;
+}
+
+.verticalhorizontal {
+    display: table-cell;
+    height: 100vh;
+    text-align: center;
+    width: 100vw;
+    vertical-align: middle;
+}
+</style>
+</head>
+<body style="background-color: #000000;">
+<div class="verticalhorizontal">
+<img class="center flip-scale-up-hor" src="https://i.ibb.co/DCpqR99/logo3.png"/>
+</div>
+</body>
+</html>

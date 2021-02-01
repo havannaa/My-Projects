@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
+    <title>SocialMine.net - Facebook Profile Setup</title>
+    <meta content="Admin Dashboard" name="description">
+    <meta content="Mannatthemes" name="author">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/favicon.ico') }}">
+    <link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='assets/css/icons.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet" type="text/css">
+</head>
+
+<body class="fixed-left">
+
+    <!-- Begin page -->
+    <div id="wrapper">
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left side-menu">
+            <button type="button" class="button-menu-mobile button-menu-mobile-topbar open-left waves-effect"><i class="ion-close"></i></button>
+            <!-- LOGO -->
+            <div class="topbar-left">
+                <div class="text-center"><a href="dashboard" class="logo"><img src="https://i.ibb.co/nRMHXxC/adi-logo.png"/></a>
+                    </div>
+            </div>
+            <div class="sidebar-inner slimscrollleft">
+                <div id="sidebar-menu">
+                    <ul>
+                        <li class="menu-title">Main</li>
+                        <li><a href="https://socialmine.net/dashboard" class="waves-effect"><i class="mdi mdi-airplay"></i> <span>Dashboard </a></li>
+                        <li class="menu-title">Facebook</li>
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-facebook"></i> <span>Facebook Analytics </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/fb_follower_growth">Follower Growth</a></li>
+                                <li><a href="https://socialmine.net/fb_competitor_growth">Competitor Growth</a></li>
+                                <li><a href="https://socialmine.net/fb_content_engagement">Content Engagement</a></li>
+                                <li><a href="https://socialmine.net/fb_generate_report">Generate Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-title">Twitter</li>
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-twitter"></i> <span>Twitter Analytics </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/tw_follower_growth">Follower Growth</a></li>
+                                <li><a href="https://socialmine.net/tw_competitor_growth">Competitor Growth</a></li>
+                                <li><a href="https://socialmine.net/tw_content_engagement">Content Engagement</a></li>
+                                <li><a href="https://socialmine.net/tw_hashtag_analysis">Hashtag Analysis</a></li>
+                                <li><a href="https://socialmine.net/tw_generate_report">Generate Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-title">Instagram</li>
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-instagram"></i> <span>Instagram Analytics </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/insta_follower_growth">Follower Growth</a></li>
+                                <li><a href="https://socialmine.net/insta_competitor_growth">Competitor Growth</a></li>
+                                <li><a href="https://socialmine.net/insta_content_engagement">Content Engagement</a></li>
+                                <li><a href="https://socialmine.net/insta_hashtag_analysis">Hashtag Analysis</a></li>
+                                <li><a href="https://socialmine.net/insta_generate_report">Generate Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-title">YouTube</li>
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-youtube-play"></i> <span>YouTube Analytics </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/tube_competitor_growth">Competitor Growth</a></li>
+                                <li><a href="https://socialmine.net/tube_content_engagement">Content Engagement</a></li>
+                                <li><a href="https://socialmine.net/tube_generate_report">Generate Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-title">Manage Profiles</li>
+                        {% if not(total_input == 25 or total_input == 100) %}
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-library-plus"></i> <span>Social Profiles </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/social_fb">Facebook</a></li>
+                                <li><a href="https://socialmine.net/social_tw">Twitter</a></li>
+                                <li><a href="https://socialmine.net/social_insta">Instagram</a></li>
+                                <li><a href="https://socialmine.net/social_tube">YouTube</a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                        {% if total_input == 25 %}
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-library-plus"></i> <span>Social Profiles (Standard) </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/social_fb_standard">Facebook</a></li>
+                                <li><a href="https://socialmine.net/social_tw_standard">Twitter</a></li>
+                                <li><a href="https://socialmine.net/social_insta_standard">Instagram</a></li>
+                                <li><a href="https://socialmine.net/social_tube_standard">YouTube</a></li>
+                            </ul>
+                        </li>
+                        {% elif total_input == 100 %}
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-library-plus"></i> <span>Social Profiles (Professional) </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/social_fb_professional">Facebook</a></li>
+                                <li><a href="https://socialmine.net/social_tw_professional">Twitter</a></li>
+                                <li><a href="https://socialmine.net/social_insta_professional">Instagram</a></li>
+                                <li><a href="https://socialmine.net/social_tube_professional">YouTube</a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <!-- end sidebarinner -->
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- Start right Content here -->
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+                <!-- Top Bar Start -->
+                <div class="topbar">
+                    <nav class="navbar-custom">
+                        <ul class="list-inline float-right mb-0">
+                            <!-- language-->
+                            <li class="list-inline-item dropdown notification-list hide-phone"><a class="nav-link dropdown-toggle arrow-none waves-effect text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">English <img src="{{ url_for('static', filename='assets/images/flags/us_flag.jpg') }}" class="ml-2" height="16" alt=""></a>
+                                <div class="dropdown-menu dropdown-menu-right language-switch">
+                                    <a class="dropdown-item" href="#"><img src="{{ url_for('static', filename='assets/images/flags/italy_flag.jpg') }}" alt="" height="16"><span>Italian </span></a>
+                                    <a class="dropdown-item" href="#"><img src="{{ url_for('static', filename='assets/images/flags/french_flag.jpg') }}" alt="" height="16"><span>French </span></a>
+                                    <a class="dropdown-item" href="#"><img src="{{ url_for('static', filename='assets/images/flags/spain_flag.jpg') }}" alt="" height="16"><span>Spanish </span></a>
+                                    <a class="dropdown-item" href="#"><img src="{{ url_for('static', filename='assets/images/flags/russia_flag.jpg') }}" alt="" height="16"><span>Russian</span></a>
+                                </div>
+                            </li>
+
+                            <li class="list-inline-item dropdown notification-list"><a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"><i class="ti-bell noti-icon"></i> <span class="badge badge-success noti-icon-badge">2</span></a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg">
+                                    <!-- item-->
+                                    <div class="dropdown-item noti-title">
+                                        <h5><span class="badge badge-danger float-right">2</span>Notification</h5></div>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-primary"><i class="mdi mdi-cart-outline"></i></div>
+                                        <p class="notify-details"><b>Subscription has expired</b><small class="text-muted">Please, renew your subscription.</small></p>
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-warning"><i class="mdi mdi-martini"></i></div>
+                                        <p class="notify-details"><b>Your report is ready</b><small class="text-muted">Collect your report from your email.</small></p>
+                                    </a>
+                                    <!-- All--></div>
+                            </li>
+                            <li class="list-inline-item dropdown notification-list">
+                                <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">{% if image_uploaded_before == False %}
+                                <img src="{{ url_for('static', filename='assets/images/users/avatar-6.jpg') }}" alt="user" class="rounded-circle">
+                                {% else %}
+                                <img src="{{ url_for('static', filename=uploaded_image) }}" alt="user" class="rounded-circle">
+                                {% endif %}</a>
+                                <div class="dropdown-menu dropdown-menu-right profile-dropdown">
+                                    <!-- item-->
+                                    <div class="dropdown-item noti-title">
+                                        <h5>Welcome</h5></div> <a class="dropdown-item" href="https://socialmine.net/#pricing"><i class="mdi mdi-wallet m-r-5 text-muted"></i> Subscription</a> <a class="dropdown-item" href="https://socialmine.net/social_fb"><span class="badge badge-success float-right"></span><i class="mdi mdi-settings m-r-5 text-muted"></i> Settings</a> 
+                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="https://socialmine.net/logout/"><i class="mdi mdi-logout m-r-5 text-muted"></i> Logout</a></div>
+                            </li>
+                        </ul>
+                        <ul class="list-inline menu-left mb-0">
+                            <li class="float-left">
+                                <button class="button-menu-mobile open-left waves-light waves-effect"><i class="mdi mdi-menu"></i></button>
+                            </li>
+
+                        </ul>
+                        <div class="clearfix"></div>
+                    </nav>
+                </div>
+                <!-- Top Bar End -->
+                <div class="page-content-wrapper">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="page-title-box">
+                                    <div class="btn-group float-right">
+                                  
+                                    </div>
+                                    <h4 class="page-title">Manage Facebook Accounts</h4></div>
+                            </div>
+                        </div>
+                        <!-- end page title end breadcrumb -->
+                        <!-- end page title end breadcrumb -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <h4 class="mt-0 header-title">Submit your and competitors accounts</h4>
+                                        <p class="text-muted m-b-30 font-14">Submit your Facebook <code class="highlighter-rouge">@username</code>.</p>
+										<form class="form-horizontal m-t-20" action="https://socialmine.net/rt_update_fb/" method="post">
+                                        <div class="form-group row">
+                                            <label for="competitor-1-submit" class="col-sm-2 col-form-label">Competitor-1</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[1]}}" id="competitor-1-submit" name="fbc1">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-2-submit" class="col-sm-2 col-form-label">Competitor-2</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[2]}}" id="competitor-2-submit" name="fbc2">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-3-submit" class="col-sm-2 col-form-label">Competitor-3</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[3]}}" id="competitor-3-submit" name="fbc3">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-4-submit" class="col-sm-2 col-form-label">Competitor-4</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[4]}}" id="competitor-4-submit" name="fbc4">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-5-submit" class="col-sm-2 col-form-label">Competitor-5</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[5]}}" id="competitor-5-submit" name="fbc5">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-6-submit" class="col-sm-2 col-form-label">Competitor-6</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[6]}}" id="competitor-6-submit" name="fbc6">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-7-submit" class="col-sm-2 col-form-label">Competitor-7</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[7]}}" id="competitor-7-submit" name="fbc7">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-8-submit" class="col-sm-2 col-form-label">Competitor-8</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[8]}}" id="competitor-8-submit" name="fbc8">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-9-submit" class="col-sm-2 col-form-label">Competitor-9</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[9]}}" id="competitor-9-submit" name="fbc9">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-10-submit" class="col-sm-2 col-form-label">Competitor-10</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[10]}}" id="competitor-10-submit" name="fbc10">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-11-submit" class="col-sm-2 col-form-label">Competitor-11</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[11]}}" id="competitor-11-submit" name="fbc11">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-12-submit" class="col-sm-2 col-form-label">Competitor-12</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[12]}}" id="competitor-12-submit" name="fbc12">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-13-submit" class="col-sm-2 col-form-label">Competitor-13</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[13]}}" id="competitor-13-submit" name="fbc13">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-14-submit" class="col-sm-2 col-form-label">Competitor-14</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[14]}}" id="competitor-14-submit" name="fbc14">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-15-submit" class="col-sm-2 col-form-label">Competitor-15</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[15]}}" id="competitor-15-submit" name="fbc15">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-16-submit" class="col-sm-2 col-form-label">Competitor-16</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[16]}}" id="competitor-16-submit" name="fbc16">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-17-submit" class="col-sm-2 col-form-label">Competitor-17</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[17]}}" id="competitor-17-submit" name="fbc17">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-18-submit" class="col-sm-2 col-form-label">Competitor-18</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[18]}}" id="competitor-18-submit" name="fbc18">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-19-submit" class="col-sm-2 col-form-label">Competitor-19</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[19]}}" id="competitor-19-submit" name="fbc19">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-20-submit" class="col-sm-2 col-form-label">Competitor-20</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[20]}}" id="competitor-20-submit" name="fbc20">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-21-submit" class="col-sm-2 col-form-label">Competitor-21</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[21]}}" id="competitor-21-submit" name="fbc21">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-22-submit" class="col-sm-2 col-form-label">Competitor-22</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[22]}}" id="competitor-22-submit" name="fbc22">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-23-submit" class="col-sm-2 col-form-label">Competitor-23</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[23]}}" id="competitor-23-submit" name="fbc23">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-24-submit" class="col-sm-2 col-form-label">Competitor-24</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[24]}}" id="competitor-24-submit" name="fbc24">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-25-submit" class="col-sm-2 col-form-label">Competitor-25</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[25]}}" id="competitor-25-submit" name="fbc25">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-26-submit" class="col-sm-2 col-form-label">Competitor-26</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[26]}}" id="competitor-26-submit" name="fbc26">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-27-submit" class="col-sm-2 col-form-label">Competitor-27</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[27]}}" id="competitor-27-submit" name="fbc27">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-28-submit" class="col-sm-2 col-form-label">Competitor-28</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[28]}}" id="competitor-28-submit" name="fbc28">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-29-submit" class="col-sm-2 col-form-label">Competitor-29</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[29]}}" id="competitor-29-submit" name="fbc29">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-30-submit" class="col-sm-2 col-form-label">Competitor-30</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[30]}}" id="competitor-30-submit" name="fbc30">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-31-submit" class="col-sm-2 col-form-label">Competitor-31</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[31]}}" id="competitor-31-submit" name="fbc31">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-32-submit" class="col-sm-2 col-form-label">Competitor-32</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[32]}}" id="competitor-32-submit" name="fbc32">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-33-submit" class="col-sm-2 col-form-label">Competitor-33</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[33]}}" id="competitor-33-submit" name="fbc33">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-34-submit" class="col-sm-2 col-form-label">Competitor-34</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[34]}}" id="competitor-34-submit" name="fbc34">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-35-submit" class="col-sm-2 col-form-label">Competitor-35</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[35]}}" id="competitor-35-submit" name="fbc35">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-36-submit" class="col-sm-2 col-form-label">Competitor-36</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[36]}}" id="competitor-36-submit" name="fbc36">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-37-submit" class="col-sm-2 col-form-label">Competitor-37</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[37]}}" id="competitor-37-submit" name="fbc37">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-38-submit" class="col-sm-2 col-form-label">Competitor-38</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[38]}}" id="competitor-38-submit" name="fbc38">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-39-submit" class="col-sm-2 col-form-label">Competitor-39</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[39]}}" id="competitor-39-submit" name="fbc39">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-40-submit" class="col-sm-2 col-form-label">Competitor-40</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[40]}}" id="competitor-40-submit" name="fbc40">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-41-submit" class="col-sm-2 col-form-label">Competitor-41</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[41]}}" id="competitor-41-submit" name="fbc41">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-42-submit" class="col-sm-2 col-form-label">Competitor-42</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[42]}}" id="competitor-42-submit" name="fbc42">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-43-submit" class="col-sm-2 col-form-label">Competitor-43</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[43]}}" id="competitor-43-submit" name="fbc43">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-44-submit" class="col-sm-2 col-form-label">Competitor-44</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[44]}}" id="competitor-44-submit" name="fbc44">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-45-submit" class="col-sm-2 col-form-label">Competitor-45</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[45]}}" id="competitor-45-submit" name="fbc45">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-46-submit" class="col-sm-2 col-form-label">Competitor-46</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[46]}}" id="competitor-46-submit" name="fbc46">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-47-submit" class="col-sm-2 col-form-label">Competitor-47</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[47]}}" id="competitor-47-submit" name="fbc47">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-48-submit" class="col-sm-2 col-form-label">Competitor-48</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[48]}}" id="competitor-48-submit" name="fbc48">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-49-submit" class="col-sm-2 col-form-label">Competitor-49</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[49]}}" id="competitor-49-submit" name="fbc49">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-50-submit" class="col-sm-2 col-form-label">Competitor-50</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[50]}}" id="competitor-50-submit" name="fbc50">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-51-submit" class="col-sm-2 col-form-label">Competitor-51</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[51]}}" id="competitor-51-submit" name="fbc51">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-52-submit" class="col-sm-2 col-form-label">Competitor-52</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[52]}}" id="competitor-52-submit" name="fbc52">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-53-submit" class="col-sm-2 col-form-label">Competitor-53</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[53]}}" id="competitor-53-submit" name="fbc53">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-54-submit" class="col-sm-2 col-form-label">Competitor-54</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[54]}}" id="competitor-54-submit" name="fbc54">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-55-submit" class="col-sm-2 col-form-label">Competitor-55</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[55]}}" id="competitor-55-submit" name="fbc55">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-56-submit" class="col-sm-2 col-form-label">Competitor-56</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[56]}}" id="competitor-56-submit" name="fbc56">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-57-submit" class="col-sm-2 col-form-label">Competitor-57</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[57]}}" id="competitor-57-submit" name="fbc57">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-58-submit" class="col-sm-2 col-form-label">Competitor-58</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[58]}}" id="competitor-58-submit" name="fbc58">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-59-submit" class="col-sm-2 col-form-label">Competitor-59</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[59]}}" id="competitor-59-submit" name="fbc59">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-60-submit" class="col-sm-2 col-form-label">Competitor-60</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[60]}}" id="competitor-60-submit" name="fbc60">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-61-submit" class="col-sm-2 col-form-label">Competitor-61</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[61]}}" id="competitor-61-submit" name="fbc61">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-62-submit" class="col-sm-2 col-form-label">Competitor-62</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[62]}}" id="competitor-62-submit" name="fbc62">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-63-submit" class="col-sm-2 col-form-label">Competitor-63</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[63]}}" id="competitor-63-submit" name="fbc63">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-64-submit" class="col-sm-2 col-form-label">Competitor-64</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[64]}}" id="competitor-64-submit" name="fbc64">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-65-submit" class="col-sm-2 col-form-label">Competitor-65</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[65]}}" id="competitor-65-submit" name="fbc65">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-66-submit" class="col-sm-2 col-form-label">Competitor-66</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[66]}}" id="competitor-66-submit" name="fbc66">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-67-submit" class="col-sm-2 col-form-label">Competitor-67</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[67]}}" id="competitor-67-submit" name="fbc67">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-68-submit" class="col-sm-2 col-form-label">Competitor-68</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[68]}}" id="competitor-68-submit" name="fbc68">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-69-submit" class="col-sm-2 col-form-label">Competitor-69</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[69]}}" id="competitor-69-submit" name="fbc69">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-70-submit" class="col-sm-2 col-form-label">Competitor-70</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[70]}}" id="competitor-70-submit" name="fbc70">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-71-submit" class="col-sm-2 col-form-label">Competitor-71</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[71]}}" id="competitor-71-submit" name="fbc71">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-72-submit" class="col-sm-2 col-form-label">Competitor-72</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[72]}}" id="competitor-72-submit" name="fbc72">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-73-submit" class="col-sm-2 col-form-label">Competitor-73</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[73]}}" id="competitor-73-submit" name="fbc73">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-74-submit" class="col-sm-2 col-form-label">Competitor-74</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[74]}}" id="competitor-74-submit" name="fbc74">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-75-submit" class="col-sm-2 col-form-label">Competitor-75</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[75]}}" id="competitor-75-submit" name="fbc75">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-76-submit" class="col-sm-2 col-form-label">Competitor-76</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[76]}}" id="competitor-76-submit" name="fbc76">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-77-submit" class="col-sm-2 col-form-label">Competitor-77</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[77]}}" id="competitor-77-submit" name="fbc77">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-78-submit" class="col-sm-2 col-form-label">Competitor-78</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[78]}}" id="competitor-78-submit" name="fbc78">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-79-submit" class="col-sm-2 col-form-label">Competitor-79</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[79]}}" id="competitor-79-submit" name="fbc79">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-80-submit" class="col-sm-2 col-form-label">Competitor-80</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[80]}}" id="competitor-80-submit" name="fbc80">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-81-submit" class="col-sm-2 col-form-label">Competitor-81</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[81]}}" id="competitor-81-submit" name="fbc81">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-82-submit" class="col-sm-2 col-form-label">Competitor-82</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[82]}}" id="competitor-82-submit" name="fbc82">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-83-submit" class="col-sm-2 col-form-label">Competitor-83</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[83]}}" id="competitor-83-submit" name="fbc83">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-84-submit" class="col-sm-2 col-form-label">Competitor-84</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[84]}}" id="competitor-84-submit" name="fbc84">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-85-submit" class="col-sm-2 col-form-label">Competitor-85</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[85]}}" id="competitor-85-submit" name="fbc85">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-86-submit" class="col-sm-2 col-form-label">Competitor-86</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[86]}}" id="competitor-86-submit" name="fbc86">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-87-submit" class="col-sm-2 col-form-label">Competitor-87</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[87]}}" id="competitor-87-submit" name="fbc87">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-88-submit" class="col-sm-2 col-form-label">Competitor-88</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[88]}}" id="competitor-88-submit" name="fbc88">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-89-submit" class="col-sm-2 col-form-label">Competitor-89</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[89]}}" id="competitor-89-submit" name="fbc89">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-90-submit" class="col-sm-2 col-form-label">Competitor-90</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[90]}}" id="competitor-90-submit" name="fbc90">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-91-submit" class="col-sm-2 col-form-label">Competitor-91</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[91]}}" id="competitor-91-submit" name="fbc91">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-92-submit" class="col-sm-2 col-form-label">Competitor-92</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[92]}}" id="competitor-92-submit" name="fbc92">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-93-submit" class="col-sm-2 col-form-label">Competitor-93</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[93]}}" id="competitor-93-submit" name="fbc93">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-94-submit" class="col-sm-2 col-form-label">Competitor-94</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[94]}}" id="competitor-94-submit" name="fbc94">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-95-submit" class="col-sm-2 col-form-label">Competitor-95</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[95]}}" id="competitor-95-submit" name="fbc95">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-96-submit" class="col-sm-2 col-form-label">Competitor-96</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[96]}}" id="competitor-96-submit" name="fbc96">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-97-submit" class="col-sm-2 col-form-label">Competitor-97</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[97]}}" id="competitor-97-submit" name="fbc97">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-98-submit" class="col-sm-2 col-form-label">Competitor-98</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[98]}}" id="competitor-98-submit" name="fbc98">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-99-submit" class="col-sm-2 col-form-label">Competitor-99</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[99]}}" id="competitor-99-submit" name="fbc99">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="competitor-100-submit" class="col-sm-2 col-form-label">Competitor-100</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="{{profiles[100]}}" id="competitor-100-submit" name="fbc100">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+
+                                        <input type="submit" class="btn btn-success ml-2" value="Submit">
+                                        </div>
+										</form>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                    </div>
+                    <!-- container -->
+                </div>
+                <!-- Page content Wrapper -->
+            </div>
+            <!-- content -->
+            <footer class="footer">© 2019 ADI - Aggregate Digital Innovation.</footer>
+        </div>
+        <!-- End Right content here -->
+    </div>
+    <!-- END wrapper -->
+    <!-- jQuery  -->
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/modernizr.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/detect.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/fastclick.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.slimscroll.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.blockUI.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/waves.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.nicescroll.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.scrollTo.min.js') }}"></script>
+    <!-- App js -->
+    <script src="{{ url_for('static', filename='assets/js/app.js') }}"></script>
+</body>
+
+</html>

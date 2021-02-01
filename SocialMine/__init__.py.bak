@@ -1,0 +1,766 @@
+from flask import Flask, render_template, url_for, request, make_response, redirect
+from random import randint
+import random
+import mysql.connector
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
+from email.header import Header
+import json
+import subprocess
+import urllib.request
+from instaloader import Instaloader, Profile
+from twitterscraper.query import query_user_info
+import math
+import requests
+from bs4 import BeautifulSoup
+from math import ceil
+
+app = Flask(__name__)
+app.config["APPLICATION_ROOT"] = "/"
+
+# growth functions
+def follower_growth_insta(username):
+	url = "https://socialblade.com/instagram/user/"+username
+	user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36"
+	headers = {'User-Agent': user_agent}
+	page = requests.get(url,headers=headers)
+	soup = BeautifulSoup(page.content, "html.parser")
+	followers = []
+	followers.append(abs(int(str(soup.select("div")[427].select("div")[3].select("div")[0].get_text()).replace(",", ""))))
+	followers.append(abs(int(str(soup.select("div")[414].select("div")[3].select("div")[0].get_text()).replace(",", ""))))
+	followers.append(abs(int(str(soup.select("div")[401].select("div")[3].select("div")[0].get_text()).replace(",", ""))))
+	followers.append(abs(int(str(soup.select("div")[388].select("div")[3].select("div")[0].get_text()).replace(",", ""))))
+	followers.append(abs(int(str(soup.select("div")[375].select("div")[3].select("div")[0].get_text()).replace(",", ""))))
+
+	return followers
+
+def follower_growth_twitter(username):
+	url = "https://socialblade.com/twitter/user/"+username
+	user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36"
+	headers = {'User-Agent': user_agent}
+	page = requests.get(url,headers=headers)
+	soup = BeautifulSoup(page.content, "html.parser")
+	followers = []
+	para = soup.select("div")[223]
+	followers.append(abs(int(str(para.select("div")[175].select("div")[2].select("div")[0].get_text()).replace(",", ""))))
+	followers.append(abs(int(str(para.select("div")[163].select("div")[2].select("div")[0].get_text()).replace(",", ""))))
+	followers.append(abs(int(str(para.select("div")[151].select("div")[2].select("div")[0].get_text()).replace(",", ""))))
+	followers.append(abs(int(str(para.select("div")[139].select("div")[2].select("div")[0].get_text()).replace(",", ""))))
+	followers.append(abs(int(str(para.select("div")[127].select("div")[2].select("div")[0].get_text()).replace(",", ""))))
+	return followers
+
+
+def follower_growth_facebook(username):
+	url = "https://socialblade.com/facebook/page/"+username
+	user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36"
+	headers = {'User-Agent': user_agent}
+	page = requests.get(url,headers=headers)
+	soup = BeautifulSoup(page.content, "html.parser")
+	para = soup.select("div")[209]
+	followers = []
+	followers.append(abs(int(str(para.select("div")[161].select("div")[3].select("div")[0].get_text()).replace(",", ""))))
+	followers.append(abs(int(str(para.select("div")[150].select("div")[3].select("div")[0].get_text()).replace(",", ""))))
+	followers.append(abs(int(str(para.select("div")[139].select("div")[3].select("div")[0].get_text()).replace(",", ""))))
+	followers.append(abs(int(str(para.select("div")[128].select("div")[3].select("div")[0].get_text()).replace(",", ""))))
+	followers.append(abs(int(str(para.select("div")[117].select("div")[3].select("div")[0].get_text()).replace(",", ""))))
+	return followers
+
+# latest product fetch
+def amaz_parse(para):
+	title = para.select("div.p13n-sc-truncate.p13n-sc-line-clamp-2")[0].get_text().strip()
+	alink = "https://www.amazon.com" + para.select("a.a-link-normal")[0].get("href")
+	image = para.select("img")[0].get("src")
+	price = para.select("span.p13n-sc-price")[0].get_text().strip()
+	return (title, alink, image, price)
+def amaz_get_recent():
+	page = requests.get("https://www.amazon.com/Best-Sellers/zgbs/wireless/ref=zg_bs_nav_0")
+	soup = BeautifulSoup(page.content, "html.parser")
+	para = soup.select("li.zg-item-immersion")
+	lst_prod = []
+	for x in para:
+		prod = amaz_parse(x)
+		lst_prod.append(prod)
+	random.shuffle(lst_prod)
+	return lst_prod
+
+# amazon functions
+def fetch_tags(para):
+	try:
+		product_title = para.select("span.a-size-medium.a-color-base.a-text-normal")[0].get_text()
+		product_price = para.select("span.a-offscreen")[0].get_text()
+		alink = para.select("a.a-link-normal")[0]
+		product_link = "https://www.amazon.com" + str((alink.get("href")))
+		product_image = para.select("img.s-image")[0].get("src")
+		return (product_title, product_price, product_link, product_image)
+	except:
+		return 0
+
+def get_amazon(product_name):
+	try:
+		page = requests.get("https://www.amazon.com/s?k="+product_name)
+		soup = BeautifulSoup(page.content, "html.parser")
+
+		para = soup.select("div.a-section.a-spacing-medium")
+		list_product_title = []
+		list_product_price = []
+		list_product_link = []
+		list_product_image = []
+		for x in para:
+			fetched = fetch_tags(x)
+			if fetched != 0:
+				product_title, product_price, product_link, product_image = fetched
+				list_product_title.append(product_title)
+				list_product_price.append(product_price)
+				list_product_link.append(product_link)
+				list_product_image.append(product_image)
+
+		list_product_title.reverse()
+		list_product_price.reverse()
+		list_product_link.reverse()
+		list_product_image.reverse()
+
+		return (list_product_title, list_product_price, list_product_link, list_product_image)
+	except:
+		return ([], [], [], [])
+
+#analytics functions
+
+def get_fb_likes(fb_page):
+	command = "wget -qO - https://socialblade.com/facebook/page/{0} | egrep 'page likes'".format(fb_page)
+	output =  int(str(subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)).replace('<p style = "color:#aaa; font-size: 10pt;"><i class="fa fa-thumbs-up" aria-hidden="false"></i>&nbsp;&nbsp;', "").replace('page likes</p>\\r\\n\'', '').replace('b\'', '').strip().replace(',', ''))
+	return output
+
+millnames = ['','k','m','b','t']
+
+def millify(n):
+	n = float(n)
+	millidx = max(0,min(len(millnames)-1, int(math.floor(0 if n == 0 else math.log10(abs(n))/3))))
+	return '{:.0f}{}'.format(n / 10**(3 * millidx), millnames[millidx])
+
+def get_insta_stats(username):
+	L = Instaloader()
+	profile = Profile.from_username(L.context, username)
+	followers = profile.followers
+	return followers
+
+def get_twitter_stats(username):
+	return query_user_info(username).followers
+
+def get_youtube_stats(username):
+	url = "https://socialblade.com/youtube/user/"+username
+	user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36"
+	headers = {'User-Agent': user_agent}
+	page = requests.get(url,headers=headers)
+	soup = BeautifulSoup(page.content, "html.parser")
+	para = soup.select("span#youtube-stats-header-subs")[0].get_text()
+	return para
+
+def sending_mail(email, mail_text):
+	smtp = smtplib.SMTP()
+	smtp.connect('localhost')
+
+	msgRoot = MIMEMultipart("alternative")
+	msgRoot['Subject'] = Header("Verification Link", "utf-8")
+	msgRoot['From'] = "no-reply@adinnovation.org"
+	msgRoot['To'] = email
+
+	text = MIMEText(mail_text, "plain", "utf-8")
+	msgRoot.attach(text)
+
+	smtp.sendmail("no-reply@adinnovation.org", email, msgRoot.as_string())
+
+def sending_mail_forget(email, mail_text):
+	smtp = smtplib.SMTP()
+	smtp.connect('localhost')
+
+	msgRoot = MIMEMultipart("alternative")
+	msgRoot['Subject'] = Header("Credential details", "utf-8")
+	msgRoot['From'] = "no-reply@adinnovation.org"
+	msgRoot['To'] = email
+
+	text = MIMEText(mail_text, "plain", "utf-8")
+	msgRoot.attach(text)
+
+	smtp.sendmail("no-reply@adinnovation.org", email, msgRoot.as_string())
+
+def get_random():
+	return randint(100000, 999999)
+
+def connect():
+	mydb = mysql.connector.connect(
+		host="localhost",
+		user="root",
+		passwd="1111",
+		database="app"
+	)
+	return mydb
+
+def get_com_profiles(email):
+	mydb = connect()
+	mycursor = mydb.cursor()
+	sql = "SELECT fbs1, tws1, ins1 FROM `user` WHERE email='{0}'".format(email)
+	mycursor.execute(sql)
+
+def update_fb(fbs1, fbc1, fbc2, fbc3, fbc4, fbc5, email):
+	mydb = connect()
+	mycursor = mydb.cursor()
+	sql = "UPDATE `user` SET `fbs1` = '{0}', `fbc1` = '{1}', `fbc2` = '{2}', `fbc3` = '{3}', `fbc4` = '{4}', `fbc5` = '{5}' WHERE `user`.`email` = '{6}';".format(fbs1, fbc1, fbc2, fbc3, fbc4, fbc5, email)
+	mycursor.execute(sql)
+	mydb.commit()
+
+def update_tw(tws1, twc1, twc2, twc3, twc4, twc5, email):
+	mydb = connect()
+	mycursor = mydb.cursor()
+	sql = "UPDATE `user` SET `tws1` = '{0}', `twc1` = '{1}', `twc2` = '{2}', `twc3` = '{3}', `twc4` = '{4}', `twc5` = '{5}' WHERE `user`.`email` = '{6}';".format(tws1, twc1, twc2, twc3, twc4, twc5, email)
+	mycursor.execute(sql)
+	mydb.commit()
+
+def update_in(ins1, inc1, inc2, inc3, inc4, inc5, email):
+	mydb = connect()
+	mycursor = mydb.cursor()
+	sql = "UPDATE `user` SET `ins1` = '{0}', `inc1` = '{1}', `inc2` = '{2}', `inc3` = '{3}', `inc4` = '{4}', `inc5` = '{5}' WHERE `user`.`email` = '{6}';".format(ins1, inc1, inc2, inc3, inc4, inc5, email)
+	mycursor.execute(sql)
+	mydb.commit()
+
+def update_tb(tbs1, tbc1, tbc2, tbc3, tbc4, tbc5, email):
+	mydb = connect()
+	mycursor = mydb.cursor()
+	sql = "UPDATE `user` SET `tbs1` = '{0}', `tbc1` = '{1}', `tbc2` = '{2}', `tbc3` = '{3}', `tbc4` = '{4}', `tbc5` = '{5}' WHERE `user`.`email` = '{6}';".format(tbs1, tbc1, tbc2, tbc3, tbc4, tbc5, email)
+	mycursor.execute(sql)
+	mydb.commit()
+
+def fetch_self_profiles(email):
+	mydb = connect()
+	mycursor = mydb.cursor()
+	sql = "SELECT `fbs1`,`tws1`,`ins1`,`tbs1` FROM `user` WHERE `email`='{0}'".format(email)
+	mycursor.execute(sql)
+	myresult = list(mycursor.fetchall()[0])
+	return myresult
+
+def fetch_comp_profiles(email):
+	mydb = connect()
+	mycursor = mydb.cursor()
+	sql = "SELECT `fbc1`,`twc1`,`inc1`,`tbc1` FROM `user` WHERE email='{0}'".format(email)
+	mycursor.execute(sql)
+	myresult = list(mycursor.fetchall()[0])
+	return myresult
+
+def followers_by_media(soc_arr):
+	num_fb = get_fb_likes(soc_arr[0])
+	num_tw = get_twitter_stats(soc_arr[1])
+	num_insta = get_insta_stats(soc_arr[2])
+	total = num_fb + num_tw + num_insta
+	perc_fb = ceil((num_fb/total)*100)
+	perc_tw = ceil((num_tw/total)*100)
+	perc_insta = ceil((num_insta/total)*100)
+	if perc_fb == 100:
+		perc_fb = 98
+	elif perc_tw == 100:
+		perc_tw = 98
+	elif perc_insta == 100:
+		perc_insta = 98
+		
+	return (perc_fb, perc_tw, perc_insta)
+
+def get_self_profile_stats(soc_arr):
+	print(get_fb_likes(soc_arr[0]))
+	return (millify(get_fb_likes(soc_arr[0])), millify(get_twitter_stats(soc_arr[1])), millify(get_insta_stats(soc_arr[2])), (get_youtube_stats(soc_arr[3])))
+
+def fetch_fb(email):
+	mydb = connect()
+	mycursor = mydb.cursor()
+	sql = "SELECT fbs1, fbc1, fbc2, fbc3, fbc4, fbc5 FROM `user` WHERE email='{0}'".format(email)
+	mycursor.execute(sql)
+	myresult = list(mycursor.fetchall()[0])
+	return myresult
+
+def fetch_tw(email):
+	mydb = connect()
+	mycursor = mydb.cursor()
+	sql = "SELECT tws1, twc1, twc2, twc3, twc4, twc5 FROM `user` WHERE email='{0}'".format(email)
+	mycursor.execute(sql)
+	myresult = list(mycursor.fetchall()[0])
+	return myresult
+
+def fetch_in(email):
+	mydb = connect()
+	mycursor = mydb.cursor()
+	sql = "SELECT ins1, inc1, inc2, inc3, inc4, inc5 FROM `user` WHERE email='{0}'".format(email)
+	mycursor.execute(sql)
+	myresult = list(mycursor.fetchall()[0])
+	return myresult
+
+def fetch_tb(email):
+	mydb = connect()
+	mycursor = mydb.cursor()
+	sql = "SELECT tbs1, tbc1, tbc2, tbc3, tbc4, tbc5 FROM `user` WHERE email='{0}'".format(email)
+	mycursor.execute(sql)
+	myresult = list(mycursor.fetchall()[0])
+	return myresult
+
+def insert_user(email, password, code):
+	mydb = connect()
+	mycursor = mydb.cursor()
+	sql = "INSERT INTO `user` (`id`, `email`, `passwd`, `code`, `done`) VALUES (NULL, '{0}', '{1}', '{2}', '0');".format(email, password, code)
+	mycursor.execute(sql)
+	mydb.commit()
+
+def check_done(email, code):
+	mydb = connect()
+	mycursor = mydb.cursor()
+	sql = "SELECT * FROM `user` WHERE `email`='{0}' AND code='{1}'".format(email, code)
+	mycursor.execute(sql)
+	myresult = mycursor.fetchall()
+	if len(myresult) == 0:
+		return 0
+	else:
+		return 1
+
+def get_pass(email):
+	mydb = connect()
+	mycursor = mydb.cursor()
+	sql = "SELECT `id`, `passwd` FROM `user` WHERE `email`='{0}'".format(email)
+	mycursor.execute(sql)
+	myresult = mycursor.fetchall()
+	if len(myresult) == 0:
+		return 0
+	else:
+		return str(myresult[0][1])
+
+def update_done(email):
+	mydb = connect()
+	mycursor = mydb.cursor()
+	sql = "UPDATE `user` SET `done` = '1' WHERE `user`.`email` = '{0}';".format(email)
+	mycursor.execute(sql)
+	mydb.commit()
+
+def check_user(email):
+	mydb = connect()
+	mycursor = mydb.cursor()
+	sql = "SELECT * FROM `user` WHERE `email`='{0}'".format(email)
+	mycursor.execute(sql)
+	myresult = mycursor.fetchall()
+	if len(myresult) == 0:
+		return 0
+	else:
+		return 1
+
+def check_user_login(email, password):
+	email = str(email)
+	password = str(password)
+	mydb = connect()
+	mycursor = mydb.cursor()
+	sql = "SELECT * FROM `user` WHERE email='{0}' AND passwd='{1}'".format(email, password)
+	mycursor.execute(sql)
+	myresult = mycursor.fetchall()
+	if len(myresult) == 0:
+		return 0
+	else:
+		return 1
+
+@app.route("/")
+def index():
+	return render_template("index.html")
+
+@app.route("/dashboard/")
+def dashboard():
+	email = request.cookies.get("uemail")
+	if email != None:
+		self_stats = get_self_profile_stats(fetch_self_profiles("zzz-ivanz@yandex.com"))
+		foll_media = [67, 19, 14]
+		return render_template("dashboard.html", self_stats=self_stats, foll_media=foll_media)
+	else:
+		return render_template("login.html")
+
+@app.route("/fb_follower_growth/")
+def fb_follower_growth():
+	email = request.cookies.get("uemail")
+	if email != None:
+		datam1 = follower_growth_facebook(fetch_self_profiles(email)[0])
+		datam2 = follower_growth_facebook(fetch_comp_profiles(email)[0])
+		return render_template("fb_follower_growth.html", datam1=datam1, datam2=datam2)
+	else:
+		return render_template("login.html")
+
+@app.route("/fb_competitor_growth/")
+def fb_competitor_growth():
+	email = request.cookies.get("uemail")
+	if email != None:
+		return render_template("fb_competitor_growth.html")
+	else:
+		return render_template("login.html")
+
+@app.route("/fb_content_engagement/")
+def fb_content_engagement():
+	email = request.cookies.get("uemail")
+	if email != None:
+		return render_template("fb_content_engagement.html")
+	else:
+		return render_template("login.html")
+
+@app.route("/fb_hashtag_analysis/")
+def fb_hashtag_analysis():
+	email = request.cookies.get("uemail")
+	if email != None:
+		return render_template("fb_hashtag_analysis.html")
+	else:
+		return render_template("login.html")
+
+@app.route("/fb_content_performance/")
+def fb_content_performance():
+	email = request.cookies.get("uemail")
+	if email != None:
+		return render_template("fb_content_performance.html")
+	else:
+		return render_template("login.html")
+
+@app.route("/fb_generate_report/")
+def fb_generate_report():
+	email = request.cookies.get("uemail")
+	if email != None:
+		return render_template("fb_generate_report.html")
+	else:
+		return render_template("login.html")
+
+@app.route("/tw_follower_growth/")
+def tw_follower_growth():
+	email = request.cookies.get("uemail")
+	if email != None:
+		datam1 = follower_growth_twitter(fetch_self_profiles(email)[1])
+		datam2 = follower_growth_twitter(fetch_comp_profiles(email)[1])
+		return render_template("tw_follower_growth.html", datam1=datam1, datam2=datam2)
+	else:
+		return render_template("login.html")
+
+@app.route("/tw_competitor_growth/")
+def tw_competitor_growth():
+	email = request.cookies.get("uemail")
+	if email != None:
+		return render_template("tw_competitor_growth.html")
+	else:
+		return render_template("login.html")
+
+@app.route("/tw_content_engagement/")
+def tw_content_engagement():
+	email = request.cookies.get("uemail")
+	if email != None:
+		return render_template("tw_content_engagement.html")
+	else:
+		return render_template("login.html")
+
+@app.route("/tw_hashtag_analysis/")
+def tw_hashtag_analysis():
+	email = request.cookies.get("uemail")
+	if email != None:
+		return render_template("tw_hashtag_analysis.html")
+	else:
+		return render_template("login.html")
+
+@app.route("/tw_content_performance/")
+def tw_content_performance():
+	email = request.cookies.get("uemail")
+	if email != None:
+		return render_template("tw_content_performance.html")
+	else:
+		return render_template("login.html")
+
+@app.route("/tw_sentiment_analysis/")
+def tw_sentiment_analysis():
+	email = request.cookies.get("uemail")
+	if email != None:
+		return render_template("tw_sentiment_analysis.html")
+	else:
+		return render_template("login.html")
+
+@app.route("/tw_generate_report/")
+def tw_generate_report():
+	email = request.cookies.get("uemail")
+	if email != None:
+		return render_template("tw_generate_report.html")
+	else:
+		return render_template("login.html")
+
+@app.route("/insta_follower_growth/")
+def insta_follower_growth():
+	email = request.cookies.get("uemail")
+	if email != None:
+		datam1 = follower_growth_insta(fetch_self_profiles(email)[2])
+		datam2 = follower_growth_insta(fetch_comp_profiles(email)[2])
+		return render_template("insta_follower_growth.html", datam1=datam1, datam2=datam2)
+	else:
+		return render_template("login.html")
+
+@app.route("/insta_competitor_growth/")
+def insta_competitor_growth():
+	email = request.cookies.get("uemail")
+	if email != None:
+		return render_template("insta_competitor_growth.html")
+	else:
+		return render_template("login.html")
+
+@app.route("/insta_content_engagement/")
+def insta_content_engagement():
+	email = request.cookies.get("uemail")
+	if email != None:
+		return render_template("insta_content_engagement.html")
+	else:
+		return render_template("login.html")
+
+@app.route("/insta_hashtag_analysis/")
+def insta_hashtag_analysis():
+	email = request.cookies.get("uemail")
+	if email != None:
+		return render_template("insta_hashtag_analysis.html")
+	else:
+		return render_template("login.html")
+
+@app.route("/insta_content_performance/")
+def insta_content_performance():
+	email = request.cookies.get("uemail")
+	if email != None:
+		return render_template("insta_content_performance.html")
+	else:
+		return render_template("login.html")
+
+@app.route("/insta_generate_report/")
+def insta_generate_report():
+	email = request.cookies.get("uemail")
+	if email != None:
+		return render_template("insta_generate_report.html")
+	else:
+		return render_template("login.html")
+
+@app.route("/tube_subscriber_growth/")
+def tube_subscriber_growth():
+	email = request.cookies.get("uemail")
+	if email != None:
+		return render_template("tube_subscriber_growth.html")
+	else:
+		return render_template("login.html")
+
+@app.route("/tube_competitor_growth/")
+def tube_competitor_growth():
+	email = request.cookies.get("uemail")
+	if email != None:
+		return render_template("tube_competitor_growth.html")
+	else:
+		return render_template("login.html")
+
+@app.route("/tube_content_engagement/")
+def tube_content_engagement():
+	email = request.cookies.get("uemail")
+	if email != None:
+		return render_template("tube_content_engagement.html")
+	else:
+		return render_template("login.html")
+
+@app.route("/tube_generate_report/")
+def tube_generate_report():
+	email = request.cookies.get("uemail")
+	if email != None:
+		return render_template("tube_generate_report.html")
+	else:
+		return render_template("login.html")
+
+@app.route("/social_fb/")
+def social_fb():
+	email = request.cookies.get("uemail")
+	profiles = fetch_fb(email)
+	if email != None:
+		return render_template("social_fb.html", profiles=profiles)
+	else:
+		return render_template("login.html")
+
+@app.route("/social_tw/")
+def social_tw():
+	email = request.cookies.get("uemail")
+	profiles = fetch_tw(email)
+	if email != None:
+		return render_template("social_tw.html", profiles=profiles)
+	else:
+		return render_template("login.html")
+
+@app.route("/social_insta/")
+def social_insta():
+	email = request.cookies.get("uemail")
+	profiles = fetch_in(email)
+	if email != None:
+		return render_template("social_insta.html", profiles=profiles)
+	else:
+		return render_template("login.html")
+
+@app.route("/social_tube/")
+def social_tube():
+	email = request.cookies.get("uemail")
+	profiles = fetch_tb(email)
+	if email != None:
+		return render_template("social_tube.html", profiles=profiles)
+	else:
+		return render_template("login.html")
+
+@app.route("/login/")
+def login():
+	email = request.cookies.get("uemail")
+	if email == None:
+		return render_template("login.html")
+	else:
+		return render_template("dashboard.html")
+
+@app.route("/recoverpw/")
+def recoverpw():
+	email = request.cookies.get("uemail")
+	if email == None:
+		return render_template("recoverpw.html")
+	else:
+		return render_template("dashboard.html")
+
+@app.route("/register/")
+def register():
+	email = request.cookies.get("uemail")
+	print(email)
+	if email == None:
+		return render_template("register.html")
+	else:
+		return render_template("dashboard.html")
+
+@app.route("/verify/", methods=["post", "get"])
+def verify():
+	email = request.form["email"]
+	password = request.form["password"]
+	if check_user_login(email, password) == 1:
+		resp = make_response(render_template("dashboard.html"))
+		resp.set_cookie("uemail", email)
+		return resp
+	else:
+		return render_template("login_fallback.html")
+	return "user checked"
+
+@app.route("/add_user/", methods=["post", "get"])
+def add_user():
+	email = request.form["email"]
+	password = request.form["password"]
+	resp_user_check = check_user(email)
+	if resp_user_check == 0:
+		rndm = get_random()
+		insert_user(email, password, rndm)
+		email = str(email)
+		password = str(password)
+		rndm = str(rndm)
+		str_0 = "http://63.250.35.223:5000/email_verify?email={0}&code={1}".format(email, rndm)
+		sending_mail(email, str_0)
+		return render_template("register_fallback.html")
+	else:
+		return render_template("register_fallback.html")
+
+@app.route("/email_verify", methods=["post", "get"])
+def email_verify():
+	email = str(request.args.get("email"))
+	code = str(request.args.get("code"))
+	if check_done(email, code) == 1:
+		update_done(email)
+		resp = make_response(render_template("dashboard.html"))
+		resp.set_cookie("uemail", email)
+		return resp
+	else:
+		return render_template("login.html")
+
+@app.route("/recover/", methods=["post", "get"])
+def recover():
+	email = str(request.form["email"])
+	if get_pass(str(email)) != 0:
+		passwd = str(get_pass(email))
+		str_01 = "Email: " + email + "\n" + "Password: " + passwd
+		sending_mail_forget(email, str_01)
+		return render_template("login.html")
+	else:
+		return render_template("login.html")
+@app.route("/logout/")
+def logout():
+	resp = make_response(render_template("login.html"))
+	resp.delete_cookie("uemail")
+	return resp
+
+@app.route("/check_cookie/")
+def check_cookie():
+	uemail = request.cookies.get("uemail")
+	return ("uemail: {0}".format(uemail))
+
+@app.route("/rt_update_fb/", methods=["post", "get"])
+def rt_update_fb():
+	uemail = request.cookies.get("uemail")
+	fbs1 = str(request.form["fbs1"])
+	fbc1 = str(request.form["fbc1"])
+	fbc2 = str(request.form["fbc2"])
+	fbc3 = str(request.form["fbc3"])
+	fbc4 = str(request.form["fbc4"])
+	fbc5 = str(request.form["fbc5"])
+
+	update_fb(fbs1, fbc1, fbc2, fbc3, fbc4, fbc5, uemail)
+
+	return redirect(url_for("social_fb"))
+
+@app.route("/rt_update_tw/", methods=["post", "get"])
+def rt_update_tw():
+	uemail = request.cookies.get("uemail")
+	tws1 = str(request.form["tws1"])
+	twc1 = str(request.form["twc1"])
+	twc2 = str(request.form["twc2"])
+	twc3 = str(request.form["twc3"])
+	twc4 = str(request.form["twc4"])
+	twc5 = str(request.form["twc5"])
+
+	update_tw(tws1, twc1, twc2, twc3, twc4, twc5, uemail)
+
+	return redirect(url_for("social_tw"))
+
+@app.route("/rt_update_in/", methods=["post", "get"])
+def rt_update_in():
+	uemail = request.cookies.get("uemail")
+	ins1 = str(request.form["ins1"])
+	inc1 = str(request.form["inc1"])
+	inc2 = str(request.form["inc2"])
+	inc3 = str(request.form["inc3"])
+	inc4 = str(request.form["inc4"])
+	inc5 = str(request.form["inc5"])
+
+	update_in(ins1, inc1, inc2, inc3, inc4, inc5, uemail)
+
+	return redirect(url_for("social_insta"))
+
+@app.route("/rt_update_tb/", methods=["post", "get"])
+def rt_update_tb():
+	uemail = request.cookies.get("uemail")
+	tbs1 = str(request.form["tbs1"])
+	tbc1 = str(request.form["tbc1"])
+	tbc2 = str(request.form["tbc2"])
+	tbc3 = str(request.form["tbc3"])
+	tbc4 = str(request.form["tbc4"])
+	tbc5 = str(request.form["tbc5"])
+
+	update_tb(tbs1, tbc1, tbc2, tbc3, tbc4, tbc5, uemail)
+
+	return redirect(url_for("social_tube"))
+	
+@app.route("/shop/")
+def shop():
+	amz_recent = amaz_get_recent()
+	return render_template("shop/index.html", amz_recent=amz_recent)
+
+@app.route("/shop_search/", methods=["POST", "GET"])
+def shop_search():
+	product_search = request.args.get("trending_product")
+	list_product_title, list_product_price, list_product_link, list_product_image = get_amazon(product_search)
+	if len(list_product_title) == 0:
+		amz_recent = amaz_get_recent()
+		return render_template("shop/index.html", amz_recent=amz_recent)
+	else:
+		return render_template("shop/shop-fullwidth.html", product_link=list_product_link, product_image=list_product_image, product_title=list_product_title, product_price=list_product_price)
+
+#print(fetch_self_profiles("zzz-ivanz@yandex.com"))
+print(followers_by_media(fetch_self_profiles("zzz-ivanz@yandex.com")))
+"""
+if __name__ == "__main__":
+	app.run(host="0.0.0.0", debug=True, port=80)
+"""

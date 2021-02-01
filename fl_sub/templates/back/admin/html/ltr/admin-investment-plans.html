@@ -1,0 +1,135 @@
+{% extends 'back/admin/html/ltr/base.html' %}
+{% block title %}
+Investment Plans | Admin Panel | SIP India
+{% endblock %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Investment Plans</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Investment Plans</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Welcome to SIPIndia.io Admin Panel</h5>
+                        <p>Investment plans can be updated from here.</p>
+                        <p>Please, check out payment backlogs for funding your users whose investment plan is about to end.</p>
+                        <button type="button" class="btn btn-success btn-lgm">Investment Plans</button>
+                        <button type="button" class="btn btn-info">Payment Backlog</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- My Deposits Error Message  (ends) -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Investment Plans</h5>
+                        <div class="table-responsive">
+                            <table id="zero_config" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Actions</th>
+                                        <th scope="col">Max Deposit</th>
+                                        <th scope="col">Min Deposit</th>
+                                        <th scope="col">Frequency</th>
+                                        <th scope="col">Return</th>
+                                        <th scope="col">Duration</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Principiante</td>
+                                        <td><button type="button" class="btn btn-primary btn-sm">Edit</button> <button type="button" class="btn btn-secondary btn-sm">Disable</button></td>
+                                        <td>50</td>
+                                        <td>5</td>
+                                        <td>weekly</td>
+                                        <td>2%</td>
+                                        <td>52 Weeks</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Principiante</td>
+                                        <td><button type="button" class="btn btn-primary btn-sm">Edit</button> <button type="button" class="btn btn-secondary btn-sm">Disable</button></td>
+                                        <td>50</td>
+                                        <td>5</td>
+                                        <td>weekly</td>
+                                        <td>2%</td>
+                                        <td>52 Weeks</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Principiante</td>
+                                        <td><button type="button" class="btn btn-primary btn-sm">Edit</button> <button type="button" class="btn btn-secondary btn-sm">Disable</button></td>
+                                        <td>50</td>
+                                        <td>5</td>
+                                        <td>weekly</td>
+                                        <td>2%</td>
+                                        <td>52 Weeks</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Actions</th>
+                                        <th scope="col">Max Deposit</th>
+                                        <th scope="col">Min Deposit</th>
+                                        <th scope="col">Frequency</th>
+                                        <th scope="col">Return</th>
+                                        <th scope="col">Duration</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer text-center">
+        Copyright &copy; 2020 SIP INDIA All rights reserved.
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+{% endblock %}

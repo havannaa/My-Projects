@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
+    <title>SocialMine.net - Twitter Content Engagement</title>
+    <meta content="Admin Dashboard" name="description">
+    <meta content="Mannatthemes" name="author">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/favicon.ico') }}">
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/plugins/morris/morris.css') }}">
+    <link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='assets/css/icons.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet" type="text/css">
+</head>
+
+<body class="fixed-left">
+
+    <!-- Begin page -->
+    <div id="wrapper">
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left side-menu">
+            <button type="button" class="button-menu-mobile button-menu-mobile-topbar open-left waves-effect"><i class="ion-close"></i></button>
+            <!-- LOGO -->
+            <div class="topbar-left">
+                <div class="text-center"><a href="https://socialmine.net/" target="self" class="logo"><img src="https://i.ibb.co/fY847jv/adi-logo.png"/></a>
+                    </div>
+            </div>
+            <div class="sidebar-inner slimscrollleft">
+                <div id="sidebar-menu">
+                    <ul>
+                        <li class="menu-title">Main</li>
+                        <li><a href="https://socialmine.net/dashboard" class="waves-effect"><i class="mdi mdi-airplay"></i> <span>Dashboard </a></li>
+                        <li class="menu-title">Facebook</li>
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-facebook"></i> <span>Facebook Analytics </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/fb_follower_growth">Follower Growth</a></li>
+                                <li><a href="https://socialmine.net/fb_competitor_growth">Competitor Growth</a></li>
+                                <li><a href="https://socialmine.net/fb_content_engagement">Content Engagement</a></li>
+                                <li><a href="https://socialmine.net/fb_generate_report">Generate Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-title">Twitter</li>
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-twitter"></i> <span>Twitter Analytics </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/tw_follower_growth">Follower Growth</a></li>
+                                <li><a href="https://socialmine.net/tw_competitor_growth">Competitor Growth</a></li>
+                                <li><a href="https://socialmine.net/tw_content_engagement">Content Engagement</a></li>
+                                <li><a href="https://socialmine.net/tw_hashtag_analysis">Hashtag Analysis</a></li>
+                                <li><a href="https://socialmine.net/tw_generate_report">Generate Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-title">Instagram</li>
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-instagram"></i> <span>Instagram Analytics </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/insta_follower_growth">Follower Growth</a></li>
+                                <li><a href="https://socialmine.net/insta_competitor_growth">Competitor Growth</a></li>
+                                <li><a href="https://socialmine.net/insta_content_engagement">Content Engagement</a></li>
+                                <li><a href="https://socialmine.net/insta_hashtag_analysis">Hashtag Analysis</a></li>
+                                <li><a href="https://socialmine.net/insta_generate_report">Generate Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-title">YouTube</li>
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-youtube-play"></i> <span>YouTube Analytics </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/tube_competitor_growth">Competitor Growth</a></li>
+                                <li><a href="https://socialmine.net/tube_content_engagement">Content Engagement</a></li>
+                                <li><a href="https://socialmine.net/tube_generate_report">Generate Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-title">Manage Profiles</li>
+                        {% if not(total_input == 25 or total_input == 100) %}
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-library-plus"></i> <span>Social Profiles </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/social_fb">Facebook</a></li>
+                                <li><a href="https://socialmine.net/social_tw">Twitter</a></li>
+                                <li><a href="https://socialmine.net/social_insta">Instagram</a></li>
+                                <li><a href="https://socialmine.net/social_tube">YouTube</a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                        {% if total_input == 25 %}
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-library-plus"></i> <span>Social Profiles (Standard) </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/social_fb_standard">Facebook</a></li>
+                                <li><a href="https://socialmine.net/social_tw_standard">Twitter</a></li>
+                                <li><a href="https://socialmine.net/social_insta_standard">Instagram</a></li>
+                                <li><a href="https://socialmine.net/social_tube_standard">YouTube</a></li>
+                            </ul>
+                        </li>
+                        {% elif total_input == 100 %}
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-library-plus"></i> <span>Social Profiles (Professional) </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="https://socialmine.net/social_fb_professional">Facebook</a></li>
+                                <li><a href="https://socialmine.net/social_tw_professional">Twitter</a></li>
+                                <li><a href="https://socialmine.net/social_insta_professional">Instagram</a></li>
+                                <li><a href="https://socialmine.net/social_tube_professional">YouTube</a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <!-- end sidebarinner -->
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- Start right Content here -->
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+                <!-- Top Bar Start -->
+                <div class="topbar">
+                    <nav class="navbar-custom">
+                        <ul class="list-inline float-right mb-0">
+                            <!-- language-->
+                            <li class="list-inline-item dropdown notification-list hide-phone"><a class="nav-link dropdown-toggle arrow-none waves-effect text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">English <img src="{{ url_for('static', filename='assets/images/flags/us_flag.jpg') }}" class="ml-2" height="16" alt=""></a>
+                                <div class="dropdown-menu dropdown-menu-right language-switch">
+                                    <a class="dropdown-item" href="#"><img src="{{ url_for('static', filename='assets/images/flags/italy_flag.jpg') }}" alt="" height="16"><span>Italian </span></a>
+                                    <a class="dropdown-item" href="#"><img src="{{ url_for('static', filename='assets/images/flags/french_flag.jpg') }}" alt="" height="16"><span>French </span></a>
+                                    <a class="dropdown-item" href="#"><img src="{{ url_for('static', filename='assets/images/flags/spain_flag.jpg') }}" alt="" height="16"><span>Spanish </span></a>
+                                    <a class="dropdown-item" href="#"><img src="{{ url_for('static', filename='assets/images/flags/russia_flag.jpg') }}" alt="" height="16"><span>Russian</span></a>
+                                </div>
+                            </li>
+
+                            
+                            <li class="list-inline-item dropdown notification-list"><a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"><i class="ti-bell noti-icon"></i> <span class="badge badge-success noti-icon-badge">5</span></a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg">
+                                    <!-- item-->
+                                    <div class="dropdown-item noti-title">
+                                        <h5><span class="badge badge-danger float-right">5</span>Notification</h5></div>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-primary"><i class="mdi mdi-cart-outline"></i></div>
+                                        <p class="notify-details"><small class="text-muted">{{user_stats[2]}}</small></p>
+                                    </a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-primary"><i class="mdi mdi-facebook"></i></div>
+                                        <p class="notify-details"><small class="text-muted">{{notif[0]}}</small></p>
+                                    </a>
+                                    {% if notif != None %}
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-primary"><i class="mdi mdi-twitter"></i></div>
+                                        <p class="notify-details"><small class="text-muted">{{notif[1]}}</small></p>
+                                    </a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-primary"><i class="mdi mdi-instagram"></i></div>
+                                        <p class="notify-details"><small class="text-muted">{{notif[2]}}</small></p>
+                                    </a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-primary"><i class="mdi mdi-youtube-play"></i></div>
+                                        <p class="notify-details"><small class="text-muted">{{notif[3]}}</small></p>
+                                    </a>
+                                    {% endif %}
+                                    <!-- All--></div>
+                            </li>
+                            <li class="list-inline-item dropdown notification-list">
+                                <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">{% if image_uploaded_before == False %}
+                                <img src="{{ url_for('static', filename='assets/images/users/avatar-6.jpg') }}" alt="user" class="rounded-circle">
+                                {% else %}
+                                <img src="{{ url_for('static', filename=uploaded_image) }}" alt="user" class="rounded-circle">
+                                {% endif %}</a>
+                                <div class="dropdown-menu dropdown-menu-right profile-dropdown">
+                                    <!-- item-->
+                                    <div class="dropdown-item noti-title">
+                                        <h5>Welcome</h5></div> <a class="dropdown-item" href="https://socialmine.net/#pricing"><i class="mdi mdi-wallet m-r-5 text-muted"></i> Subscription</a> <a class="dropdown-item" href="https://socialmine.net/social_fb"><span class="badge badge-success float-right"></span><i class="mdi mdi-settings m-r-5 text-muted"></i> Settings</a> 
+                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="https://socialmine.net/logout/"><i class="mdi mdi-logout m-r-5 text-muted"></i> Logout</a></div>
+                            </li>
+                        </ul>
+                        <ul class="list-inline menu-left mb-0">
+                            <li class="float-left">
+                                <button class="button-menu-mobile open-left waves-light waves-effect"><i class="mdi mdi-menu"></i></button>
+                            </li>
+
+                        </ul>
+                        <div class="clearfix"></div>
+                    </nav>
+                </div>
+                <!-- Top Bar End -->
+                <div class="page-content-wrapper">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="page-title-box">
+                                    <div class="btn-group float-right">
+                                  
+                                    </div>
+                                    <h4 class="page-title">Twitter Content Engagement</h4></div>
+                            </div>
+                        </div>
+					                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <h4 class="mt-0 header-title">Tweets Analysis</h4>
+                                        <p class="text-muted m-b-30 font-14">We have gone through your Twitter page, and look what we have found.</p>
+                                        <table class="table table-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>Total Retweet</td>
+                                                    <td>{{tw_con[0]}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td>Total Reply</td>
+                                                    <td>{{tw_con[1]}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">3</th>
+                                                    <td>Total Mentions</td>
+                                                    <td>{{tw_con[2]}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">4</th>
+                                                    <td>Total Hashtags</td>
+                                                    <td>{{tw_con[3]}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">5</th>
+                                                    <td>Total Links</td>
+                                                    <td>{{tw_con[4]}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">6</th>
+                                                    <td>Total Tweets</td>
+                                                    <td>{{tw_con[5]}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">7</th>
+                                                    <td>Total Following</td>
+                                                    <td>{{tw_con[6]}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">8</th>
+                                                    <td>Total Followers</td>
+                                                    <td>{{tw_con[7]}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- end col -->
+                        </div>	
+                        <!-- end page title end breadcrumb -->
+                    </div>
+                    <!-- container -->
+                </div>
+                <!-- Page content Wrapper -->
+            </div>
+            <!-- content -->
+            <footer class="footer">© 2019 ADI - Aggregate Digital Innovation.</footer>
+        </div>
+        <!-- End Right content here -->
+    </div>
+    <!-- END wrapper -->
+    <!-- jQuery  -->
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/modernizr.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/detect.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/fastclick.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.slimscroll.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.blockUI.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/waves.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.nicescroll.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.scrollTo.min.js') }}"></script>    
+    <!--Morris Chart-->
+    <script src="{{ url_for('static', filename='assets/plugins/morris/morris.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/raphael/raphael-min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/pages/morris_tw_content_engagement.init.js') }}"></script>
+    <!-- App js -->
+    <script src="{{ url_for('static', filename='assets/js/app.js') }}"></script>
+</body>
+
+</html>

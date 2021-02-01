@@ -1,0 +1,134 @@
+{% extends 'back/user/html/ltr/base.html' %}
+{% block title %}
+Settings | SIP India
+{% endblock %}
+{% block content %}
+<!-- ============================================================== -->
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Settings</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Settings</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- My Deposits Error Message (begins) -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">You can update your password and wallets from here.</h5>
+                        <p>Follow the link below, for updating personal details.</p>
+                        <button type="button" class="btn btn-success btn-lgm">Profile Settings</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- My Deposits Error Message  (ends) -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <form class="form-horizontal">
+                        <div class="card-body">
+                            <h4 class="card-title">Wallet Settings</h4>
+                            <div class="form-group row">
+                                <label for="fname" class="col-sm-2 text-left control-label col-form-label">Email</label>
+                                <div class="col-sm-10">
+                                    <p><input type="text" class="form-control" id="fname" placeholder="" value="sylwialipka@gmail.com" disabled></p>
+                                    <p>For updating email, please contact support.</p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="btc-wallet" class="col-sm-2 text-left control-label col-form-label">BTC Wallet</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="btc-wallet" placeholder="Enter BTC Wallet ">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="lname" class="col-sm-2 text-left control-label col-form-label">ETH Wallet</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="lname" placeholder="Enter ETH Wallet ">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-top">
+                            <div class="card-body">
+                                <button type="button" class="btn btn-primary">Submit</button>
+                                <button type="button" class="btn btn-danger">Reset</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- My Deposits Error Message  (ends) -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <form class="form-horizontal">
+                        <div class="card-body">
+                            <h4 class="card-title">Update Password</h4>
+                            <div class="form-group row">
+                                <label for="old-password" class="col-sm-2 text-left control-label col-form-label">Old Password</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="old-password" placeholder="Enter Old Password ">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="new-password" class="col-sm-2 text-left control-label col-form-label">New Password</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="new-password" placeholder="Enter New Password ">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="repeat-password" class="col-sm-2 text-left control-label col-form-label">Repeat New Password</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="repeat-password" placeholder="Repeat New Password ">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-top">
+                            <div class="card-body">
+                                <button type="button" class="btn btn-primary">Submit</button>
+                                <button type="button" class="btn btn-danger">Reset</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer text-center">
+        Copyright &copy; 2020 SIP INDIA All rights reserved.
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+{% endblock %}

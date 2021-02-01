@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>SocialMine.net - Twitter Report</title>
+</head>
+
+<body class="py-4">
+    <div class="container">
+
+        <h1>SocialMine.net - Twitter Report</h1>
+
+        <h2 class="mt-4">Twitter Account Statistics</h2>
+
+		<table class="table">
+		  <thead class="thead-dark">
+			<tr>
+			  <th scope="col">#</th>
+			  <th scope="col">Title</th>
+			  <th scope="col">Data</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <th scope="row">1</th>
+			  <td>Total Followers</td>
+			  <td>{{foll_media[0]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">2</th>
+			  <td>Total Posts</td>
+			  <td>{{foll_media[1]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">3</th>
+			  <td>Engagements</td>
+			  <td>{{foll_media[2]}}</td>
+			</tr>
+		  </tbody>
+		</table>
+
+        <h2 class="mt-4">Competitor Profile Statistics</h2>
+
+		<table class="table">
+		  <thead class="thead-dark">
+			<tr>
+			  <th scope="col">#</th>
+			  <th scope="col">Profile Name</th>
+			  <th scope="col">Follower</th>
+			  <th scope="col">Total Posts</th>
+			  <th scope="col">Engagement</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <th scope="row">1</th>
+			  <td>{{profile_data[0]}}</td>
+			  <td>{{profile_data[6]}}</td>
+			  <td>{{profile_data[12]}}</td>
+			  <td>{{profile_data[18]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">2</th>
+			  <td>{{profile_data[1]}}</td>
+			  <td>{{profile_data[7]}}</td>
+			  <td>{{profile_data[13]}}</td>
+			  <td>{{profile_data[19]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">3</th>
+			  <td>{{profile_data[2]}}</td>
+			  <td>{{profile_data[8]}}</td>
+			  <td>{{profile_data[14]}}</td>
+			  <td>{{profile_data[20]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">4</th>
+			  <td>{{profile_data[3]}}</td>
+			  <td>{{profile_data[9]}}</td>
+			  <td>{{profile_data[15]}}</td>
+			  <td>{{profile_data[21]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">5</th>
+			  <td>{{profile_data[4]}}</td>
+			  <td>{{profile_data[10]}}</td>
+			  <td>{{profile_data[16]}}</td>
+			  <td>{{profile_data[22]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">6</th>
+			  <td>{{profile_data[5]}}</td>
+			  <td>{{profile_data[11]}}</td>
+			  <td>{{profile_data[17]}}</td>
+			  <td>{{profile_data[23]}}</td>
+			</tr>
+		  </tbody>
+		</table>
+
+        <h2 class="mt-4">Tweets Analysis</h2>
+		
+
+		<table class="table">
+		  <thead class="thead-dark">
+			<tr>
+			  <th scope="col">#</th>
+			  <th scope="col">Title</th>
+			  <th scope="col">Data</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <th scope="row">1</th>
+			  <td>Total Retweet</td>
+			  <td>{{tw_cont[0]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">2</th>
+			  <td>Total Reply</td>
+			  <td>{{tw_cont[1]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">3</th>
+			  <td>Total Mentions</td>
+			  <td>{{tw_cont[2]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">4</th>
+			  <td>Total Hashtags</td>
+			  <td>{{tw_cont[3]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">5</th>
+			  <td>Total Links</td>
+			  <td>{{tw_cont[4]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">6</th>
+			  <td>Total Tweets</td>
+			  <td>{{tw_cont[5]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">7</th>
+			  <td>Total Following</td>
+			  <td>{{tw_cont[6]}}</td>
+			</tr>
+			<tr>
+			  <th scope="row">8</th>
+			  <td>Total Followers</td>
+			  <td>{{tw_cont[7]}}</td>
+			</tr>
+		  </tbody>
+		</table>
+		
+		<h2 class="mt-4">Twitter Hashtag Analysis</h2>
+
+		<table class="table">
+		  <thead class="thead-dark">
+			<tr>
+			  <th scope="col">#</th>
+			  <th scope="col">Hashtags</th>
+			  <th scope="col">Engagements</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			{%for i in range(0, tw_con[3])%}
+			<tr>
+			  <th scope="row">{{(i+1)}}</th>
+			  <td>{{tw_con[1][i][0]}}</td>
+			  <td>{{tw_con[1][i][1]}}</td>
+			</tr>
+			{%endfor%}
+		  </tbody>
+		</table>
+		<h2 class="mt-4">Twitter @mentions Analysis</h2>
+
+		<table class="table">
+		  <thead class="thead-dark">
+			<tr>
+			  <th scope="col">#</th>
+			  <th scope="col">Username</th>
+			  <th scope="col">Times Mentioned</th>
+			</tr>
+		  </thead>
+		  <tbody>
+		  {%for i in range(0, tw_con[2])%}
+			<tr>
+			  <th scope="row">{{(i+1)}}</th>
+			  <td>{{tw_con[0][i][0]}}</td>
+			  <td>{{tw_con[0][i][1]}}</td>
+			</tr>
+			{%endfor%}
+		  </tbody>
+		</table>
+    </div>
+
+</body>
+
+</html>
